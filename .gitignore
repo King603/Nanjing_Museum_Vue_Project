@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+_cacache
+_locks
 
 
 # local env files

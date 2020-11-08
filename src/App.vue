@@ -6,6 +6,8 @@
     <Page1 class="slideshow"></Page1>
     <!-- 新闻公告 -->
     <Page2 class="news"></Page2>
+    <!-- 在线质询 -->
+    
   </div>
 </template>
 
@@ -27,7 +29,10 @@ export default {
     };
   },
   methods: {
-    /**鼠标滚轴事件 */
+    /**
+     * 鼠标滚轴事件
+     * @param {MouseEvent} event
+     */
     onmousewheel(event) {
       let delta = 0;
       if (event.wheelDelta) {
@@ -79,16 +84,26 @@ export default {
 <style>
 @import url(../public/css/style.css);
 /* 隐藏滚动条样式，但可以实现上下滚动 */
+/* chrome 和Safari  */
 body::-webkit-scrollbar {
   display: none;
+}
+body {
+  /* IE 10+ */
+  -ms-overflow-style: none;
+}
+/* Firefox  暂时没有   坑啊 */
+
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .main {
   width: 100%;
   height: 100%;
   position: absolute;
-}
-div {
-  box-sizing: border-box;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -109,5 +124,8 @@ div {
 .slideshow,
 .news {
   width: 100%;
+}
+.news {
+  padding-top: 4rem;
 }
 </style>
