@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Swiper from "../until/swiper/swiper-bundle";
+import Swiper from "swiper";
 
 export default {
   name: "Page1",
