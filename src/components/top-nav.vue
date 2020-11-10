@@ -33,12 +33,12 @@ export default {
         {
           title: "首页",
           isMoveIn: false,
-          to: "",
+          to: "../index/index",
         },
         {
           title: "走进博物馆",
           isMoveIn: false,
-          to: "",
+          to: "../introduce/introduce",
         },
         {
           title: "陈列展览",
@@ -103,6 +103,9 @@ export default {
   z-index: 99;
   font-size: 0.16rem;
 }
+.top-nav  navigator{
+	z-index: 1000;
+}
 .nav {
   display: flex;
   margin: 0 auto;
@@ -125,12 +128,12 @@ export default {
 }
 .nav_list > div {
   width: 100%;
-	margin-left: 0.4rem;
-	color: #fff;
+  margin-left: 0.4rem;
+  color: #fff;
 }
 .bottom {
   height: 2px;
   width: 100%;
-  background: #000;
+  background: #00f;
 }
 </style>

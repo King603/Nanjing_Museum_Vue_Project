@@ -7,6 +7,14 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页"
 			}
+		},
+		{
+			"path": "pages/introduce/introduce",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "走进博物馆"
+			}
 		}
 	],
 	"globalStyle": {

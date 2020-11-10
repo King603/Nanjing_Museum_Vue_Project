@@ -1,10 +1,14 @@
 <template>
-  <view class="content">
+  <div class="content">
+    <!-- 头部导航 -->
     <top-nav></top-nav>
+    <!-- 热点轮播 -->
     <page-1 class="slideshow"></page-1>
+    <!-- 新闻公告 -->
     <page-2 class="news"></page-2>
-    <bot-foo></bot-foo>
-  </view>
+    <!-- 在线咨询 -->
+    <bot-foo class="footer"></bot-foo>
+  </div>
 </template>
 
 <script>
@@ -93,5 +97,10 @@ export default {
 }
 .news {
   padding-top: 1rem;
+}
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 </style>
