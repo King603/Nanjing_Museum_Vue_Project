@@ -1,30 +1,27 @@
 <template>
-  <div>
+  <header class="top-nav">
     <div class="nav">
-      <div class="h1">
-        <a href="/"
-          ><img class="logo" v-if="top == 0" :src="frist_img" alt="" /><img
-            class="logo"
-            v-else
-            :src="next_img"
-            alt=""
-        /></a>
+      <div class="logo">
+        <navigator url="/"
+          ><img :src="top == 0 ? frist_img : next_img" alt=""
+        /></navigator>
       </div>
-      <div class="nav_list">
+      <div>
         <div
+          class="nav_list"
           v-for="(nav, i) of navigations"
           :key="i"
           @mousemove="moveIn(i)"
           @mouseout="moveOut(i)"
         >
-          <div class="center">
-            <a :href="nav.to">{{ nav.title }}</a>
+          <div>
+            <navigator :url="nav.to">{{ nav.title }}</navigator>
+            <div v-if="nav.isMoveIn" class="bottom"></div>
           </div>
-          <div v-if="nav.isMoveIn" class="bottom"></div>
         </div>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -79,8 +76,8 @@ export default {
           to: "",
         },
       ],
-      frist_img: "./img/frist_img.png",
-      next_img: "./img/next_img.png",
+      frist_img: "./static/frist_img.png",
+      next_img: "./static/next_img.png",
       top: 0,
     };
   },
@@ -96,44 +93,44 @@ export default {
 </script>
 
 <style scoped>
-.h1 {
-  margin: 0;
-  height: 100%;
+.top-nav {
+  width: 100%;
+  height: 0.64rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.33);
+  z-index: 99;
+  font-size: 0.16rem;
 }
 .nav {
   display: flex;
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 12rem;
 }
 .logo {
-  height: 4rem;
+  height: 0.64rem;
 }
-.none {
-  display: none;
+.logo img {
+  height: 0.64rem;
+}
+.nav_list navigator {
+  height: 0.64rem;
+  line-height: 0.64rem;
+  width: 100%;
 }
 .nav_list {
-  color: #fff;
+  display: inline-flex;
+  margin: 0 auto;
 }
 .nav_list > div {
-  display: inline-block;
-  margin: 0 1rem;
-  height: 100%;
-}
-.center {
-  height: 100%;
-  /* 文本居中显示 */
-  /* 盒子模型 */
-  display: flex;
-  /* 横向 */
-  flex-direction: row;
-  /* 主轴居中 */
-  justify-content: space-around;
-  /* 纵轴居中 */
-  align-items: center;
+  width: 100%;
+	margin-left: 0.4rem;
+	color: #fff;
 }
 .bottom {
-  width: 100%;
   height: 2px;
-  background-color: cornflowerblue;
+  width: 100%;
+  background: #000;
 }
 </style>
