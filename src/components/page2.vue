@@ -358,4 +358,119 @@ export default {
   content: "\eba6";
   color: #869fc8;
 }
+.newsList {
+  background: #f4f3f3;
+  margin: 1.25rem 1rem;
+  padding: 1rem 0.75rem;
+  position: relative;
+  transition: all ease-out 0.3s;
+  border: 1px solid #d6d6d6;
+  cursor: pointer;
+}
+.newsList:hover {
+  box-shadow: 0 0.5rem 1rem #dedede;
+  transform: translateY(-3px);
+}
+.newsList img {
+  float: left;
+  width: 12.8125rem;
+  height: 8.75rem;
+  position: relative;
+  overflow: hidden;
+  margin-right: 2rem;
+}
+.newsList .info {
+  color: #6e6e6e;
+  padding-left: 1rem;
+  text-align: left;
+}
+.newsList .info h3 {
+  font-size: 1rem;
+  margin: 1rem 11rem 0.75rem 0;
+  color: #2c2c2c;
+}
+.newsList:hover .info h3 {
+  color: #869fc8;
+}
+.newsList .info p {
+  font-size: 0.75rem;
+  margin-right: 10.625rem;
+  line-height: 1.75rem;
+  height: 5.375rem;
+  text-indent: 2rem;
+  /* 3行显示，多余隐藏 */
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.newsList .date {
+  position: absolute;
+  top: 3.4375rem;
+  right: 2.1875rem;
+}
+.newsList .date::before {
+  content: "";
+  width: 0.0625rem;
+  height: 3.75rem;
+  background: #dcdcdc;
+  position: absolute;
+  left: -2.5rem;
+  top: 0.3125rem;
+}
+.newsList .date h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #8994a0;
+}
+.newsList .date p {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.3125rem;
+  color: #a5aeb7;
+}
+.digg {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+}
+.digg ul.pages {
+  text-align: right;
+}
+.digg ul.pages li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+.digg ul.pages li.disabled span {
+  cursor: default;
+  color: #ccc8bf;
+  background: #eee;
+}
+.digg ul.pages li.num span {
+  cursor: default;
+  color: #2c2c2c;
+  background: #eee;
+}
+.digg ul.pages li span {
+  padding: 0.25rem 1rem;
+  display: inline-block;
+  color: #2a2a2a;
+  background: #e4e4e4;
+  transition: 0.3s;
+  font-size: 1rem;
+  border-radius: 3px;
+}
+.digg ul.pages li.active span {
+  color: #fff;
+  background-color: #869fc8;
+}
+.news_title::before,
+.news_title::after {
+  font-family: "iconfont" !important;
+  content: "\eba6";
+  font-size: 1rem;
+  color: #869fc8;
+}
 </style>

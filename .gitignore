@@ -2,6 +2,9 @@
 node_modules/
 unpackage/
 dist/
+_cacache
+_locks
+
 
 # local env files
 .env.local
