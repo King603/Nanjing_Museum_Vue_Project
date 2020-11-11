@@ -103,8 +103,8 @@ export default {
   z-index: 99;
   font-size: 0.16rem;
 }
-.top-nav  navigator{
-	z-index: 1000;
+.top-nav navigator {
+  z-index: 1000;
 }
 .nav {
   display: flex;

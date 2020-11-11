@@ -1,0 +1,396 @@
+<template>
+  <div class="content">
+    <div>
+      <h6 class="title">{{ title }}</h6>
+    </div>
+    <div v-for="text of texts" :key="text" class="text">
+      {{ text }}
+    </div>
+    <div v-for="(introduce, i) of introduces" :key="i" class="vsbcontent_img">
+      <img
+        :src="img.src"
+        alt=""
+        v-for="(img, index) of introduce.imgs"
+        :key="index"
+        :class="img.small ? 'small_img' : ''"
+      />
+      <p v-if="introduce.title">{{ introduce.title }}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "page-3",
+  data() {
+    return {
+      title: "大观艺术博物馆简介",
+      texts: [],
+      text: `开封大学重视人才培养与文化传承相结合，在河南省（开封大学）非物质文化遗产研究基地、宋代陶模研究所、宋文化工艺品技能大师工作室建设的基础上,成立了大观艺术博物馆。博物馆围绕“审美育人、以文化人”的宗旨，开展文物征集保护、收藏研究、展示互动、学术交流、文化传承教育等工作。并以开封国际文化旅游名城建设为依托，与高校的专业建设和区域文创产业发展相结合，搭建了博物馆、“非遗”研究基地和宋文化工艺品技能大师工作室三位一体的文化传承与创新育人平台，形成了开封大学独具特色的校园文化品牌，服务于开封社会经济发展。\n开封大学大观艺术博物馆已建成网络博物馆和与实体博物馆。实体博物馆的馆址位于开封大学大观广场之北，建筑面积1600平方米。馆内设置有八朝古都、宋代陶模、古代模具、古代玩具和古代雕塑等展厅，并设置有文化体验厅和咖啡厅。博物馆的陈展以开封的历史、文化与艺术为线索，以夏（老邱）、战国（魏国大梁）、五代（后梁、后晋、后汉、后周）、北宋（东京）、金（陪都、国都）、明（藩王周府）为重点展览时期，以同时期的文物为主要展品，并辅以该时期的标准器进行展览。同时，大观艺术博物馆与百度百科开展合作，共同开发了馆内的数字化陈展系统。\n目前，大观艺术博物馆与河南省美术馆共建了宋代陶模艺术博物馆。并被开封市古都学会定为省会文化传播基地；被开封市地方志办公室定为地方史志文化传播基地；被开封市工艺美术行业协会定为古代工艺品传承研发基地。`,
+      /**@type {{
+				imgs:{src:string}[];
+				title:string;
+			}[]} */
+      introduces: [
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/5/23/2D/D0B3B686CB19D4CC2AC4C5474CD_0F104FFB_14456.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/7/6E/C3/1FFD79DA101F4626C4C8F7B4284_E9B2D170_13947.jpg",
+            },
+          ],
+          title: "大观广场地标",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/7/38/3D/87B4F1029C608A82FC6459E2220_C59D14B3_11289.jpg",
+            },
+          ],
+          title: "原国家文物局副局长阎振堂到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/9/7B/54/68C5EE47D53C2BE7E5082C28724_DF0F22C1_44741.jpg",
+            },
+          ],
+          title: "中国民协主席、中国文联副主席潘鲁生到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/3/1A/24/7195FC5E0B52B47A464CAE6171E_9DD22756_12D75.jpg",
+            },
+          ],
+          title: "开封市委书记吉炳伟到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/E/CB/39/6DF18F895B04248C9394F6942CB_01821890_10B80.jpg",
+            },
+          ],
+          title: "政协开封市委员会党组书记、主席焦跃进一行来到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/7/FB/C8/A45674619798C54759D0BA211D0_B04E526B_1181C.jpg",
+            },
+          ],
+          title: "开封大学董事长李金松到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/3/6E/B6/583476CCA47B8776B27A3F2BFA9_C51405F9_10345.jpg",
+            },
+          ],
+          title: "开封大学党委书记陈灿到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/F/7E/B1/7A51D323CCCB17021A5893E1241_83077F16_1234A.jpg",
+            },
+          ],
+          title: "开封大学校长宋志敏到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/D/19/68/280318066A4F35233D2AC829C83_9888CAC0_11E50.jpg",
+            },
+          ],
+          title:
+            "美国威奇托市副市长珍妮特·米勒女士、威奇托市前议员拉沃娜塔·威廉姆斯一行到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/B/59/D1/BAD389A0239E6C8807B4FAF79EB_D4B0A74E_1E1C4.jpg",
+            },
+          ],
+          title: "加拿大麦瑞·维多伦学院服装设计专业留学生到访参观",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/3/A4/63/78B62C93B9EC70E17574E4E81D3_745DF495_18152.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/6/77/76/2F2AF49E22A41B11DB30A2544CC_5BCD62E7_11317.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/5/09/8B/1F9B2814527116CC34B276DDD95_F1D71F56_CCF3.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/B/5E/5F/F1714BDC69997E11768919B8388_4BBE8644_63AE.jpg",
+            },
+          ],
+          title: "文创作品展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/4/D8/DC/A009B0EEF516B7C08E56A262225_AE07C1A6_15579.jpg",
+            },
+          ],
+          title: "开封地层剖面效果图",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/8/38/2A/F037025E71C6A3DFB6FD2CF679F_51CC0321_D6FF.jpg",
+              small: true,
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/B/22/CB/141FD8ECDA7F03277DB093FFC34_11C65470_12955.jpg",
+              small: true,
+            },
+          ],
+          title: "夏代、魏汉展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/7/B4/AD/D3F3EBDD17A2F278DD20E5A3897_E0825987_14CA1.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/8/05/84/0D1C2831E665A0AC7A870D72291_2D026CFE_10E21.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/A/DA/39/F089A6634AF294E7AB14DADFE5F_1ACE1219_14B85.jpg",
+              small: true,
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/F/0C/53/B5DAED0809F887CF803A3BA6767_0CFB4C0A_11912.jpg",
+              small: true,
+            },
+          ],
+          title: "南北朝、唐代展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/6/95/A0/76FAD10ACB05E955CCE1ACA8F4C_5FC9B0D1_12F6A.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/7/11/8D/971479E53A4BBD662F83CABF795_5936716F_14BE3.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/B/EB/26/A880C15DFEE06E8BF4008655BEB_9B9B4DCE_10D5E.jpg",
+              small: true,
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/6/C5/DB/CAC2F1DDBC4A64DF2EA062F5E93_F2C56938_115A7.jpg",
+              small: true,
+            },
+          ],
+          title: "五代、明代展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/6/AF/86/CBEBC341047D40953437BCC1E8B_383226B0_1172A.jpg",
+            },
+          ],
+          title: "部分岛柜",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/4/16/45/FF1005F3CAED250BE487115DB9E_5DA0D53E_10EE4.jpg",
+              small: true,
+            },
+          ],
+          title: "宋代展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/5/8D/57/98B85ECA9643FCEB9BB21D79A29_BD8693CF_102D7.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/F/D1/1C/7650A852D20AEB390EDB6433C87_45CAF789_14E9D.jpg",
+              small: true,
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/4/8B/BA/DE314C104EF6BC8DF3FED92877D_039034D6_13E09.jpg",
+              small: true,
+            },
+          ],
+          title: "金代、元代展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/5/51/47/6129E61919191A0809E0DE1E98F_1BD4AC4A_1255C.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/9/7D/DD/CE6200268808564024C10AA0D61_3D9E44B0_12A54.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/B/05/A4/6D607EB3C6F86AD8A066EAB5CB3_C77FF253_E8A8.jpg",
+              small: true,
+            },
+          ],
+          title: "宋代陶模展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/0/C5/B1/717F7B56AEE99A8EC9CDD192F1C_F524ADAE_123B7.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/B/60/34/3CD1E14625423383E960F101B27_2D8A30C9_101CB.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/A/7D/EA/B80DDFEB43DC27AA968E7E6108E_818C367D_10B1F.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/1/E5/51/D1D6CF5331A6021C237D5164FC1_2E4E60B9_13A46.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/E/0A/26/EDB611ECD1C30230592B5CECF7C_887FAB37_1519C.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/2/FB/73/980B7B92DFD7D11C02D40248C8F_9B817332_15AEF.jpg",
+            },
+          ],
+          title: "古代模具、古代玩具、古代雕塑展区及体验区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/8/04/B1/8AF0F95F8BDAFBA720E5D710073_21F4BD48_1385A.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/0/CE/82/DD5D9B303D757B551D6D3C320D7_0ED9FB1F_137FF.jpg",
+              small: true,
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/2/8B/7A/2A22D17DFB6E3BC656DAB6C8F93_AD7DE694_1382D.jpg",
+              small: true,
+            },
+          ],
+          title: "古代钱币、外国工艺美术品展区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/4/D3/64/7EA51FC29859F9D8A608F04D5EE_8C3085F2_13D52.jpg",
+            },
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/7/73/3F/DB50D7E42B980BD510663FC71FA_999E5F99_17D5D.jpg",
+            },
+          ],
+          title: "咖啡厅休闲区",
+        },
+        {
+          imgs: [
+            {
+              src:
+                "http://www.kfu.edu.cn/__local/7/06/ED/C51A6DA72F37196312053AC3A89_E0BBC503_D80A.jpg",
+            },
+          ],
+          title: "政府机构及学术团体命名的基地",
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.texts = this.text.split("\n");
+  },
+};
+</script>
+
+<style>
+
+.title {
+  font-size: 32px;
+  line-height: 150%;
+  margin: 0.1rem 0;
+}
+* {
+  color: #737373;
+}
+.text {
+  line-height: 150%;
+  text-indent: 2em;
+  font-size: 0.18rem;
+  margin-bottom: 0.2rem;
+}
+.vsbcontent_img {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+.vsbcontent_img img {
+  border: #ccc 1px solid;
+  border-radius: 0.05rem;
+  padding: 0.1rem;
+  width: 100%;
+}
+.small_img {
+  height: 7rem;
+  width: 40% !important;
+}
+.small_img + .small_img {
+  margin-left: 10%;
+}
+.vsbcontent_img p {
+  line-height: 150%;
+  font-size: 0.14rem;
+  margin-bottom: 0.17rem;
+}
+</style>
