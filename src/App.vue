@@ -19,6 +19,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 12px;
 }
 ::-webkit-scrollbar {
   display: none;

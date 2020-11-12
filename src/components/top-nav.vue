@@ -11,12 +11,9 @@
           class="nav_list"
           v-for="(nav, i) of navigations"
           :key="i"
-          @mousemove="moveIn(i)"
-          @mouseout="moveOut(i)"
         >
           <div>
             <navigator :url="nav.to">{{ nav.title }}</navigator>
-            <div v-if="nav.isMoveIn" class="bottom"></div>
           </div>
         </div>
       </div>
@@ -81,14 +78,6 @@ export default {
       top: 0,
     };
   },
-  methods: {
-    moveIn(i) {
-      this.navigations[i].isMoveIn = true;
-    },
-    moveOut(i) {
-      this.navigations[i].isMoveIn = false;
-    },
-  },
 };
 </script>
 
@@ -122,6 +111,9 @@ export default {
   line-height: 0.64rem;
   width: 100%;
 }
+.nav_list navigator:hover {
+  border-bottom: 2px solid #00f;
+}
 .nav_list {
   display: inline-flex;
   margin: 0 auto;
@@ -131,9 +123,5 @@ export default {
   margin-left: 0.4rem;
   color: #fff;
 }
-.bottom {
-  height: 2px;
-  width: 100%;
-  background: #00f;
-}
+
 </style>

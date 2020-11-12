@@ -53,7 +53,7 @@ export default {
 
 <style>
 .content {
-  background-color: #fff;
+  background-color: #f5f6ef;
   padding: 0 0.5rem;
 }
 .main {

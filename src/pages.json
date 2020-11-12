@@ -15,6 +15,14 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "走进博物馆"
 			}
+		},
+		{
+			"path": "pages/exhibition/exhibition",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "陈列展览"
+			}
 		}
 	],
 	"globalStyle": {
