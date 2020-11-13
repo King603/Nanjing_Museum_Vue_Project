@@ -40,7 +40,7 @@ export default {
         {
           title: "陈列展览",
           isMoveIn: false,
-          to: "",
+          to: "../exhibition/exhibition",
         },
         {
           title: "参观指南",

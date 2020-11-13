@@ -21,22 +21,22 @@ export default {
   justify-content: center;
   font-size: 12px;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
   width: 0 !important;
   height: 0 !important;
   -webkit-appearance: none;
   background: transparent;
-}
+} */
 /* 隐藏滚动条样式，但可以实现上下滚动 */
 /* chrome 和Safari  */
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   display: none;
-}
-* {
-  /* IE 10+ */
+} */
+/* IE 10+ */
+/* * {
   -ms-overflow-style: none;
-}
+} */
 /* Firefox  暂时没有   坑啊 */
 
 *,
