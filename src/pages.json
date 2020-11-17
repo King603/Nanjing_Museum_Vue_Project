@@ -23,6 +23,14 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "陈列展览"
 			}
+		},
+		{
+			"path": "pages/guide/guide",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "参观指南"
+			}
 		}
 	],
 	"globalStyle": {

@@ -7,13 +7,16 @@
         /></navigator>
       </div>
       <div>
-        <div
-          class="nav_list"
-          v-for="(nav, i) of navigations"
-          :key="i"
-        >
-          <div>
-            <navigator :url="nav.to">{{ nav.title }}</navigator>
+        <div class="nav_list" v-for="(nav, i) of navigations" :key="i">
+          <div v-if="i == ind">
+            <navigator :url="nav.to" @click="set(nav.to)" class="active">{{
+              nav.title
+            }}</navigator>
+          </div>
+          <div v-else>
+            <navigator :url="nav.to" @click="set(nav.to)">{{
+              nav.title
+            }}</navigator>
           </div>
         </div>
       </div>
@@ -45,7 +48,7 @@ export default {
         {
           title: "参观指南",
           isMoveIn: false,
-          to: "",
+          to: "../guide/guide",
         },
         {
           title: "文创产品",
@@ -77,6 +80,19 @@ export default {
       next_img: "./static/next_img.png",
       top: 0,
     };
+  },
+  methods: {
+    set(to) {
+      uni.navigateTo({
+        url: to,
+      });
+    },
+  },
+  props: {
+    ind: {
+      type: Number,
+      default: 0,
+    },
   },
 };
 </script>
@@ -123,5 +139,7 @@ export default {
   margin-left: 0.4rem;
   color: #fff;
 }
-
+.active {
+  color: #00f;
+}
 </style>

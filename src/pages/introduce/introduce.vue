@@ -1,6 +1,6 @@
 <template>
   <div class="content" :style="{ 'background-image': `url(${bgImgUrl})` }">
-    <top-nav></top-nav>
+    <top-nav ind="1"></top-nav>
     <div class="main">
       <div class="logobg" :style="{ 'background-image': `url(${logoBgUrl})` }">
         <img :src="logo" alt="" class="logo" />

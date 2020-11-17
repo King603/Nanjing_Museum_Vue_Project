@@ -45,4 +45,9 @@ export default {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <!-- 头部导航 -->
-    <top-nav></top-nav>
+    <top-nav :ind="0"></top-nav>
     <!-- 热点轮播 -->
     <page-1 class="slideshow"></page-1>
     <!-- 新闻公告 -->

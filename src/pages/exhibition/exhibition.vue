@@ -6,7 +6,7 @@
     }"
   >
     <!-- 头部导航 -->
-    <top-nav></top-nav>
+    <top-nav :ind="2"></top-nav>
     <div class="main">
       <img class="logo" :src="logoImg" alt="" />
       <div>
