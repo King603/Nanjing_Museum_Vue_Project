@@ -26,4 +26,4 @@ yarn-error.log*
 *.sw*
 
 desktop.ini
-package.json
+package-lock.json
