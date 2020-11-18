@@ -1,6 +1,6 @@
 <template>
   <div class="content" style="background-color: rgb(246, 239, 229)">
-    <top-nav :ind="3"></top-nav>
+    <top-nav :ind="3" />
     <div class="main">
       <div class="nav">
         <ul>
@@ -15,6 +15,9 @@
           </li>
         </ul>
       </div>
+      <page-1 v-show="index == 0" class="page" />
+      <page-2 v-show="index == 1" class="page" />
+      <page-3 v-show="index == 2" class="page" />
     </div>
   </div>
 </template>
@@ -23,14 +26,15 @@
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
+    Page1: () => import("./components/page1"),
+    Page2: () => import("./components/page2"),
+    Page3: () => import("./components/page3"),
   },
   data() {
     return {
       navList: [
         { title: "交通线路" },
-        { title: "开放时间" },
-        { title: "安全须知" },
-        { title: "注意事项" },
+        { title: "参观须知" },
         { title: "场馆地图" },
         { title: "周边信息" },
       ],
@@ -58,19 +62,23 @@ export default {
 .nav {
   border: 1px solid #fff;
   width: 15%;
+  background-image: url(http://www.capitalmuseum.org.cn/zjsb/images/1670.files/jxzltwo_02.jpg);
 }
 .list {
   line-height: 0.3rem;
   width: 100%;
-  background-image: linear-gradient(to right, #b19da9, #723c5e);
   text-align: center;
 }
 .list:hover,
 .active {
-  color: white;
+  color: #8a8888;
 }
 .active {
   border-bottom: 1px solid;
   border-top: 1px solid;
+}
+.page {
+  width: 85%;
+  background-image: url(http://www.capitalmuseum.org.cn/zjsb/images/1730.files/ps2.jpg);
 }
 </style>
