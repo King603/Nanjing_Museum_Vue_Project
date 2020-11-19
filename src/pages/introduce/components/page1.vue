@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "page-3",
+  name: "page-1",
   data() {
     return {
       title: "大观艺术博物馆简介",

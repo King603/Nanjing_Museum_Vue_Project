@@ -237,7 +237,7 @@ export default {
 </script>
 
 <style scoped>
-@import url(../static/font/iconfont.css);
+@import url(@/static/font/iconfont.css);
 .main {
   width: 100%;
   height: 100%;

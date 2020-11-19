@@ -17,11 +17,11 @@
         </div>
       </div>
       <!-- 博物馆简介 -->
-      <page-3 v-show="index == 0"></page-3>
+      <page-1 v-show="index == 0"></page-1>
       <!-- 大事记 -->
-      <page-4 v-show="index == 1"></page-4>
+      <page-2 v-show="index == 1"></page-2>
       <!-- 名人致辞 -->
-      <page-5 v-show="index == 2"></page-5>
+      <page-3 v-show="index == 2"></page-3>
     </div>
   </div>
 </template>
@@ -30,9 +30,9 @@
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
-    page3: () => import("../../components/page3"),
-    page4: () => import("../../components/page4"),
-    page5: () => import("../../components/page5"),
+    page1: () => import("./components/page1"),
+    page2: () => import("./components/page2"),
+    page3: () => import("./components/page3"),
   },
   data() {
     return {

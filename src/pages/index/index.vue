@@ -15,8 +15,8 @@
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
-    page1: () => import("../../components/page1"),
-    page2: () => import("../../components/page2"),
+    page1: () => import("./components/page1"),
+    page2: () => import("./components/page2"),
     botFoo: () => import("../../components/bot-foo"),
   },
   data() {

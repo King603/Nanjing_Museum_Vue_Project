@@ -43,6 +43,7 @@
 
 <script>
 export default {
+  name: "page-2",
   data() {
     return {
       list: [
@@ -191,10 +192,10 @@ export default {
 }
 h3.til_lf01 {
   font-size: 16px;
-	color: #819319;
+  color: #819319;
 }
 .box_event02 ul {
-  list-style-image: url("../static/icon.jpg");
+  list-style-image: url("@/static/icon.jpg");
   list-style-position: inside;
   padding: 0;
 }

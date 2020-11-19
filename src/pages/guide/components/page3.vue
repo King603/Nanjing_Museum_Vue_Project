@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="self">
     <div class="title">
       <strong>首都博物馆各层参观导览图（请点击放大观看）</strong>
     </div>
@@ -47,14 +47,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .img {
-  margin: 0.5rem 1rem;
+  margin: 0 1rem;
+}
+.img:last-child {
+  margin-bottom: 0.25rem;
 }
 .img img {
   width: 100%;
+  margin: 0 auto;
 }
-.title{
-
+.title {
+  margin: 0.25rem auto;
+  width: 80%;
 }
 </style>

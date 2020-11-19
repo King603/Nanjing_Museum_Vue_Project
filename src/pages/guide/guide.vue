@@ -18,6 +18,7 @@
       <page-1 v-show="index == 0" class="page" />
       <page-2 v-show="index == 1" class="page" />
       <page-3 v-show="index == 2" class="page" />
+      <page-4 v-show="index == 3" class="page" />
     </div>
   </div>
 </template>
@@ -33,10 +34,9 @@ export default {
   data() {
     return {
       navList: [
-        { title: "交通线路" },
+        { title: "交通与周边信息" },
         { title: "参观须知" },
         { title: "场馆地图" },
-        { title: "周边信息" },
       ],
       index: 0,
     };
