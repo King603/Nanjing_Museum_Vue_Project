@@ -6,7 +6,7 @@
     }"
   >
     <!-- 头部导航 -->
-    <top-nav :ind="2"></top-nav>
+    <top-nav ind="2"></top-nav>
     <div class="main">
       <img class="logo" :src="logoImg" alt="" />
       <div>
@@ -81,6 +81,7 @@
         </div>
       </div>
     </div>
+    <to-top></to-top>
   </div>
 </template>
 
@@ -88,6 +89,7 @@
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
+    toTop: () => import("../../components/pageTop"),
   },
   data() {
     return {
@@ -227,8 +229,8 @@ ul {
 .menu1::before,
 .menu2::before,
 .menu3::before {
-	content: "> ";
-	color: red;
+  content: "> ";
+  color: red;
 }
 .menu1:hover,
 .menu2:hover,
@@ -239,8 +241,8 @@ ul {
 .menu2,
 .menu3 {
   position: relative;
-  background-color: #F3EFD2;
-  border-bottom: 1px solid #9C8F7E;
+  background-color: #f3efd2;
+  border-bottom: 1px solid #9c8f7e;
   line-height: 200%;
   cursor: pointer;
 }

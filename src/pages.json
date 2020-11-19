@@ -31,6 +31,14 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "参观指南"
 			}
+		},
+		{
+			"path": "pages/wen_gen_products/wen_gen_products",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "文创产品"
+			}
 		}
 	],
 	"globalStyle": {

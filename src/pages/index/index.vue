@@ -1,13 +1,14 @@
 <template>
   <div class="content">
     <!-- 头部导航 -->
-    <top-nav :ind="0"></top-nav>
+    <top-nav ind="0"></top-nav>
     <!-- 热点轮播 -->
     <page-1 class="slideshow"></page-1>
     <!-- 新闻公告 -->
     <page-2 class="news"></page-2>
     <!-- 在线咨询 -->
     <bot-foo class="footer"></bot-foo>
+    <to-top></to-top>
   </div>
 </template>
 
@@ -18,6 +19,7 @@ export default {
     page1: () => import("./components/page1"),
     page2: () => import("./components/page2"),
     botFoo: () => import("../../components/bot-foo"),
+    toTop: () => import("../../components/pageTop"),
   },
   data() {
     return {

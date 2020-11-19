@@ -22,6 +22,7 @@
       <page-2 v-show="index == 1"></page-2>
       <!-- 名人致辞 -->
       <page-3 v-show="index == 2"></page-3>
+      <to-top></to-top>
     </div>
   </div>
 </template>
@@ -33,6 +34,7 @@ export default {
     page1: () => import("./components/page1"),
     page2: () => import("./components/page2"),
     page3: () => import("./components/page3"),
+    toTop: () => import("../../components/pageTop"),
   },
   data() {
     return {

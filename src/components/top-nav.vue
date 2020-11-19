@@ -7,7 +7,7 @@
         /></navigator>
       </div>
       <div>
-        <div class="nav_list" v-for="(nav, i) of navigations" :key="i">
+        <div class="nav_list" v-for="(nav, i) of navigations" :key="i + ''">
           <div v-if="i == ind">
             <navigator :url="nav.to" @click="set(nav.to)" class="active">{{
               nav.title
@@ -53,7 +53,7 @@ export default {
         {
           title: "文创产品",
           isMoveIn: false,
-          to: "",
+          to: "../wen_gen_products/wen_gen_products",
         },
         {
           title: "网络购票",
@@ -90,14 +90,14 @@ export default {
   },
   props: {
     ind: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "0",
     },
   },
 };
 </script>
 
-<style scoped>
+<style>
 .top-nav {
   width: 100%;
   height: 0.64rem;
@@ -128,7 +128,7 @@ export default {
   width: 100%;
 }
 .nav_list navigator:hover {
-  border-bottom: 2px solid #00f;
+  border-bottom: 2px solid #da251c;
 }
 .nav_list {
   display: inline-flex;
@@ -140,6 +140,6 @@ export default {
   color: #fff;
 }
 .active {
-  color: #00f;
+  color: #da251c;
 }
 </style>

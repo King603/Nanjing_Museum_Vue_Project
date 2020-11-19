@@ -1,6 +1,6 @@
 <template>
   <div class="content" style="background-color: rgb(246, 239, 229)">
-    <top-nav :ind="3" />
+    <top-nav ind="3" />
     <div class="main">
       <div class="nav">
         <ul>
@@ -18,8 +18,8 @@
       <page-1 v-show="index == 0" class="page" />
       <page-2 v-show="index == 1" class="page" />
       <page-3 v-show="index == 2" class="page" />
-      <page-4 v-show="index == 3" class="page" />
     </div>
+    <to-top></to-top>
   </div>
 </template>
 
@@ -30,6 +30,7 @@ export default {
     Page1: () => import("./components/page1"),
     Page2: () => import("./components/page2"),
     Page3: () => import("./components/page3"),
+    toTop: () => import("../../components/pageTop"),
   },
   data() {
     return {
