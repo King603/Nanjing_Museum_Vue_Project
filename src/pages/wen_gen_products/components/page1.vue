@@ -1,18 +1,22 @@
 <template>
-  <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr v-for="(img, i) of goods_img" :key="i">
-      <td class="goods">
-        <img :src="img.src" width="100%" :height="img.height" />
-        <div v-for="(g, i) of img.goods" :key="i">
-          <img :src="g.src" alt="" />
-          <div>
-            <span>RMB:{{ g.price }}</span
-            ><span>点击购买</span>
+  <div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr v-for="(img, i) of goods_img" :key="i">
+        <td class="goods">
+          <img :src="img.src" width="100%" :height="img.height" />
+          <div v-for="(g, j) of img.goods" :key="j">
+            <img :src="g.src" alt="" />
+            <div>
+              <span>{{ g.name }}</span>
+              <span>RMB:{{ g.price }}</span
+              ><span>点击购买</span>
+            </div>
           </div>
-        </div>
-      </td>
-    </tr>
-  </table>
+        </td>
+      </tr>
+    </table>
+    <page-2 :good="good" v-if="isIn"></page-2>
+  </div>
 </template>
 
 <script>
@@ -37,13 +41,48 @@ export default {
           src: "static/goods/NO.2.png",
           height: 300,
           goods: [
-            { src: "../../static/goods/2-1.png", price: "3280", num: 0 },
-            { src: "../../static/goods/2-2.png", price: "2480", num: 0 },
-            { src: "../../static/goods/2-3.png", price: "1958", num: 0 },
-            { src: "../../static/goods/2-4.png", price: "1188", num: 0 },
-            { src: "../../static/goods/2-5.png", price: "1188", num: 0 },
-            { src: "../../static/goods/2-6.png", price: "1408", num: 0 },
-            { src: "../../static/goods/2-7.png", price: "3280", num: 0 },
+            {
+              src: "../../static/goods/2-1.png",
+              price: "3280",
+              num: 0,
+              name: "缂丝通勤包",
+            },
+            {
+              src: "../../static/goods/2-2.png",
+              price: "2480",
+              num: 0,
+              name: "缂丝马蹄包",
+            },
+            {
+              src: "../../static/goods/2-3.png",
+              price: "1958",
+              num: 0,
+              name: "缂丝手拎包袋",
+            },
+            {
+              src: "../../static/goods/2-4.png",
+              price: "1188",
+              num: 0,
+              name: "缂丝拉链钱包",
+            },
+            {
+              src: "../../static/goods/2-5.png",
+              price: "1188",
+              num: 0,
+              name: "缂丝三折钱包",
+            },
+            {
+              src: "../../static/goods/2-6.png",
+              price: "1408",
+              num: 0,
+              name: "缂丝商务钱夹",
+            },
+            {
+              src: "../../static/goods/2-7.png",
+              price: "3280",
+              num: 0,
+              name: "沈周玉缂丝双肩包",
+            },
           ],
         },
         {
@@ -92,16 +131,18 @@ export default {
         {
           src: "static/goods/NO.8.png",
           height: 500,
-          goods: [{ src: "../../static/goods/8-1.png", price: "58", num: 0 },],
+          goods: [{ src: "../../static/goods/8-1.png", price: "58", num: 0 }],
         },
       ],
+      good: null,
+      isIn: false,
     };
+  },
+  components: {
+    Page2: () => import("./page2"),
   },
 };
 </script>
 
 <style>
-.goods > div {
-  display: inline-block;
-}
 </style>
