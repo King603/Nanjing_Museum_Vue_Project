@@ -31,9 +31,9 @@
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
-    page1: () => import("./components/page1"),
-    page2: () => import("./components/page2"),
-    page3: () => import("./components/page3"),
+    Page1: () => import("./components/page1"),
+    Page2: () => import("./components/page2"),
+    Page3: () => import("./components/page3"),
     toTop: () => import("../../components/pageTop"),
   },
   data() {

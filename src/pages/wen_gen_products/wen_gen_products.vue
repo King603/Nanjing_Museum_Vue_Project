@@ -15,9 +15,12 @@
         </ul>
       </div>
       <!-- 产品明细 -->
-      <div v-show="index == -1">
-        <span>当前页为：</span><span>{{ titles[0] }}</span
-        >--><span>{{ artgoods[artgoods_page - 1] }}</span>
+      <div v-show="index == -1" class="good_list">
+        <div class="good_title">
+          <span>当前页为：</span><span @click="goback(0)">{{ titles[0] }}</span
+          >--><span>{{ artgoods[artgoods_page - 1] }}</span>
+        </div>
+        <page-1 :name="artgoods[artgoods_page - 1]"></page-1>
         <div>
           <span :title="artgoods_page !== 1 ? artgoods[0] : ''">首页</span>
           <span :title="artgoods_page !== 1 ? artgoods[artgoods_page - 2] : ''"
@@ -88,6 +91,7 @@ export default {
   components: {
     topNav: () => import("../../components/top-nav"),
     toTop: () => import("../../components/pageTop"),
+    Page1: () => import("./components/page1.vue"),
   },
   data() {
     return {
@@ -121,6 +125,9 @@ export default {
       this.artgoods_page = i;
       this.index = -1;
       console.log("跳轉成功，當前頁是" + this.artgoods[i - 1]);
+    },
+    goback(n) {
+      this.index = n;
     },
   },
 };
@@ -180,5 +187,14 @@ export default {
 .artgoods-img {
   margin-bottom: 20px;
   cursor: pointer;
+}
+.good_list {
+  position: relative;
+}
+.good_title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 </style>
