@@ -315,7 +315,7 @@ export default {
   text-align: center;
   background-color: #07458e;
   color: #a5acba;
-  z-index: 99;
+  /* z-index: 99; */
   margin-top: 0;
 }
 .footer h2 {

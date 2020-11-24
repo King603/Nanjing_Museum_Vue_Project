@@ -4,7 +4,8 @@ unpackage/
 dist/
 _cacache
 _locks
-
+desktop.ini
+package-lock.json
 
 # local env files
 .env.local
@@ -24,6 +25,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-
-desktop.ini
-package-lock.json

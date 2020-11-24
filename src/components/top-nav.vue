@@ -2,22 +2,17 @@
   <header class="top-nav">
     <div class="nav">
       <div class="logo">
-        <navigator url="/"
-          ><img :src="top == 0 ? frist_img : next_img" alt=""
-        /></navigator>
+        <router-link :to="{ path: '/' }">
+          <img :src="top == 0 ? frist_img : next_img" alt="" />
+        </router-link>
       </div>
       <div>
         <div class="nav_list" v-for="(nav, i) of navigations" :key="i + ''">
-          <div v-if="i == ind">
-            <navigator :url="nav.to" @click="set(nav.to)" class="active">{{
-              nav.title
-            }}</navigator>
-          </div>
-          <div v-else>
-            <navigator :url="nav.to" @click="set(nav.to)">{{
-              nav.title
-            }}</navigator>
-          </div>
+          <router-link
+            :to="{ path: nav.to }"
+            :class="i == ind ? 'active' : ''"
+            >{{ nav.title }}</router-link
+          >
         </div>
       </div>
     </div>
@@ -33,32 +28,32 @@ export default {
         {
           title: "首页",
           isMoveIn: false,
-          to: "../index/index",
+          to: "/",
         },
         {
           title: "走进博物馆",
           isMoveIn: false,
-          to: "../introduce/introduce",
+          to: "/introduce",
         },
         {
           title: "陈列展览",
           isMoveIn: false,
-          to: "../exhibition/exhibition",
+          to: "/exhibition",
         },
         {
           title: "参观指南",
           isMoveIn: false,
-          to: "../guide/guide",
+          to: "/guide",
         },
         {
           title: "文创产品",
           isMoveIn: false,
-          to: "../wen_gen_products/wen_gen_products",
+          to: "/wen_gen_products",
         },
         {
           title: "网络购票",
           isMoveIn: false,
-          to: "",
+          to: "/ticket",
         },
         {
           title: "学术研究/出版物",
@@ -81,13 +76,7 @@ export default {
       top: 0,
     };
   },
-  methods: {
-    set(to) {
-      uni.navigateTo({
-        url: to,
-      });
-    },
-  },
+  methods: {},
   props: {
     ind: {
       type: String,
@@ -100,46 +89,43 @@ export default {
 <style>
 .top-nav {
   width: 100%;
-  height: 0.64rem;
+  height: 64px;
   position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.33);
   z-index: 99;
-  font-size: 0.16rem;
+  font-size: 16px;
 }
-.top-nav navigator {
+.top-nav a {
   z-index: 1000;
 }
 .nav {
   display: flex;
   margin: 0 auto;
-  max-width: 12rem;
+  max-width: 1200px;
 }
 .logo {
-  height: 0.64rem;
+  height: 64px;
 }
 .logo img {
-  height: 0.64rem;
+  height: 100%;
 }
-.nav_list navigator {
-  height: 0.64rem;
-  line-height: 0.64rem;
+.nav_list a {
+  height: 64px;
+  line-height: 64px;
   width: 100%;
+  color: #fff;
 }
-.nav_list navigator:hover {
+.nav_list:hover {
   border-bottom: 2px solid #da251c;
 }
 .nav_list {
-  display: inline-flex;
+  display: inline-block;
   margin: 0 auto;
-}
-.nav_list > div {
-  width: 100%;
-  margin-left: 0.4rem;
-  color: #fff;
+  margin-left: 40px;
 }
 .active {
-  color: #da251c;
+  color: #da251c !important;
 }
 </style>
