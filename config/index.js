@@ -12,20 +12,18 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {},
 
-    // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    // 各种Dev服务器设置
+    host: 'localhost', // 用 process.env.HOST 覆盖
+    port: 8080, // 用 process.env.PORT 覆盖，如果端口正在使用，则将确定空闲端口
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    // Use Eslint Loader?
-    // If true, your code will be linted during bundling and
-    // linting errors and warnings will be shown in the console.
+    // 使用 Eslint Loader
+    // 如果为真，您的代码将在绑定期间被linting，并且linting错误和警告将显示在控制台中。
     useEslint: true,
-    // If true, eslint errors and warnings will also be shown in the error overlay
-    // in the browser.
+    // 如果为真，eslint错误和警告也会显示在浏览器的错误覆盖层中。
     showEslintErrorsInOverlay: false,
 
     /**
@@ -52,9 +50,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
-    /**
-     * Source Maps
-     */
+    /* Source Maps */
 
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
