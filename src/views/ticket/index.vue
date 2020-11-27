@@ -17,8 +17,12 @@
           <li>星期日</li>
         </ol>
         <ul>
-          <li v-for="(date, i) of dateList" :key="i">
-            {{ date.m }}月{{ date.d }}日
+          <li
+            v-for="(date, i) of dateList"
+            :key="i"
+            :class="date.m != '' ? 'date' : ''"
+          >
+            <span v-show="date.m != ''">{{ date.m }}月{{ date.d }}日</span>
             <br />
             {{ date.t }}
           </li>
@@ -50,19 +54,36 @@ export default {
   },
   methods: {
     getDateList() {
-      let now = new Date();
+      /**@type {Date[]} */
+      let dates = [];
+      dates[0] = new Date();
+      for (let i = 1; i < 7; i++) {
+        dates[i] = new Date(dates[i - 1].getTime() + 86400000);
+      }
+
       let dateList = [];
-      for (let i = now.getDay() - 1; i < 21; i++) {
-        dateList[i] = {
-          m: now.getMonth() + 1 + "",
-          d: now.getDate() + "",
-          t:
-            i == now.getDay() - 1
-              ? "已售罄"
-              : now.getDay() == 1
-              ? "闭馆"
-              : `余151515人`,
-        };
+      for (let i = 0, j = 0; i < 14; i++) {
+        if (i < dates[0].getDay() - 1 || j >= dates.length) {
+          dateList[i] = {
+            m: "",
+            d: "",
+            t: "",
+            className: "",
+          };
+        } else {
+          dateList[i] = {
+            m: dates[j].getMonth() + 1 + "",
+            d: dates[j].getDate() + "",
+            t:
+              j == 0
+                ? "已售罄"
+                : dates[j].getDay() == 1
+                ? "闭馆"
+                : `余${parseInt(Math.random() * 10000)}人`,
+            className: "date",
+          };
+          j++;
+        }
       }
       console.log(dateList);
       return dateList;
@@ -115,10 +136,14 @@ export default {
 .banner ul li {
   line-height: 300%;
   width: 100px;
-  height: 100px;
+  height: 80px;
   float: left;
   text-align: center;
-  border: 1px solid #000;
+}
+.date:hover,
+li.active {
+  border-radius: 10px;
+  border: 1px solid red;
 }
 .closed {
   color: #999;
