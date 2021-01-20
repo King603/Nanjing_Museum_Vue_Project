@@ -6,6 +6,7 @@
           <span :class="nav_tit_index == i ? 'active' : ''">{{ nav }}</span>
         </div>
       </div>
+      <!-- 购票提示 -->
       <div class="banner">
         <ol>
           <li>星期一</li>
@@ -20,7 +21,8 @@
           <li
             v-for="(date, i) of dateList"
             :key="i"
-            :class="date.m != '' ? 'date' : ''"
+            :class="date.className"
+            @click="set_data(data)"
           >
             <span v-show="date.m != ''">{{ date.m }}月{{ date.d }}日</span>
             <br />
@@ -29,15 +31,125 @@
         </ul>
         <div>
           <div>
-            <div>上午</div>
-            <div>下午</div>
-            <div>当日</div>
+            <div
+              v-for="(set, i) of ['上午', '下午', '当日']"
+              :key="i"
+              @click="set_am_pm(i)"
+              :class="time_index == i ? 'active' : ''"
+            >
+              {{ set }}
+            </div>
           </div>
           <div>
             <div>旅行社购买</div>
             <div>快速购买</div>
           </div>
+          <div class="clear"></div>
         </div>
+      </div>
+      <!-- 公告栏 -->
+      <tabel>
+        <tr class="clear">
+          <td class="newsList">
+            <h1 class="title">最新公告</h1>
+            <br />
+            <div v-for="(news, i) of newsList" :key="i">
+              <p>
+                <span>{{ news.title }}</span
+                ><span>{{ news.year }}/{{ news.month }}/{{ news.date }}</span>
+              </p>
+              <br />
+            </div>
+            <div class="button">更多&gt;&gt;</div>
+          </td>
+          <td class="problem">
+            <h1 class="title">常见问题</h1>
+            <br />
+            <div class="problem-text">
+              <p>
+                截止预约参观当日下午20:00之前可申请退票，超过时限则无法退款。
+              </p>
+              <br />
+              <p class="red">
+                注：请各位观众根据当前故宫的参观时间提前规划好浏览时间，以避免由于参观时间结束导致门票无法使用，并且无法退款的情况发生
+              </p>
+            </div>
+          </td>
+        </tr>
+      </tabel>
+      <!-- 购票说明 -->
+      <div>
+        <h1>购票说明</h1>
+        <ol class="ordered_list">
+          <li v-for="ticket of ticket_list" :key="ticket" v-html="ticket"></li>
+        </ol>
+      </div>
+      <!-- 退票说明 -->
+      <div>
+        <h1>退票说明</h1>
+        <ol class="ordered_list">
+          <li v-for="ticket of refund_list" :key="ticket" v-html="ticket"></li>
+        </ol>
+      </div>
+      <!-- 验票说明 -->
+      <div>
+        <h1>验票说明</h1>
+        <ol class="ordered_list">
+          <li
+            v-for="ticket of checking_list"
+            :key="ticket"
+            v-html="ticket"
+          ></li>
+        </ol>
+      </div>
+      <!-- 参观时间 -->
+      <div>
+        <h1>参观时间</h1>
+        <span>除法定节假日，故宫博物院全年实行周一闭馆。</span>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>开始售票</th>
+              <th>停止售票</th>
+              <th>停止进入</th>
+              <th>景区关闭</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(time, i) of Visit_time" :key="i">
+              <th>
+                {{ i == 0 ? "旺季" : "淡季" }}（每年{{ time.start }}至{{
+                  time.end
+                }}）
+              </th>
+              <td>{{ time.Start_selling_tickets }}</td>
+              <td>{{ time.Stop_selling_tickets }}</td>
+              <td>{{ time.Stop_to_enter }}</td>
+              <td>{{ time.Scenic_area_closed }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <span>注：以上时间规定均包含大门、珍宝馆和钟表馆。</span>
+      </div>
+      <!-- 参观路线 -->
+      <div>
+        <h1>参观路线</h1>
+        <ul>
+          <li v-for="l of line" :key="l" v-html="l"></li>
+        </ul>
+      </div>
+      <!-- 票务政策 -->
+      <div>
+        <h1>票务政策</h1>
+        <ol class="ordered_list">
+          <li v-for="p of policy" :key="p">
+            <h1>{{ p.title }}</h1>
+            <ol class="ordered_list">
+              <li></li>
+            </ol>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
@@ -50,6 +162,94 @@ export default {
       nav_tit: ["主题免费票", "普通门票", "年票"],
       nav_tit_index: 1,
       dateList: [],
+      time_index: -1,
+      newsList: [],
+      news_num: 4,
+      days: 10,
+      /**购票说明 */
+      ticket_list: [
+        "门票提前10天0点预售，售完为止。",
+        "故宫购票实行实名制，所有观众需录入身份信息方可预定。",
+        "每个有效证件每个入院日限购一张门票。",
+        "如有发票需求，请在订单中填写发票抬头内容后，持相关证件到检票口东侧的“综合服务窗口”领取。",
+      ],
+      /**退票说明 */
+      refund_list: [
+        "预售门票在未使用的情况下，可于<span style='color: red;'>预约参观日当天下午20点前</span>在本平台申请退款，超过时限则无法退款。",
+        "退款会在您<span style='color: red;'>预约入院日之后的5日内</span>执行，如果您届时尚未收到退款，请致电客服咨询。",
+      ],
+      /**验票说明 */
+      checking_list: [
+        "下单时填写了二代身份证号或护照的观众可在入院日当日持身份证、户口本原件或护照在任意检票口直接入院，无须兑换纸质门票。",
+        "下单时填写了港澳台有效身份证件（港澳居民来往内地通行证、台胞证、港澳台居民居住证）的观众可在入院日当日持证件原件在任意检票口直接入院，无须兑换纸质门票。",
+        "参观当天，因证件丢失、损坏或其他情况导致无法验票的观众，可凭其他有效证件（户口本、驾驶证等标有证件号的证件）在任意检票口直接入院，无须兑换纸质门票。",
+      ],
+      /**参观路线 */
+      line: [
+        "午门（南门）：只作为参观入口，观众一律从午门进入故宫；",
+        "神武门（北门）：只作为参观出口；",
+        "东华门（东门）：只作为参观出口；",
+      ],
+      /**票务政策 */
+      policy: [
+        {
+          title: "门票价格：",
+          texts: [
+            "每年4月1日至10月31日为旺季，大门票60元/人；",
+            "每年11月1日至次年3月31日为淡季，大门票40元/人。",
+            "珍宝馆（即进入宁寿宫区，还包括戏曲馆、石鼓馆）参观门票：10元/人。",
+            "钟表馆（即进入奉先殿区）参观门票：10元/人。",
+          ],
+        },
+        {
+          title: "主开放区优惠政策（不含珍宝馆、钟表馆）：",
+          texts: [
+            "大、中、小学生（含港、澳、台学生,不含成人教育、研究生），凭学生证或学校介绍信，可购学生票，20元/人。",
+            "6周岁（不含6周岁）至18周岁（含18周岁）未成年人，可凭身份证、户口本或护照购买学生票，20元/人。",
+            "60岁以上（含60岁）老年人凭身份证原件，门票半价优惠。",
+            "持有本市社会保障金领取证的人员，门票半价优惠。",
+            "离休干部凭离休证，免票参观。",
+            "6周岁（含6周岁）以下或身高1.2米（含1.2米）以下儿童免票参观。",
+            "残疾人凭残疾人证件，免票参观。",
+            "“三八”妇女节，妇女享受门票半价优惠。",
+            "“六一”儿童节，14周岁以下儿童（含14周岁），免费参观。随同家长一人享受半价优惠 。",
+            "“八一”建军节，现役军人、武警（含消防救援人员）凭有效证件，免费参观。",
+          ],
+        },
+        {
+          title: "内馆优惠政策（珍宝馆、钟表馆）：",
+          texts: [
+            "大、中、小学生（含港、澳、台学生,不含成人教育、研究生），凭学生证或学校介绍信，可购学生票，5元/人。",
+            "6周岁（不含6周岁）至18周岁（含18周岁）未成年人，可凭身份证、户口本或护照购买学生票，5元/人。",
+            "60岁以上（含60岁）老年人凭身份证原件，门票半价优惠，5元/人。",
+            "持有本市社会保障金领取证的人员，门票半价优惠,5元/人。",
+            "离休干部凭离休证，免票参观。",
+            "6周岁（含6周岁）以下或身高1.2米（含1.2米）以下儿童免票参观。",
+            "残疾人凭残疾人证件，免票参观。",
+            "“三八”妇女节，妇女享受门票半价优惠，5元/人。",
+            "“六一”儿童节，14周岁以下儿童（含14周岁），免票参观。随同家长一人享受半价优惠，5元/人。",
+            "“八一”建军节，现役军人、武警（含消防救援人员）凭有效证件，免费参观。",
+          ],
+        },
+      ],
+      Visit_time: [
+        {
+          Start_selling_tickets: "8:30",
+          Stop_selling_tickets: "16:00",
+          Stop_to_enter: "16:10",
+          Scenic_area_closed: "17:00",
+          start: "4月1日",
+          end: "10月31日",
+        },
+        {
+          Start_selling_tickets: "8:30",
+          Stop_selling_tickets: "15:30",
+          Stop_to_enter: "15:40",
+          Scenic_area_closed: "16:30",
+          start: "11月1日",
+          end: "3月31日",
+        },
+      ],
     };
   },
   methods: {
@@ -57,12 +257,12 @@ export default {
       /**@type {Date[]} */
       let dates = [];
       dates[0] = new Date();
-      for (let i = 1; i < 7; i++) {
+      for (let i = 1; i < this.days + 1; i++) {
         dates[i] = new Date(dates[i - 1].getTime() + 86400000);
       }
 
       let dateList = [];
-      for (let i = 0, j = 0; i < 14; i++) {
+      for (let i = 0, j = 0; i < 21; i++) {
         if (i < dates[0].getDay() - 1 || j >= dates.length) {
           dateList[i] = {
             m: "",
@@ -75,22 +275,574 @@ export default {
             m: dates[j].getMonth() + 1 + "",
             d: dates[j].getDate() + "",
             t:
-              j == 0
+              j++ == 0
                 ? "已售罄"
-                : dates[j].getDay() == 1
+                : dates[j - 1].getDay() == 1
                 ? "闭馆"
                 : `余${parseInt(Math.random() * 10000)}人`,
-            className: "date",
+            className:
+              j - 1 == 0 || dates[j - 1].getDay() == 1 ? "closed" : "date",
           };
-          j++;
         }
       }
       console.log(dateList);
       return dateList;
     },
+    set_am_pm(i) {
+      this.time_index = i;
+    },
+    set_data(data) {},
   },
   mounted() {
     this.dateList = this.getDateList();
+    /**从后台获取到的数据 */
+    let data = [
+      {
+        title: "关于延禧宫暂停开放的公告",
+        year: "2020",
+        month: "11",
+        date: "18",
+      },
+      {
+        title: "关于午门展厅实行限流排队措施的公告",
+        year: "2020",
+        month: "11",
+        date: "7",
+      },
+      {
+        title: "购票提示",
+        year: "2020",
+        month: "10",
+        date: "16",
+      },
+      {
+        title: "故宫博物院“十一”黄金周开放公告",
+        year: "2020",
+        month: "9",
+        date: "30",
+      },
+      {
+        title: "故宫博物院自7月28日起上调每日预约人数至12000人的公告",
+        year: "2020",
+        month: "7",
+        date: "27",
+      },
+      {
+        title: "故宫博物院自7月21日起有序开放室内展厅的公告",
+        year: "2020",
+        month: "7",
+        date: "20",
+      },
+      {
+        title: "故宫博物院自5月12日起上调每日预约观众数量至8000人的公告",
+        year: "2020",
+        month: "5",
+        date: "11",
+      },
+      {
+        title: "故宫博物院自5月1日起有序开放公告",
+        year: "2020",
+        month: "4",
+        date: "29",
+      },
+      {
+        title: "故宫博物院关于闭馆的公告",
+        year: "2020",
+        month: "1",
+        date: "23",
+      },
+      {
+        title: "故宫博物院温馨提示",
+        year: "2020",
+        month: "1",
+        date: "23",
+      },
+      {
+        title: "故宫博物院关于暂停城墙开放的公告",
+        year: "2020",
+        month: "1",
+        date: "22",
+      },
+      {
+        title: "故宫博物院关于2020年春节开放时间的公告",
+        year: "2020",
+        month: "1",
+        date: "10",
+      },
+      {
+        title:
+          "献礼新中国成立七十周年 故宫博物院“万紫千红——中国古代花木题材文物特展”午门展出",
+        year: "2019",
+        month: "9",
+        date: "19",
+      },
+      {
+        title: "关于故宫博物院临时调整开放时间的公告",
+        year: "2019",
+        month: "9",
+        date: "12",
+      },
+      {
+        title: "关于故宫博物院暂停开放的公告",
+        year: "2019",
+        month: "9",
+        date: "11",
+      },
+      {
+        title: "关于南大库家具馆、角楼餐厅、角楼咖啡临时关闭的公告",
+        year: "2019",
+        month: "4",
+        date: "29",
+      },
+      {
+        title: "关于南大库家具馆、角楼餐厅、角楼咖啡临时关闭的公告",
+        year: "2019",
+        month: "4",
+        date: "23",
+      },
+      {
+        title: "关于“紫禁城上元之夜”文化活动的特别公告",
+        year: "2019",
+        month: "2",
+        date: "19",
+      },
+      {
+        title: "关于预约参加 “紫禁城上元之夜”文化活动的公告",
+        year: "2019",
+        month: "2",
+        date: "17",
+      },
+      {
+        title: '【"宫里过大年"数字沉浸体验展开幕】',
+        year: "2019",
+        month: "1",
+        date: "22",
+      },
+      {
+        title: "关于乾清宫区域临时关闭的公告",
+        year: "2019",
+        month: "1",
+        date: "15",
+      },
+      {
+        title: "关于钟表馆因改陈暂停开放的公告",
+        year: "2019",
+        month: "1",
+        date: "11",
+      },
+      {
+        title: "关于故宫博物院2019年春节开放时间的公告",
+        year: "2019",
+        month: "1",
+        date: "8",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2018",
+        month: "7",
+        date: "6",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2018",
+        month: "6",
+        date: "25",
+      },
+      {
+        title: "关于故宫文物医院于6月9日向公众试开放的公告",
+        year: "2018",
+        month: "6",
+        date: "3",
+      },
+      {
+        title: "关于预约参观《清明上河图3.0》高科技互动艺术展演的公告",
+        year: "2018",
+        month: "5",
+        date: "25",
+      },
+      {
+        title: "关于预约参观《清明上河图3.0》高科技互动艺术展演的公告",
+        year: "2018",
+        month: "5",
+        date: "25",
+      },
+      {
+        title: "故宫博物院于2018年6月开始实行除法定节假日外周一全年闭馆",
+        year: "2018",
+        month: "5",
+        date: "24",
+      },
+      {
+        title: "网站维护公告",
+        year: "2018",
+        month: "5",
+        date: "13",
+      },
+      {
+        title: "关于关闭养性殿、皇极殿的公告",
+        year: "2018",
+        month: "3",
+        date: "23",
+      },
+      {
+        title: "关于珍宝馆皇极殿西庑部分展厅暂停对外开放的公告",
+        year: "2018",
+        month: "2",
+        date: "24",
+      },
+      {
+        title: "关于试行全部网络购票参观故宫的公告",
+        year: "2017",
+        month: "7",
+        date: "19",
+      },
+      {
+        title: "关于试行全部网络购票参观故宫的公告",
+        year: "2017",
+        month: "7",
+        date: "19",
+      },
+      {
+        title: "关于试行全部网络购票参观故宫的公告",
+        year: "2017",
+        month: "7",
+        date: "19",
+      },
+      {
+        title: "2017年春节期间开放公告",
+        year: "2017",
+        month: "1",
+        date: "22",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2016",
+        month: "11",
+        date: "13",
+      },
+      {
+        title: "故宫博物院关于进一步规范旅行社预订门票有关事项的公告",
+        year: "2016",
+        month: "5",
+        date: "23",
+      },
+      {
+        title: "故宫博物院关于开展实名制售票专项整治的通知",
+        year: "2016",
+        month: "5",
+        date: "19",
+      },
+      {
+        title: "关于故宫博物院钟表馆、珍宝馆实行票价优惠政策的公告",
+        year: "2016",
+        month: "3",
+        date: "24",
+      },
+      {
+        title: "关于端门数字馆等区域暂停开放的公告",
+        year: "2016",
+        month: "3",
+        date: "6",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2019",
+        month: "8",
+        date: "27",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2020",
+        month: "7",
+        date: "5",
+      },
+      {
+        title: "网站维护公告",
+        year: "2019",
+        month: "9",
+        date: "22",
+      },
+      {
+        title: "关于故宫城楼城墙暂停开放的公告",
+        year: "2018",
+        month: "3",
+        date: "1",
+      },
+      {
+        title: "关于故宫博物院2018年春节期间调整开放时间的公告",
+        year: "2018",
+        month: "2",
+        date: "12",
+      },
+      {
+        title: "2017-12-31门票退款及改签截止时间变更通知",
+        year: "2017",
+        month: "12",
+        date: "28",
+      },
+      {
+        title: "关于文华殿陶瓷馆暂停开放的公告",
+        year: "2017",
+        month: "12",
+        date: "7",
+      },
+      {
+        title: "关于临时闭馆的公告",
+        year: "2017",
+        month: "10",
+        date: "29",
+      },
+      {
+        title: "午门正殿展厅实行发号分时参观",
+        year: "2017",
+        month: "9",
+        date: "24",
+      },
+      {
+        title: "关于宁寿宫花园古华轩区封闭修缮的公告",
+        year: "2017",
+        month: "8",
+        date: "25",
+      },
+      {
+        title: "关于故宫博物院内西路部分区域封闭施工的通知",
+        year: "2017",
+        month: "8",
+        date: "8",
+      },
+      {
+        title: "关于试行全部网络购票参观故宫的公告",
+        year: "2017",
+        month: "7",
+        date: "19",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2017",
+        month: "6",
+        date: "9",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2017",
+        month: "6",
+        date: "3",
+      },
+      {
+        title: "关于部分区域原状陈列照明维修的公告",
+        year: "2017",
+        month: "5",
+        date: "11",
+      },
+      {
+        title: "关于临时关闭永寿宫区域的公告",
+        year: "2017",
+        month: "4",
+        date: "14",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2017",
+        month: "3",
+        date: "17",
+      },
+      {
+        title: "故宫博物院端门数字馆再次对外开放",
+        year: "2017",
+        month: "3",
+        date: "17",
+      },
+      {
+        title: "关于景仁宫捐献馆暂停开放的公告",
+        year: "2017",
+        month: "3",
+        date: "13",
+      },
+      {
+        title: "关于东华门古建筑馆区域暂停开放的公告",
+        year: "2017",
+        month: "2",
+        date: "28",
+      },
+      {
+        title: "2017年春节期间开放公告",
+        year: "2017",
+        month: "1",
+        date: "22",
+      },
+      {
+        title: "12月31日退款及改签时间临时调整通知",
+        year: "2016",
+        month: "12",
+        date: "24",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2016",
+        month: "10",
+        date: "23",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2016",
+        month: "10",
+        date: "9",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2016",
+        month: "9",
+        date: "18",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2016",
+        month: "9",
+        date: "7",
+      },
+      {
+        title: "故宫博物院端门数字馆开放公告",
+        year: "2016",
+        month: "9",
+        date: "6",
+      },
+      {
+        title: "故宫博物院端门数字馆开放公告",
+        year: "2016",
+        month: "9",
+        date: "6",
+      },
+      {
+        title: "网站升级维护公告",
+        year: "2016",
+        month: "8",
+        date: "30",
+      },
+      {
+        title: "故宫博物院端门数字馆开放公告",
+        year: "2016",
+        month: "2",
+        date: "29",
+      },
+      {
+        title: "网站升级公告",
+        year: "2016",
+        month: "2",
+        date: "19",
+      },
+      {
+        title: "2016春节期间开放时间调整",
+        year: "2016",
+        month: "1",
+        date: "31",
+      },
+      {
+        title: "故宫博物院继续实行主题免费开放日",
+        year: "2015",
+        month: "11",
+        date: "3",
+      },
+      {
+        title: "故宫博物院即将开放新的可参观区域",
+        year: "2015",
+        month: "10",
+        date: "10",
+      },
+      {
+        title: "故宫博物院坚定不移实行限流措施 呼吁观众网上预约购票",
+        year: "2015",
+        month: "9",
+        date: "26",
+      },
+      {
+        title: "关于故宫博物院暂停开放的通知",
+        year: "2015",
+        month: "8",
+        date: "20",
+      },
+      {
+        title: "暑期期间取消每周一例行闭馆",
+        year: "2015",
+        month: "7",
+        date: "13",
+      },
+      {
+        title: "网站升级公告",
+        year: "2015",
+        month: "6",
+        date: "1",
+      },
+      {
+        title: "2015年儿童节照常开馆通知",
+        year: "2015",
+        month: "5",
+        date: "19",
+      },
+      {
+        title: "2015年春节期间开放时间安排",
+        year: "2015",
+        month: "2",
+        date: "9",
+      },
+      {
+        title: "故宫博物院网上预售门票临时停售两天通知",
+        year: "2014",
+        month: "12",
+        date: "22",
+      },
+      {
+        title: "服务器维护通知",
+        year: "2014",
+        month: "12",
+        date: "17",
+      },
+      {
+        title:
+          "我院将于9月12、13、14日试行单日内分流 新售检票系统9月2日投入试用",
+        year: "2014",
+        month: "9",
+        date: "9",
+      },
+      {
+        title: "关于故宫博物院2014年春节期间调整开放时间的公告",
+        year: "2014",
+        month: "6",
+        date: "4",
+      },
+      {
+        title: "关于2014年周一全天闭馆通知",
+        year: "2013",
+        month: "12",
+        date: "5",
+      },
+      {
+        title: "关于2013年1月至3月试行周一闭馆半天的通知",
+        year: "2012",
+        month: "12",
+        date: "10",
+      },
+      {
+        title: "关于故宫博物院网络售票的说明",
+        year: "2012",
+        month: "9",
+        date: "19",
+      },
+      {
+        title: "故宫博物院2012年“五一”假期有关接待事项的公告",
+        year: "2012",
+        month: "4",
+        date: "23",
+      },
+      {
+        title: "欢迎使用故宫博物院票务预订系统",
+        year: "2011",
+        month: "9",
+        date: "20",
+      },
+    ];
+    for (let i = 0; i < this.news_num && i < data.length; i++) {
+      this.newsList[i] = data[i];
+    }
   },
 };
 </script>
@@ -139,6 +891,8 @@ export default {
   height: 80px;
   float: left;
   text-align: center;
+  cursor: pointer;
+  color: #a15949;
 }
 .date:hover,
 li.active {
@@ -146,6 +900,96 @@ li.active {
   border: 1px solid red;
 }
 .closed {
-  color: #999;
+  color: #999 !important;
+  cursor: default !important;
+}
+.banner > div:last-child {
+  /* border: 1px solid red; */
+  background: #e0cba0;
+  padding: 15px;
+}
+.banner > div:last-child > div {
+  display: flex;
+  width: 30%;
+}
+.banner > div:last-child > div:nth-child(1) {
+  float: left;
+}
+.banner > div:last-child > div:nth-child(1) > div:hover,
+.banner > div:last-child > div:nth-child(1) > div.active {
+  border: 1px solid #bd2a2d;
+}
+.banner > div:last-child > div:nth-child(2) {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.banner > div:last-child > div > div {
+  margin: 0 auto;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #fff;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.newsList {
+  /* width: 50%; */
+  box-sizing: border-box;
+  padding: 15px 10px;
+  position: relative;
+  padding-bottom: 25px;
+  font-family: "楷体";
+  font-size: 14px;
+}
+.newsList > div span:first-child {
+  cursor: pointer;
+}
+.newsList > div span:first-child:hover,
+.button {
+  color: #a15949;
+}
+.newsList > div span:last-child {
+  float: right;
+}
+.button {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.newsList + .problem {
+  border-left: 1px solid #e0cba0;
+}
+
+.problem {
+  width: 50%;
+  font-family: "楷体";
+  padding: 15px;
+}
+table td {
+  height: 100%;
+}
+h1.title {
+  color: #b56e03 !important;
+  font-size: 17px;
+}
+.problem-text {
+  margin-left: 20px;
+  margin-right: 40px;
+}
+.red {
+  color: #f00;
+}
+.ordered_list {
+  margin-right: 10px;
+}
+.ordered_list > li {
+  list-style: inside decimal;
 }
 </style>

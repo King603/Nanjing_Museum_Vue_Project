@@ -12,12 +12,10 @@ export default {
   methods: {
     // 显示回到顶部按钮
     showbtn() {
-      let that = this;
-      let scrollTop =
+      this.scrollTop =
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
-      that.scrollTop = scrollTop;
     },
     /**
      * 回到顶部功能实现过程：
@@ -34,9 +32,7 @@ export default {
         document.documentElement.scrollTop = document.body.scrollTop =
           osTop + ispeed;
         this.isTop = true;
-        if (osTop === 0) {
-          clearInterval(timer);
-        }
+        if (osTop === 0) clearInterval(timer);
       }, 30);
     },
   },

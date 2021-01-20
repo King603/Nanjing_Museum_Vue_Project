@@ -38,9 +38,9 @@ export default {
   },
   data() {
     return {
-      bgImgUrl: "../../static/bg/2bg.jpg",
-      logoBgUrl: "../../static/bg/indextop.jpg",
-      logo: "../../static/logo/logo.png",
+      bgImgUrl: "./static/bg/2bg.jpg",
+      logoBgUrl: "./static/bg/indextop.jpg",
+      logo: "./static/logo/logo.png",
       index: 0,
       buttonList: ["博物馆简介", "大事记", "名人致辞"],
     };

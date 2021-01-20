@@ -51,10 +51,10 @@
       <!-- 产品图文介绍 -->
       <div v-show="index == 0">
         <div class="home">
-          <swiper>
-            <swiper-slider v-for="(img, index) of swiperImg" :key="index"
-              ><img :src="img" alt="" class="swiperItem"
-            /></swiper-slider>
+          <swiper :options="swiperOption">
+            <swiper-slide v-for="(img, index) of swiperImg" :key="index">
+              <img :src="img.src" alt="" class="swiperItem" />
+            </swiper-slide>
           </swiper>
         </div>
 
@@ -68,7 +68,7 @@
         </div>
         <div class="artgoods-img">
           <img
-            :src="`../../static/wen_gen/artgoods-${i}.jpg`"
+            :src="`./static/wen_gen/artgoods-${i}.jpg`"
             v-for="i of artgoods.length"
             :key="i"
             @click="to(i)"
@@ -83,12 +83,16 @@
 </template>
 
 <script>
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+let img =
+  "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/";
+
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
     toTop: () => import("../../components/pageTop"),
-    Swiper: () => import("@/components/swiper"),
-    SwiperSlider: () => import("@/components/swiper-slide"),
+    swiper,
+    swiperSlide,
     Page1: () => import("./components/page1.vue"),
   },
   data() {
@@ -102,13 +106,19 @@ export default {
         { img: "", tit: "", price: "", num: 0 },
       ],
       swiperImg: [
-        "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418184334eaVs0y.jpg",
-        "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418184509srW1TB.jpg",
-        "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418192053BGv7Qc.jpg",
+        { src: img + "20170418184334eaVs0y.jpg" },
+        { src: img + "20170418184509srW1TB.jpg" },
+        { src: img + "20170418192053BGv7Qc.jpg" },
       ],
       artgoods_allsort: "../../static/wen_gen/4-1.png",
       artgoods: ["鎮館之寶", "吳門四家", "蘇博建築", "煙雲過眼"],
       artgoods_page: -1,
+      swiperOption: {
+        //swiper3
+        autoplay: 3000,
+        speed: 1000,
+        loop: true,
+      },
     };
   },
   methods: {

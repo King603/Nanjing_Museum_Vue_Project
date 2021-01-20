@@ -93,8 +93,8 @@ export default {
   },
   data() {
     return {
-      bgImgUrl: "../../static/bg/exhibition_bg.jpg",
-      logoImg: "../../static/陈列展览.jpg",
+      bgImgUrl: "./static/bg/exhibition_bg.jpg",
+      logoImg: "./static/陈列展览.jpg",
       index_text: "",
       texts: [],
       menu1: {
@@ -157,7 +157,7 @@ export default {
   },
   methods: {
     getImg(bool) {
-      return bool ? "../../static/arrow-u.png" : "../../static/arrow-d.png";
+      return bool ? "./static/arrow-u.png" : "./static/arrow-d.png";
     },
     show(menu) {
       if (menu.isShow) {

@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 export default {
   name: "page-2",
   data() {
