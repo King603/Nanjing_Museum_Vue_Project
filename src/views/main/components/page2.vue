@@ -1,7 +1,7 @@
 <template>
-  <div class="main">
+  <div class="main1-main">
     <h1 class="news_title">新闻动态</h1>
-    <navigator v-for="(news, i) of list" :key="i" :href="news.to">
+    <a v-for="(news, i) of list" :key="i" :href="news.to">
       <div class="newsList">
         <img :src="news.img.src" :title="news.img.title" />
         <div class="info">
@@ -13,7 +13,7 @@
           <p>{{ news.year }}</p>
         </div>
       </div>
-    </navigator>
+    </a>
     <div class="digg">
       <ul class="pages">
         <li :class="n == 1 ? 'disabled' : ''" @click="showList(1)">
@@ -237,8 +237,8 @@ export default {
 </script>
 
 <style scoped>
-@import url("http://localhost:8080/static/font/iconfont.css");
-.main {
+@import url("../../../../static/font/iconfont.css");
+.main1-main {
   width: 100%;
   position: relative;
 }

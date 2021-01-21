@@ -1,1 +1,1 @@
-export const url = "http://localhost:8080/static";
+export const url = "static/";

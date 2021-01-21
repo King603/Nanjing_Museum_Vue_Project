@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       list: [
-        // { src: url+"/swiper/1.png" },
+        // { src: url + "/swiper/1.png" },
         { src: url + "/swiper/2.png" },
         { src: url + "/swiper/3.png" },
         { src: url + "/swiper/4.png" },
