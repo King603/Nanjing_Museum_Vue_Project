@@ -1,7 +1,7 @@
 <template>
   <footer class="footer slide-footer">
     <h2>
-      <img src="static/small_logo.png" alt="" />
+      <img :src="url + '/small_logo.png'" alt="" />
     </h2>
     <div class="container">
       <address class="links">
@@ -304,8 +304,15 @@
 </template>
 
 <script>
+import { url } from "../config";
+
 export default {
   name: "bot-foo",
+  data() {
+    return {
+      url,
+    };
+  },
 };
 </script>
 

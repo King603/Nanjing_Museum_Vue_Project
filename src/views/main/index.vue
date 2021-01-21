@@ -1,13 +1,13 @@
 <template>
-  <div class="content">
+  <div class="main-content">
     <!-- 头部导航 -->
     <top-nav ind="0"></top-nav>
     <!-- 热点轮播 -->
-    <page-1 class="slideshow"></page-1>
+    <page-1 class="main-slideshow"></page-1>
     <!-- 新闻公告 -->
-    <page-2 class="news"></page-2>
+    <page-2 class="main-news"></page-2>
     <!-- 在线咨询 -->
-    <bot-foo class="footer"></bot-foo>
+    <bot-foo class="main-footer"></bot-foo>
     <to-top></to-top>
   </div>
 </template>
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style scoped>
-.content {
+.main-content {
   width: 100%;
   height: 200%;
   position: absolute;
@@ -92,16 +92,14 @@ export default {
   color: #2c3e50;
 }
 
-.slideshow,
-.news {
+.main-slideshow,
+.main-news {
   width: 100%;
-  height: 100%;
 }
-.news {
+.main-news {
   padding-top: 100px;
-  height: 1000px;
 }
-.footer {
+.main-footer {
   width: 100%;
 }
 </style>

@@ -195,7 +195,7 @@ h3.til_lf01 {
   color: #819319;
 }
 .box_event02 ul {
-  list-style-image: url("/static/icon.jpg");
+  list-style-image: url("http://localhost:8080/static/icon.jpg");
   list-style-position: inside;
   padding: 0;
 }

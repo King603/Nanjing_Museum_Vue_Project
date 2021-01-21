@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { url } from "../config";
 export default {
   name: "top-nav",
   data() {
@@ -71,8 +72,8 @@ export default {
           to: "",
         },
       ],
-      frist_img: "./static/frist_img.png",
-      next_img: "./static/next_img.png",
+      frist_img: url + "/frist_img.png",
+      next_img: url + "/next_img.png",
       top: 0,
     };
   },

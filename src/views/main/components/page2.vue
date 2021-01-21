@@ -237,10 +237,9 @@ export default {
 </script>
 
 <style scoped>
-@import url("../../../../static/font/iconfont.css");
+@import url("http://localhost:8080/static/font/iconfont.css");
 .main {
   width: 100%;
-  height: 100%;
   position: relative;
 }
 .newsList {

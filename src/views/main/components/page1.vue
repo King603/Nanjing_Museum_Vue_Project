@@ -10,18 +10,19 @@
 
 <script>
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import { url } from "../../../config";
 
 export default {
   name: "page-1",
   data() {
     return {
       list: [
-        // { src: "./static/swiper/1.png" },
-        { src: "./static/swiper/2.png" },
-        { src: "./static/swiper/3.png" },
-        { src: "./static/swiper/4.png" },
-        { src: "./static/swiper/5.png" },
-        { src: "./static/swiper/6.png" },
+        // { src: url+"/swiper/1.png" },
+        { src: url + "/swiper/2.png" },
+        { src: url + "/swiper/3.png" },
+        { src: url + "/swiper/4.png" },
+        { src: url + "/swiper/5.png" },
+        { src: url + "/swiper/6.png" },
       ],
       swiperOption: {
         //swiper3
@@ -41,7 +42,6 @@ export default {
 <style scoped>
 .home {
   width: 100%;
-  height: 100%;
 }
 .home img {
   width: 100%;

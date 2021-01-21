@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { url } from "../../config";
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
@@ -38,9 +39,9 @@ export default {
   },
   data() {
     return {
-      bgImgUrl: "./static/bg/2bg.jpg",
-      logoBgUrl: "./static/bg/indextop.jpg",
-      logo: "./static/logo/logo.png",
+      bgImgUrl: url + "/bg/2bg.jpg",
+      logoBgUrl: url + "/bg/indextop.jpg",
+      logo: url + "/logo/logo.png",
       index: 0,
       buttonList: ["博物馆简介", "大事记", "名人致辞"],
     };
@@ -59,7 +60,7 @@ export default {
   padding: 0 50px;
 }
 .main {
-  max-width:1200px;
+  max-width: 1200px;
   width: 100%;
 }
 .logobg {

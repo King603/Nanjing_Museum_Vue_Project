@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import { url } from "../../config";
 export default {
   components: {
     topNav: () => import("../../components/top-nav"),
@@ -93,8 +94,8 @@ export default {
   },
   data() {
     return {
-      bgImgUrl: "./static/bg/exhibition_bg.jpg",
-      logoImg: "./static/陈列展览.jpg",
+      bgImgUrl: url + "/bg/exhibition_bg.jpg",
+      logoImg: url + "/陈列展览.jpg",
       index_text: "",
       texts: [],
       menu1: {
@@ -157,7 +158,7 @@ export default {
   },
   methods: {
     getImg(bool) {
-      return bool ? "./static/arrow-u.png" : "./static/arrow-d.png";
+      return `${url}/${bool ? "arrow-u.png" : "arrow-d.png"}`;
     },
     show(menu) {
       if (menu.isShow) {
@@ -170,15 +171,13 @@ export default {
             this.menu1.isShow && (this.menu1.isShow = false);
             this.menu2.isShow && (this.menu2.isShow = false);
             this.menu3.isShow && (this.menu3.isShow = false);
-            for (let i = 0; i < this.menu2.menu2_1.length; i++) {
+            for (let i = 0; i < this.menu2.menu2_1.length; i++)
               this.menu2.menu2_1[i].isShow = false;
-            }
             menu.isShow = true;
             break;
           default:
-            for (let i = 0; i < this.menu2.menu2_1.length; i++) {
+            for (let i = 0; i < this.menu2.menu2_1.length; i++)
               this.menu2.menu2_1[i].isShow = false;
-            }
             menu.isShow = true;
         }
       }
@@ -191,12 +190,11 @@ export default {
 </script>
 
 <style scoped>
-
 .logo {
   width: 100%;
 }
 .main {
-  max-width:1200px;
+  max-width: 1200px;
   width: 100%;
   margin-top: 64px;
 }

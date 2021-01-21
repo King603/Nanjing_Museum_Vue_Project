@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { url } from "../../../config";
 export default {
   name: "page-1",
   data() {
@@ -44,7 +45,7 @@ export default {
       titles: ["交通信息", "酒店住宿", "餐饮服务", "文化休闲"],
       index: 0,
       page1_info: {
-        img: "../../../static/cesi/首都博物馆.jpg",
+        img: url + "/cesi/首都博物馆.jpg",
         span:
           "<span><p><strong>一、地铁线路：<br /></strong>1号线木樨地站向东500米。</p><p><strong>二、公交线路：<br /></strong><span>1、21、65、68、78、308（西行），85、94、特18（东行）木樨地西站下；<br /></span><span>99（西行）、52木樨地东站下；</span><span>1、99路（南行）工会大楼站下；<br /></span><span>10、15、1、52、843、937、99（西行）南礼士路站下；<br /></span><span>114、26、308、45、80、843、937、特19（北行）白云路站下。</span></p></span>",
       },
