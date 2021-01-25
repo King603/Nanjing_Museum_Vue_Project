@@ -6,7 +6,7 @@
     }"
   >
     <!-- 头部导航 -->
-    <top-nav ind="2"></top-nav>
+    <top-nav ind="2"/>
     <div class="main">
       <img class="logo" :src="logoImg" alt="" />
       <div>
@@ -196,7 +196,6 @@ export default {
 .main {
   max-width: 1200px;
   width: 100%;
-  margin-top: 64px;
 }
 .main p:nth-child(2n-1) {
   font-size: 16px;

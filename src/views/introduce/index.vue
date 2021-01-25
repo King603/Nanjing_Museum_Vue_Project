@@ -1,6 +1,6 @@
 <template>
   <div class="content" :style="{ 'background-image': `url(${bgImgUrl})` }">
-    <top-nav ind="1"></top-nav>
+    <top-nav ind="1"/>
     <div class="main">
       <div class="logobg" :style="{ 'background-image': `url(${logoBgUrl})` }">
         <img :src="logo" alt="" class="logo" />
@@ -57,7 +57,6 @@ export default {
 <style scoped>
 .content {
   background-color: #f5f6ef;
-  padding: 0 50px;
 }
 .main {
   max-width: 1200px;

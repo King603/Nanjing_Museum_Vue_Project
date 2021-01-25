@@ -91,7 +91,7 @@ export default {
 .top-nav {
   width: 100%;
   height: 64px;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.33);

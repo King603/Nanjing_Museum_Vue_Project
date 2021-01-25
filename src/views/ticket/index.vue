@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <top-nav ind="5"/>
     <div class="main">
       <div class="nav_tit">
         <div v-for="(nav, i) of nav_tit" :key="i">
@@ -157,6 +158,9 @@
 
 <script>
 export default {
+  components: {
+    topNav: () => import("../../components/top-nav"),
+  },
   data() {
     return {
       nav_tit: ["主题免费票", "普通门票", "年票"],
@@ -275,14 +279,14 @@ export default {
             m: dates[j].getMonth() + 1 + "",
             d: dates[j].getDate() + "",
             t:
-              j++ == 0
-                ? "已售罄"
-                : dates[j - 1].getDay() == 1
+              dates[j].getDay() == 1
                 ? "闭馆"
+                : j == 0
+                ? "已售罄"
                 : `余${parseInt(Math.random() * 10000)}人`,
-            className:
-              j - 1 == 0 || dates[j - 1].getDay() == 1 ? "closed" : "date",
+            className: j == 0 || dates[j].getDay() == 1 ? "closed" : "date",
           };
+          j++;
         }
       }
       console.log(dateList);

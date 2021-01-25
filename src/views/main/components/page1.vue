@@ -10,20 +10,13 @@
 
 <script>
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import { url } from "../../../config";
+import axios from "axios";
 
 export default {
   name: "page-1",
   data() {
     return {
-      list: [
-        // { src: url + "/swiper/1.png" },
-        { src: url + "/swiper/2.png" },
-        { src: url + "/swiper/3.png" },
-        { src: url + "/swiper/4.png" },
-        { src: url + "/swiper/5.png" },
-        { src: url + "/swiper/6.png" },
-      ],
+      list: [],
       swiperOption: {
         //swiper3
         autoplay: 3000,
@@ -35,6 +28,18 @@ export default {
   components: {
     swiper,
     swiperSlide,
+  },
+  mounted() {
+    axios({
+      method: "GET",
+      url: "swiper.json",
+    })
+      .then((res) =>
+        res.data.forEach((img) => {
+          if (res.status == 200) this.list.push({ src: img });
+        })
+      )
+      .catch((res) => console.log(res));
   },
 };
 </script>

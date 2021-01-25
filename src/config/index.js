@@ -1,1 +1,1 @@
-export const url = "static/";
+export const url = "static";

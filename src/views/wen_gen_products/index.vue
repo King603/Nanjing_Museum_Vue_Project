@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <top-nav ind="4"></top-nav>
+    <top-nav ind="4"/>
     <div class="products-main">
       <div class="products-title">
         <ul class="products-leftlist">
@@ -146,7 +146,6 @@ export default {
 
 <style scoped>
 .products-main {
-  margin-top: 64px;
   max-width: 1200px;
   width: 100%;
 }

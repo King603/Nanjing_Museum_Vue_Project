@@ -4,9 +4,12 @@ import Vue from 'vue';
 import router from './routes';
 // import VueAwesomeSwiper from 'vue-awesome-swiper';
 // import 'lib-flexible'
+import axios from 'axios';
 
 Vue.config.productionTip = false;
 Vue.use((()=>import('vue-awesome-swiper'))());
+
+axios.defaults.baseURL = "http://localhost:8080/static/json/";
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,7 +1,7 @@
 <template>
   <div class="main-content">
     <!-- 头部导航 -->
-    <top-nav ind="0"></top-nav>
+    <top-nav ind="0" class="top-nav"/>
     <!-- 热点轮播 -->
     <page-1 class="main-slideshow"></page-1>
     <!-- 新闻公告 -->
@@ -101,5 +101,10 @@ export default {
 }
 .main-footer {
   width: 100%;
+}
+.top-nav{
+	position: fixed !important;
+	top: 0;
+	left: 0;
 }
 </style>

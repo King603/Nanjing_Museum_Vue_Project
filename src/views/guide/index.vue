@@ -57,7 +57,6 @@ export default {
 .main {
   max-width: 1200px;
   width: 100%;
-  margin-top: 64px;
   display: flex;
 }
 .nav {
