@@ -20,7 +20,7 @@
               class="menu2"
               :title="menu.title"
               v-show="menu1.isShow"
-              v-for="(menu, i) of menu1.menu1_1"
+              v-for="(menu, i) of menu1.menu"
               :key="i"
             >
               <span>{{ getText(menu.title) }}</span>
@@ -31,32 +31,32 @@
             </li>
             <li
               class="menu2"
-              @click="show(menu2.menu2_1[0])"
+              @click="show(menu2.menu[0])"
               v-show="menu2.isShow"
             >
-              <span>{{ menu2.menu2_1[0].title }}</span
-              ><img :src="getImg(menu2.menu2_1[0].isShow)" alt="" class="img" />
+              <span>{{ menu2.menu[0].title }}</span
+              ><img :src="getImg(menu2.menu[0].isShow)" alt="" class="img" />
             </li>
             <li
               class="menu3"
-              v-show="menu2.menu2_1[0].isShow"
-              v-for="(menu, i) of menu2.menu2_1[0].menu2_2"
+              v-show="menu2.menu[0].isShow"
+              v-for="(menu, i) of menu2.menu[0].menu"
               :key="i"
             >
               <span>{{ menu.title }}</span>
             </li>
             <li
               class="menu2"
-              @click="show(menu2.menu2_1[1])"
+              @click="show(menu2.menu[1])"
               v-show="menu2.isShow"
             >
-              <span>{{ menu2.menu2_1[1].title }}</span>
-              <img :src="getImg(menu2.menu2_1[1].isShow)" alt="" class="img" />
+              <span>{{ menu2.menu[1].title }}</span>
+              <img :src="getImg(menu2.menu[1].isShow)" alt="" class="img" />
             </li>
             <li
               class="menu3"
-              v-show="menu2.menu2_1[1].isShow"
-              v-for="(menu, i) of menu2.menu2_1[0].menu2_2"
+              v-show="menu2.menu[1].isShow"
+              v-for="(menu, i) of menu2.menu[0].menu"
               :key="i"
             >
               <span>{{ menu.title }}</span>
@@ -69,7 +69,7 @@
               class="menu2"
               :title="menu.title"
               v-show="menu3.isShow"
-              v-for="(menu, i) of menu3.menu3_1"
+              v-for="(menu, i) of menu3.menu"
               :key="i"
             >
               <span>{{ getText(menu.title) }}</span>
@@ -101,7 +101,7 @@ export default {
       menu1: {
         title: "临时特展",
         isShow: false,
-        menu1_1: [
+        menu: [
           { title: "文·物—中华传统文化教育展" },
           { title: "天半人半—纪念陈半丁逝世五十周年特展" },
           { title: "艺术·生活—辽宁省博物馆研发文创作品展" },
@@ -110,11 +110,11 @@ export default {
       menu2: {
         title: "常规展览",
         isShow: false,
-        menu2_1: [
+        menu: [
           {
             title: "古代辽宁",
             isShow: false,
-            menu2_2: [
+            menu: [
               { title: "史前时期" },
               { title: "夏商周时期" },
               { title: "战国至隋唐时期" },
@@ -125,7 +125,7 @@ export default {
           {
             title: "专题陈列",
             isShow: false,
-            menu2_2: [
+            menu: [
               { title: "满族民俗展" },
               { title: "中国古代铜镜展" },
               { title: "中国古代佛教造像展" },
@@ -142,7 +142,7 @@ export default {
       menu3: {
         title: "展览回顾",
         isShow: false,
-        menu3_1: [
+        menu: [
           { title: "文物系荆楚祝福颂" },
           { title: "又见红山—精品文物展" },
           { title: "“又见大唐”书画文物展" },
@@ -171,13 +171,13 @@ export default {
             this.menu1.isShow && (this.menu1.isShow = false);
             this.menu2.isShow && (this.menu2.isShow = false);
             this.menu3.isShow && (this.menu3.isShow = false);
-            for (let i = 0; i < this.menu2.menu2_1.length; i++)
-              this.menu2.menu2_1[i].isShow = false;
+            for (let i = 0; i < this.menu2.menu.length; i++)
+              this.menu2.menu[i].isShow = false;
             menu.isShow = true;
             break;
           default:
-            for (let i = 0; i < this.menu2.menu2_1.length; i++)
-              this.menu2.menu2_1[i].isShow = false;
+            for (let i = 0; i < this.menu2.menu.length; i++)
+              this.menu2.menu[i].isShow = false;
             menu.isShow = true;
         }
       }

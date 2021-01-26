@@ -12,37 +12,21 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "page-3",
   data() {
     return {
-      img_navs: [
-        {
-          href:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c582a.htm",
-          src:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c5829.jpg",
-        },
-        {
-          href:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c6530.htm",
-          src:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c652f.jpg",
-        },
-        {
-          href:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c7339.htm",
-          src:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c7338.jpg",
-        },
-        {
-          href:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c8345.htm",
-          src:
-            "http://www.capitalmuseum.org.cn/zjsb/content/images/attachement/jpg/site2/20110106/0013d3c04a320e8f6c8344.jpg",
-        },
-      ],
+      img_navs: null,
     };
+  },
+  mounted() {
+    axios({
+      method: "GET",
+      url: "guide-nav.json",
+    })
+      .then((res) => (this.img_navs = res.data))
+      .catch((err) => console.log(err));
   },
 };
 </script>

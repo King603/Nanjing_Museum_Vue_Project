@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <top-nav ind="4"/>
+    <top-nav ind="4" />
     <div class="products-main">
       <div class="products-title">
         <ul class="products-leftlist">
@@ -16,41 +16,55 @@
         </ul>
       </div>
       <!-- 产品明细 -->
-      <div v-show="index == -1" class="products-good_list">
+      <div v-if="index == -1" class="products-good_list">
         <div class="products-good_title">
           <span>当前页为：</span><span @click="goback(0)">{{ titles[0] }}</span
-          >--><span>{{ artgoods[artgoods_page - 1] }}</span>
+          >--><span>{{ artgoods_title[artgoods_page - 1].tit }}</span>
         </div>
-        <page-1 :name="artgoods[artgoods_page - 1]"></page-1>
+        <page-1 :name="artgoods_title[artgoods_page - 1].tit"></page-1>
         <div>
-          <span :title="artgoods_page !== 1 ? artgoods[0] : ''">首页</span>
-          <span :title="artgoods_page !== 1 ? artgoods[artgoods_page - 2] : ''"
+          <span
+            :title="artgoods_page !== 1 ? artgoods_title[0].tit : ''"
+            @click="artgoods_page = 1"
+            >首页</span
+          >
+          <span
+            :title="
+              artgoods_page !== 1 ? artgoods_title[artgoods_page - 2].tit : ''
+            "
+            @click="artgoods_page == 1 ? null : switchPage(-1)"
             >上一页</span
           >
           <span
-            v-for="(goods, i) of artgoods"
+            v-for="(goods, i) of artgoods_title"
             :key="i"
-            :title="artgoods_page - 1 !== i ? '该页为' + goods : ''"
+            :title="artgoods_page - 1 !== i ? '该页为' + goods.tit : ''"
             >{{ i + 1 }}</span
           >
           <span
             :title="
-              artgoods_page !== artgoods.length ? artgoods[artgoods_page] : ''
+              artgoods_page !== artgoods_title.length
+                ? artgoods_title[artgoods_page].tit
+                : ''
+            "
+            @click="
+              artgoods_page == artgoods_title.length ? null : switchPage(1)
             "
             >下一页</span
           >
           <span
             :title="
-              artgoods_page !== artgoods.length
-                ? artgoods[artgoods.length - 1]
+              artgoods_page !== artgoods_title.length
+                ? artgoods_title[artgoods_title.length - 1].tit
                 : ''
             "
+            @click="artgoods_page = artgoods_title[artgoods_title.length - 1]"
             >尾页</span
           >
         </div>
       </div>
       <!-- 产品图文介绍 -->
-      <div v-show="index == 0">
+      <div v-if="index == 0">
         <div class="products-home">
           <swiper :options="swiperOption">
             <swiper-slide v-for="(img, index) of swiperImg" :key="index">
@@ -60,19 +74,19 @@
         </div>
 
         <div
-          class="artgoods-allsort"
+          class="products-artgoods-allsort"
           :style="{ background: `url(${artgoods_allsort}) no-repeat` }"
         >
           <ul>
-            <li v-for="i of artgoods.length" :key="i" @click="to(i)"></li>
+            <li v-for="i of artgoods_title.length" :key="i" @click="to(i)"></li>
           </ul>
         </div>
-        <div class="artgoods-img">
+        <div class="products-artgoods-img">
           <img
-            :src="`${url}/wen_gen/artgoods-${i}.jpg`"
-            v-for="i of artgoods.length"
+            :src="title.src"
+            v-for="(title, i) of artgoods_title"
             :key="i"
-            @click="to(i)"
+            @click="to(i + 1)"
           />
         </div>
       </div>
@@ -85,9 +99,7 @@
 
 <script>
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import { url } from "../../config";
-let img =
-  "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/";
+import axios from "axios";
 
 export default {
   components: {
@@ -107,13 +119,9 @@ export default {
         { img: "", tit: "", price: "", num: 0 },
         { img: "", tit: "", price: "", num: 0 },
       ],
-      swiperImg: [
-        { src: img + "20170418184334eaVs0y.jpg" },
-        { src: img + "20170418184509srW1TB.jpg" },
-        { src: img + "20170418192053BGv7Qc.jpg" },
-      ],
-      artgoods_allsort: url + "/wen_gen/4-1.png",
-      artgoods: ["鎮館之寶", "吳門四家", "蘇博建築", "煙雲過眼"],
+      swiperImg: [],
+      artgoods_allsort: "",
+      artgoods_title: [],
       artgoods_page: -1,
       swiperOption: {
         //swiper3
@@ -121,7 +129,7 @@ export default {
         speed: 1000,
         loop: true,
       },
-      url: url,
+      allsort_index: 0,
     };
   },
   methods: {
@@ -135,11 +143,27 @@ export default {
       console.log(i);
       this.artgoods_page = i;
       this.index = -1;
-      console.log("跳轉成功，當前頁是" + this.artgoods[i - 1]);
+      console.log("跳轉成功，當前頁是" + this.artgoods_title[i - 1].tit);
     },
     goback(n) {
       this.index = n;
     },
+    switchPage(n) {
+      this.artgoods_page += n;
+      console.log(
+        "跳轉成功，當前頁是" + this.artgoods_title[this.artgoods_page - 1].tit
+      );
+    },
+  },
+  mounted() {
+    axios({
+      method: "GET",
+      url: "artgoods.json",
+    }).then((res) => {
+      this.artgoods_allsort = res.data.allsorts[this.allsort_index];
+      this.artgoods_title = res.data.title;
+      this.swiperImg = res.data.swiperImg;
+    });
   },
 };
 </script>
@@ -170,9 +194,9 @@ export default {
   color: #da251c;
   border-bottom: 2px solid #da251c;
 }
-.titList.active{
-	border: none !important;
-	border-bottom: 2px solid #da251c;
+.titList.active {
+  border: none !important;
+  border-bottom: 2px solid #da251c;
 }
 .products-artgoods-allsort {
   margin-top: 30px;

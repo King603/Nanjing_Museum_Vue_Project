@@ -34,10 +34,10 @@ export default {
       method: "GET",
       url: "swiper.json",
     })
-      .then((res) =>
-        res.data.forEach((img) => {
-          if (res.status == 200) this.list.push({ src: img });
-        })
+      .then(
+        (res) =>
+          res.status == 200 &&
+          res.data.forEach((img) => this.list.push({ src: img }))
       )
       .catch((res) => console.log(res));
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="page1content content">
     <div>
-      <h6 class="title">{{ title }}</h6>
+      <h6 class="introduce-title">{{ title }}</h6>
     </div>
     <div v-for="text of texts" :key="text" class="text">
       {{ text }}
@@ -49,15 +49,12 @@ export default {
 
 <style scroped>
 .page1content {
-  padding: 0 50px;
+  padding: 0 50px;color: #737373;
 }
-.title {
+.introduce-title {
   font-size: 32px;
   line-height: 150%;
   margin: 10px 0;
-}
-* {
-  color: #737373;
 }
 .text {
   line-height: 150%;

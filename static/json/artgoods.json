@@ -1,0 +1,36 @@
+{
+	"allsorts": [
+		"http://localhost:8080/static/wen_gen/4-1.png",
+		"http://localhost:8080/static/wen_gen/2-2.png",
+		"http://localhost:8080/static/wen_gen/4-1.png"
+	],
+	"title": [
+		{
+			"tit": "鎮館之寶",
+			"src": "http://localhost:8080/static/wen_gen/artgoods-1.jpg"
+		},
+		{
+			"tit": "吳門四家",
+			"src": "http://localhost:8080/static/wen_gen/artgoods-2.jpg"
+		},
+		{
+			"tit": "蘇博建築",
+			"src": "http://localhost:8080/static/wen_gen/artgoods-3.jpg"
+		},
+		{
+			"tit": "煙雲過眼",
+			"src": "http://localhost:8080/static/wen_gen/artgoods-4.jpg"
+		}
+	],
+	"swiperImg": [
+		{
+			"src": "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418184334eaVs0y.jpg"
+		},
+		{
+			"src": "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418184509srW1TB.jpg"
+		},
+		{
+			"src": "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418192053BGv7Qc.jpg"
+		}
+	]
+}

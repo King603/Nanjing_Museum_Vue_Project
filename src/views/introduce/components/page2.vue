@@ -33,7 +33,7 @@
         <div>
           <p>博物馆全年接待参观{{ visitNum }}人次。</p>
           <p>微信公众号关注人数{{ readNum }}人，累计阅读量4.5万余人次。</p>
-          <p>（中医药博物馆）</p>
+          <p>（{{ name }}）</p>
         </div>
       </div>
     </div>
@@ -49,11 +49,12 @@ export default {
       list: [],
       isShow: false,
       year: "",
-      data: "",
+      date: "",
       result: [],
       list_style_image: "/static/icon.jpg",
       visitNum: 0,
       readNum: 0,
+      name: "",
     };
   },
   methods: {
@@ -69,8 +70,9 @@ export default {
       })
         .then((res) => {
           if (res.status == 200) {
-            this.result = res.data;
-            this.visit = parseInt(Math.random() * 20000);
+            this.result = res.data.list;
+            this.name = res.data.name;
+            this.visitNum = parseInt(Math.random() * 20000);
             this.readNum = parseInt(Math.random() * 9999);
             this.isShow = true;
           }
@@ -82,7 +84,12 @@ export default {
     },
   },
   mounted() {
-    axios.get("eventList.json").then((res) => (this.list = res.data));
+    axios({
+      method: "GET",
+      url: "eventList.json",
+    })
+      .then((res) => (this.list = res.data))
+      .catch((res) => console.log(res));
   },
 };
 </script>
