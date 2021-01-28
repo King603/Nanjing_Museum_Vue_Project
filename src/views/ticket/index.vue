@@ -23,7 +23,7 @@
             v-for="(date, i) of dateList"
             :key="i"
             :class="date.className"
-            @click="set_data(data)"
+            @click="set_date(date)"
           >
             <span v-show="date.m != ''">{{ date.m }}月{{ date.d }}日</span>
             <br />
@@ -195,8 +195,8 @@ export default {
       for (let i = 0, j = 0; i < 21; i++) {
         let isOut = i < dates[0].getDay() - 1 || j >= dates.length;
         dateList[i] = {
-          m: isOut ? "" : dates[j].getMonth() + 1 + "",
-          d: isOut ? "" : dates[j].getDate() + "",
+          m: isOut ? "" : (dates[j].getMonth() + 1).toString(),
+          d: isOut ? "" : dates[j].getDate().toString(),
           t: isOut
             ? ""
             : dates[j++].getDay() == 1
@@ -217,7 +217,7 @@ export default {
     set_am_pm(i) {
       this.time_index = i;
     },
-    set_data(data) {},
+    set_date(date) {},
   },
   mounted() {
     this.dateList = this.getDateList();

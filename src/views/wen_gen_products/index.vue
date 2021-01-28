@@ -156,10 +156,7 @@ export default {
     },
   },
   mounted() {
-    axios({
-      method: "GET",
-      url: "artgoods.json",
-    }).then((res) => {
+    axios({ method: "GET", url: "artgoods.json" }).then((res) => {
       this.artgoods_allsort = res.data.allsorts[this.allsort_index];
       this.artgoods_title = res.data.title;
       this.swiperImg = res.data.swiperImg;

@@ -59,12 +59,12 @@ export default {
         {
           title: "学术研究/出版物",
           isMoveIn: false,
-          to: "",
+          to: "/academic_research",
         },
         {
           title: "社会活动",
           isMoveIn: false,
-          to: "",
+          to: "/activity",
         },
         {
           title: "当地文化",

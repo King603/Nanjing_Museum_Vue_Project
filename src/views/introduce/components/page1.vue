@@ -49,7 +49,8 @@ export default {
 
 <style scroped>
 .page1content {
-  padding: 0 50px;color: #737373;
+  padding: 0 50px;
+  color: #737373;
 }
 .introduce-title {
   font-size: 32px;

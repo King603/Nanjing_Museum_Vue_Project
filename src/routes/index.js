@@ -12,5 +12,10 @@ export default new Router({
 		{ path: '/guide', component: () => import('@/views/guide') },
 		{ path: '/wen_gen_products', component: () => import('@/views/wen_gen_products') },
 		{ path: '/ticket', component: () => import('@/views/ticket') },
+		{ path: '/academic_research', component: () => import('@/views/academic_research') },
+		{ path: '/academic_research/research_results', component: () => import('@/views/academic_research/research_results') },
+		{ path: '/academic_research/lecture', component: () => import('@/views/academic_research/lecture') },
+		{ path: '/academic_research/research_topic', component: () => import('@/views/academic_research/research_topic') },
+		{ path: '/activity', component: () => import('@/views/activity') },
 	]
 })
