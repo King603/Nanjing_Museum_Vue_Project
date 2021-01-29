@@ -15,9 +15,9 @@
           </li>
         </ul>
       </div>
-      <page-1 v-show="index == 0" class="page" />
-      <page-2 v-show="index == 1" class="page" />
-      <page-3 v-show="index == 2" class="page" />
+      <page-1 v-show="index == 0" class="guide-page" />
+      <page-2 v-show="index == 1" class="guide-page" />
+      <page-3 v-show="index == 2" class="guide-page" />
     </div>
     <to-top></to-top>
   </div>
@@ -80,7 +80,7 @@ export default {
   border-bottom: 1px solid;
   border-top: 1px solid;
 }
-.page {
+.guide-page {
   width: 85%;
   background-image: url(http://www.capitalmuseum.org.cn/zjsb/images/1730.files/ps2.jpg);
 }
