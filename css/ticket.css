@@ -1,0 +1,168 @@
+.main {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#nav_tit {
+	width: 100%;
+	display: inline-flex;
+	background-color: #f8f9e8;
+	font-family: "楷体";
+	font-size: 16px;
+	font-weight: 800;
+}
+
+#nav_tit div {
+	margin: 0 auto;
+	line-height: 200%;
+}
+
+#nav_tit span.active {
+	background-color: #c5974b;
+	border-radius: 50%;
+	padding: 5px;
+}
+
+.banner {
+	margin: 0 auto;
+	width: 700px;
+}
+
+.banner ol {
+	display: inline-flex;
+	width: 100%;
+}
+
+.banner ul {
+	display: inline-block;
+	width: 100%;
+}
+
+.banner ol li {
+	margin: 0 auto;
+	line-height: 300%;
+}
+
+.banner ul li {
+	line-height: 300%;
+	width: 100px;
+	height: 80px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	color: #a15949;
+}
+
+.date:hover, li.active {
+	border-radius: 10px;
+	border: 1px solid red;
+}
+
+.closed {
+	color: #999 !important;
+	cursor: default !important;
+}
+
+.banner>div:last-child {
+	/* border: 1px solid red; */
+	background: #e0cba0;
+	padding: 15px;
+}
+
+.banner>div:last-child>div {
+	display: flex;
+	width: 30%;
+}
+
+.banner>div:last-child>div:nth-child(1) {
+	float: left;
+}
+
+.banner>div:last-child>div:nth-child(1)>div:hover, .banner>div:last-child>div:nth-child(1)>div.active {
+	border: 1px solid #bd2a2d;
+}
+
+.banner>div:last-child>div:nth-child(2) {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.banner>div:last-child>div>div {
+	margin: 0 auto;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #fff;
+	padding: 5px;
+	border-radius: 50%;
+}
+
+#newsList {
+	width: 49%;
+	box-sizing: border-box;
+	padding: 15px 10px;
+	position: relative;
+	padding-bottom: 25px;
+	font-family: "楷体";
+	font-size: 14px;
+	float: left;
+	border-right: 1px solid #e0cba0;
+}
+
+#newsList>div span:first-child {
+	cursor: pointer;
+}
+
+#newsList>div span:first-child:hover, .button {
+	color: #a15949;
+}
+
+#newsList>div span:last-child {
+	float: right;
+}
+
+.button {
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	cursor: pointer;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bolder;
+}
+
+.problem {
+	width: 49%;
+	font-family: "楷体";
+	padding: 15px;
+	float: left;
+}
+
+table td {
+	height: 100%;
+}
+
+h1.title {
+	color: #b56e03 !important;
+	font-size: 17px;
+}
+
+.problem-text {
+	margin-left: 20px;
+	margin-right: 40px;
+}
+
+.red {
+	color: #f00;
+}
+
+.ordered_list {
+	margin-right: 10px;
+}
+
+.ordered_list .ordered_list>li {
+	list-style: inside decimal;
+}

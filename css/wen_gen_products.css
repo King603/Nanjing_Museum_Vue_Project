@@ -1,0 +1,83 @@
+.products-main {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.products-title {
+	width: 100%;
+	background-color: #f3f3f3;
+	border-bottom: 2px solid #e2e2e2;
+}
+
+.products-leftlist {
+	text-align: center;
+	margin: 0;
+}
+
+.products-leftlist li {
+	height: 68px;
+	line-height: 70px;
+	font-size: 15px;
+	margin: 0 17px;
+	float: none;
+	display: inline-block;
+}
+
+.products-leftlist .titList:hover, .products-active {
+	color: #da251c;
+	border-bottom: 2px solid #da251c;
+	cursor: pointer;
+}
+
+.titList.products-active {
+	border: none !important;
+	border-bottom: 2px solid #da251c;
+}
+
+.products-artgoods-allsort {
+	margin-top: 30px;
+	height: 624px;
+	position: relative;
+}
+
+.products-artgoods-allsort ul {
+	position: absolute;
+	width: 94%;
+	left: 3%;
+	top: 90px;
+}
+
+.products-artgoods-allsort ul li {
+	width: 25%;
+	height: 310px;
+	float: left;
+	cursor: pointer;
+}
+
+.products-artgoods-img {
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+#products-good_list {
+	position: relative;
+}
+
+.products-good_title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.products-home {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.products-home img {
+	width: 100%;
+}

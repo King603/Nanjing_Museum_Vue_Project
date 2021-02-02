@@ -1,7 +1,7 @@
 [
-	"http://localhost:8080/static/swiper/2.png",
-	"http://localhost:8080/static/swiper/3.png",
-	"http://localhost:8080/static/swiper/4.png",
-	"http://localhost:8080/static/swiper/5.png",
-	"http://localhost:8080/static/swiper/6.png"
+	"http://127.0.0.1:5500/static/swiper/2.png",
+	"http://127.0.0.1:5500/static/swiper/3.png",
+	"http://127.0.0.1:5500/static/swiper/4.png",
+	"http://127.0.0.1:5500/static/swiper/5.png",
+	"http://127.0.0.1:5500/static/swiper/6.png"
 ]

@@ -1,0 +1,125 @@
+.main {
+	max-width: 1200px;
+	width: 100%;
+	display: flex;
+	margin: 0 auto;
+}
+
+.guide-nav {
+	border: 1px solid #fff;
+	width: 20%;
+	background-image: url(http://www.capitalmuseum.org.cn/zjsb/images/1670.files/jxzltwo_02.jpg);
+}
+
+.guide-nav ul {
+	width: 100%;
+}
+
+.list {
+	line-height: 30px;
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	border-top: 1px solid rgba(0, 0, 0, 0);
+}
+
+.list:hover, .guide-active {
+	color: #8a8888;
+}
+
+.guide-active {
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+}
+
+.guide-page {
+	width: 85%;
+	background-image: url(http://www.capitalmuseum.org.cn/zjsb/images/1730.files/ps2.jpg);
+}
+
+.tit {
+	text-align: center;
+	cursor: pointer;
+	background-color: #6c3658;
+}
+
+.tit>button {
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 30px;
+	width: 80px;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	outline: 0;
+}
+
+.tit.active>button {
+	background-color: #ad3b80;
+	border-radius: 50%;
+}
+
+.map {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.map>img {
+	width: 100%;
+	padding-top: 10px;
+}
+
+p {
+	display: block;
+	margin: 10px 0 0 50px;
+	padding-bottom: 10px;
+}
+
+.text {
+	border-collapse: separate;
+	border-spacing: 0px 15px;
+}
+
+.info {
+	padding: 30px 80px;
+	color: blue !important;
+}
+
+.wangzhan {
+	color: purple;
+}
+
+.weixin {
+	color: #36f;
+}
+
+.date {
+	text-align: right;
+}
+
+.top {
+	line-height: 500%;
+}
+
+h6 {
+	font-size: 18px;
+	margin-block-start: 2em;
+	margin-block-end: 2em;
+}
+
+.img {
+	margin: 0 100px;
+}
+
+.img:last-child {
+	margin-bottom: 25px;
+}
+
+.img img {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.title {
+	margin: 25px auto;
+	width: 80%;
+}

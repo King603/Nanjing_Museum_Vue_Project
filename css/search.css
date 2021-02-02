@@ -1,0 +1,17 @@
+body {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.search-input {
+	width: 200px;
+	height: 20px;
+	border: solid #ffd672 1px;
+}
+
+.search-button {
+	width: 50px;
+	height: 22px;
+	background-color: #e8be58;
+	color: #ffffff;
+	border: 0;
+}

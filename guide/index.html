@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>参观指南</title>
+	<link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="../common.css">
+	<link rel="stylesheet" href="../css/top-nav.css">
+	<link rel="stylesheet" href="../css/guide.css">
+</head>
+
+<body class="content">
+	<!-- 头部导航 -->
+	<header class="top-nav">
+		<div class="nav">
+			<div class="logo">
+				<a href="/"><img src="../static/frist_img.png" alt="" /></a>
+			</div>
+			<div id="nav"></div>
+		</div>
+	</header>
+	<section class="main">
+		<div class="guide-nav">
+			<ul></ul>
+		</div>
+		<div class="guide-page" id="page1">
+			<table cellpadding="0" cellspacing="0" width="100%">
+				<tr id="button"></tr>
+				<tr id="page1_1">
+					<td>
+						<div class="text">
+							<div class="map">
+								<img :src="page1_info.img" alt="" />
+							</div>
+							<p v-html="page1_info.span"></p>
+						</div>
+					</td>
+				</tr>
+				<tr id="page1_2">
+					<td>
+						<table cellspacing="0" cellpadding="0" width="100%" class="text"></table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="guide-page info" id="page2">
+			<h6>开放时间</h6>
+			<p id="text1"></p>
+			<h6>安全须知</h6>
+			<p id="text2"></p>
+			<h6>注意事项</h6>
+			<p id="text3"></p>
+			<p>
+				<strong><a id="wangzh" target="_blank" class="wangzhan top">网站预约请点击此处</a></strong>
+			</p>
+			<p>
+				<strong><a id="weixin" target="_blank" class="weixin top">微信预约请点击此处</a></strong><strong><br /></strong>
+			</p>
+			<div class="date" id="date"></div>
+		</div>
+		<div class="guide-page self" id="page3">
+			<div class="title">
+				<strong>首都博物馆各层参观导览图（请点击放大观看）</strong>
+			</div>		</div>
+	</section>
+</body>
+<script src="../util/axios/axios.js"></script>
+<script src="../main.js"></script>
+<script type="module" src="../src/guide.js"></script>
+
+</html>

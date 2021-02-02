@@ -1,27 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-	<title>mydemo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>首页</title>
+	<link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="./common.css">
+	<link rel="stylesheet" href="./css/top-nav.css">
+	<link rel="stylesheet" href="./util/swiper/css/swiper.css">
+	<script src="./util/axios/axios.js"></script>
+	<link rel="stylesheet" href="css/index.css">
+	<script src="main.js"></script>
+	<link rel="stylesheet" href="./css/news.css">
 </head>
 
 <body>
-	<div id="app"></div>
-	<!-- built files will be auto injected -->
-	<script>
-		let u = navigator.userAgent;
-		let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // android终端或者uc浏览器
-		let isiOS = u.indexOf('iPhone') > -1; // ios终端
-		let windowWidth = document.documentElement.clientWidth;
-		document.documentElement.style.fontSize = (!isAndroid && !isiOS && windowWidth > 480 ? 480 : windowWidth) / 7.5 + 'px';
-
-		document.documentElement.style.fontSize = innerWidth / 7.5 + 'px';
-		window.onresize = function () {
-			document.documentElement.style.fontSize = innerWidth / 7.5 + 'px';
-		}
-	</script>
+	<header class="top-nav">
+		<div class="nav">
+			<div class="logo">
+				<a href="/"><img src="./static/frist_img.png" alt="" /></a>
+			</div>
+			<div id="nav"></div>
+		</div>
+	</header>
+	<section>
+		<!-- Swiper -->
+		<div class="swiper-container home">
+			<div class="swiper-wrapper"></div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+		<!-- news -->
+		<div class="main1-main">
+			<h1 class="news_title">新闻动态</h1>
+			<div id="news"></div>
+		</div>
+	</section>
+	<footer>
+		<iframe src="components/bot-foo.html" name="footer" onload="this.height=footer.document.body.scrollHeight"
+			width="100%" id="footer" scrolling="no" frameborder="0"></iframe>
+	</footer>
 </body>
+<script src="./util/swiper/js/swiper.js"></script>
+<script type="module" src="./src/index.js"></script>
 
 </html>

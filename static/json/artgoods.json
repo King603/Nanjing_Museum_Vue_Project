@@ -1,25 +1,25 @@
 {
 	"allsorts": [
-		"http://localhost:8080/static/wen_gen/4-1.png",
-		"http://localhost:8080/static/wen_gen/2-2.png",
-		"http://localhost:8080/static/wen_gen/4-1.png"
+		"http://127.0.0.1:5500/static/wen_gen/4-1.png",
+		"http://127.0.0.1:5500/static/wen_gen/2-2.png",
+		"http://127.0.0.1:5500/static/wen_gen/4-1.png"
 	],
 	"title": [
 		{
 			"tit": "鎮館之寶",
-			"src": "http://localhost:8080/static/wen_gen/artgoods-1.jpg"
+			"src": "http://127.0.0.1:5500/static/wen_gen/artgoods-1.jpg"
 		},
 		{
 			"tit": "吳門四家",
-			"src": "http://localhost:8080/static/wen_gen/artgoods-2.jpg"
+			"src": "http://127.0.0.1:5500/static/wen_gen/artgoods-2.jpg"
 		},
 		{
 			"tit": "蘇博建築",
-			"src": "http://localhost:8080/static/wen_gen/artgoods-3.jpg"
+			"src": "http://127.0.0.1:5500/static/wen_gen/artgoods-3.jpg"
 		},
 		{
 			"tit": "煙雲過眼",
-			"src": "http://localhost:8080/static/wen_gen/artgoods-4.jpg"
+			"src": "http://127.0.0.1:5500/static/wen_gen/artgoods-4.jpg"
 		}
 	],
 	"swiperImg": [

@@ -1,0 +1,243 @@
+.content {
+	background-color: #f5f6ef;
+}
+
+.main {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.logobg {
+	background-size: 100% 100%;
+	position: relative;
+	width: 100%;
+	height: 300px;
+}
+
+.introduce-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.title {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	display: flex;
+	width: 100%;
+	font-size: 13px;
+	text-align: center;
+}
+
+.title>div {
+	width: 100%;
+	line-height: 44px;
+	font-size: 13px;
+	margin: 0 1px;
+	border: 1px solid #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.title_bg {
+	color: #fff;
+	text-shadow: 1px 1px 0 #11182c;
+	background-image: radial-gradient(50px at center center, #acaf7a 0%, #a1a568 100%);
+	background-image: -webkit-repeating-radial-gradient(50px at center center, #acaf7a 0%, #a1a568 100%);
+	background-image: -moz-repeating-radial-gradient(50px at center center, #acaf7a 0%, #a1a568 100%);
+	background-image: -o-repeating-radial-gradient(50px at center center, #acaf7a 0%, #a1a568 100%);
+	background-image: -ms-repeating-radial-gradient(50px at center center, #acaf7a 0%, #a1a568 100%);
+}
+
+.title_bg:hover, .designate {
+	color: #000;
+	text-shadow: 1px 1px 0 #f1b955;
+	background-image: radial-gradient(50px at center center, #eda119 0%, #ea7107 100%);
+	background-image: -webkit-repeating-radial-gradient(50px at center center, #eda119 0%, #ea7107 100%);
+	background-image: -moz-repeating-radial-gradient(50px at center center, #eda119 0%, #ea7107 100%);
+	background-image: -o-repeating-radial-gradient(50px at center center, #eda119 0%, #ea7107 100%);
+	background-image: -ms-repeating-radial-gradient(50px at center center, #eda119 0%, #ea7107 100%);
+}
+
+.hidden {
+	display: none;
+}
+
+.page1content {
+	padding: 0 50px;
+	color: #737373;
+}
+
+.introduce-title {
+	font-size: 32px;
+	line-height: 150%;
+	margin: 0;
+}
+
+.text {
+	line-height: 150%;
+	text-indent: 2em;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.vsbcontent_img {
+	width: 100%;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 0 100px;
+}
+
+.vsbcontent_img img {
+	border: #ccc 1px solid;
+	border-radius: 5px;
+	padding: 10px;
+	width: 100%;
+}
+
+.small_img {
+	height: 700px;
+	width: 40% !important;
+}
+
+.small_img+.small_img {
+	margin-left: 10%;
+}
+
+.vsbcontent_img p {
+	line-height: 150%;
+	font-size: 14px;
+	margin-bottom: 17px;
+}
+
+h6 {
+	text-align: center;
+}
+
+.til_lf01 {
+	border-bottom: 2px solid #cecfc8;
+}
+
+.til_lf01>span {
+	border-bottom: 2px solid #819319;
+}
+
+h3.til_lf01 {
+	font-size: 16px;
+	color: #819319;
+}
+
+.box_event02-ul {
+	padding: 0;
+}
+
+.box_event02-ul li {
+	line-height: 22px;
+	padding: 5px 0;
+	font-size: 14px;
+	padding-left: 16px;
+	border-bottom: 1px solid #fff;
+}
+
+.box_event02-ul li, .goBack {
+	cursor: pointer;
+}
+
+.box_event02-ul li span:last-child {
+	float: right;
+}
+
+.info {
+	padding: 30px 80px;
+	width: 100%;
+}
+
+h2.page2Title {
+	font-size: 20px;
+	line-height: 30px;
+	padding: 20px 10px 15px;
+	color: #819319;
+	text-align: center;
+	letter-spacing: 1px;
+	overflow: hidden;
+}
+
+.author {
+	width: 100%;
+	line-height: 30px;
+	background: #fff;
+	color: #666;
+	text-align: center;
+}
+
+.article_t {
+	width: 98%;
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 40px;
+	overflow: hidden;
+	font-size: 14px;
+	line-height: 30px;
+}
+
+.article_t p {
+	text-indent: 2em;
+}
+
+.article_t>p+p {
+	border-top: 0.1px solid #666;
+}
+
+.article_t>div>p:last-child {
+	text-align: right;
+}
+
+.goBack {
+	padding: 10px;
+	background-color: #fff;
+}
+
+.page3content {
+	position: relative;
+	padding-bottom: 100px;
+}
+
+.page3Title {
+	font-size: 32px;
+	color: #819319;
+	font-weight: bold;
+	text-align: center;
+}
+
+img.newsInfo, img.responsive-img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+.page3Info {
+	line-height: 30px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.wenben {
+	text-indent: 32px;
+	line-height: 175%;
+	font-size: 16px;
+	text-align: justify;
+	margin: 0 45px;
+	margin-top: 15px;
+}
+
+img.newsInfo {
+	position: absolute;
+	right: 5px;
+	bottom: 0;
+}
