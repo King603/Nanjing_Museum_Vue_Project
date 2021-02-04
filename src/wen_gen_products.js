@@ -16,9 +16,9 @@ let artgoods_title = [];
 let allsort_index = 0;
 
 // 本页导航
-let leftlist = document.getElementById("leftlist");
+let leftlist = $id("leftlist");
 titles.forEach((tit, i) => {
-	let li = document.createElement("li");
+	let li = $add("li");
 	li.className = `titList${i == 0 ? " active" : ""}`;
 	li.innerHTML = tit;
 	li.addEventListener("click", ev => {
@@ -28,10 +28,10 @@ titles.forEach((tit, i) => {
 	});
 	leftlist.appendChild(li);
 });
-let products_good_list = document.getElementById("products-good_list");
-let products_page = document.getElementById("products");
-let products_buy = document.getElementById("buy");
-let products_cx = document.getElementById("cx");
+let products_good_list = $id("products-good_list");
+let products_page = $id("products");
+let products_buy = $id("buy");
+let products_cx = $id("cx");
 
 showPage(0);
 // 产品图文介绍
@@ -41,12 +41,12 @@ axios({ method: "GET", url: "artgoods.json" }).then((res) => {
 		artgoods_title = res.data.title;
 		let swiperImg = res.data.swiperImg;
 		swiperImg.forEach((img) => {
-			let swiper_slide = document.createElement("div");
+			let swiper_slide = $add("div");
 			swiper_slide.className = "swiper-slide";
 			let image = new Image();
 			image.src = img.src;
 			swiper_slide.appendChild(image);
-			document.getElementsByClassName("swiper-wrapper")[0].appendChild(swiper_slide);
+			$class("swiper-wrapper")[0].appendChild(swiper_slide);
 		});
 		new Swiper(".swiper-container", {
 			slidesPerView: 1,
@@ -58,11 +58,11 @@ axios({ method: "GET", url: "artgoods.json" }).then((res) => {
 			navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
 		});
 		/**@type {HTMLDivElement} */
-		let products_artgoods_allsort = document.getElementsByClassName("products-artgoods-allsort")[0];
+		let products_artgoods_allsort = $class("products-artgoods-allsort")[0];
 		products_artgoods_allsort.style.background = `url(${artgoods_allsort}) no-repeat`;
 		let ul = products_artgoods_allsort.getElementsByTagName("ul")[0];
 		for (let i = 1; i <= artgoods_title.length; i++) {
-			let li = document.createElement("li");
+			let li = $add("li");
 			ul.appendChild(li);
 			li.addEventListener("click", ev => {
 				if (ev.button == 0) {
@@ -70,7 +70,7 @@ axios({ method: "GET", url: "artgoods.json" }).then((res) => {
 				}
 			});
 		}
-		let products_artgoods_img = document.getElementsByClassName("products-artgoods-img")[0];
+		let products_artgoods_img = $class("products-artgoods-img")[0];
 		artgoods_title.forEach((title, i) => {
 			let img = new Image();
 			img.src = title.src;
@@ -114,7 +114,7 @@ function showPage(n) {
 }
 
 function show(index) {
-	let lis = document.getElementsByClassName("titList");
+	let lis = $class("titList");
 	for (let i = 0; i < lis.length; i++)
 		lis[i].className = `titList${i == index ? " active" : ""}`;
 	showPage(index);
@@ -124,7 +124,7 @@ function to(i) {
 	artgoods_page = i
 	showPage(-1);
 	console.log("跳轉成功，當前頁是" + artgoods_title[i - 1].tit);
-	let products_good_title = document.getElementsByClassName("products-good_title")[0];
+	let products_good_title = $class("products-good_title")[0];
 	let span = products_good_title.getElementsByTagName("span");
 	span[1].innerHTML = titles[0];
 	span[1].style.cursor = "pointer";
@@ -135,7 +135,7 @@ function to(i) {
 }
 function showProducts_good(name) {
 	let goods_img = null;
-	let goods = document.getElementById("goods");
+	let goods = $id("goods");
 	let goods_info = goods.getElementsByTagName("table")[0];
 	goods_info.innerHTML = "";
 
@@ -143,9 +143,9 @@ function showProducts_good(name) {
 		if (res.status == 200) {
 			goods_img = res.data;
 			goods_img.forEach((img, i) => {
-				let tr = document.createElement("tr");
+				let tr = $add("tr");
 				goods_info.appendChild(tr);
-				let td = document.createElement("td");
+				let td = $add("td");
 				tr.appendChild(td);
 				td.className = "goods";
 				let image = new Image();
@@ -154,7 +154,7 @@ function showProducts_good(name) {
 				image.style.height = img.height;
 				td.appendChild(image);
 				img.goods.forEach((g, j) => {
-					let good_div = document.createElement("div");
+					let good_div = $add("div");
 					td.appendChild(good_div);
 					let img = new Image();
 					img.src = g.src;
@@ -163,7 +163,7 @@ function showProducts_good(name) {
 				});
 			});
 			console.log(artgoods_title)
-			let $pages = document.getElementById("pages");
+			let $pages = $id("pages");
 			$pages.innerHTML = "";
 
 			setPagesButton("首页", artgoods_title[0].tit, () => to(1));
@@ -173,7 +173,7 @@ function showProducts_good(name) {
 			setPagesButton("末页", artgoods_title[0].tit, () => to(artgoods_title.length));
 
 			function setPagesButton(innerHTML, title, click) {
-				let page = document.createElement("span");
+				let page = $add("span");
 				page.innerHTML = innerHTML;
 				page.title = title;
 				page.addEventListener("click", ev => ev.button == 0 && click());

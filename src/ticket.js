@@ -25,10 +25,19 @@ function getDateList() {
 		dateList[i] = {
 			m: isOut ? "" : (dates[j].getMonth() + 1).toString(),
 			d: isOut ? "" : dates[j].getDate().toString(),
-			t: isOut ? "" : dates[j].getDay() == 1 ? "闭馆" : j == 0 ? "已售罄" : `余${parseInt(Math.random() * 10000)}人`,
-			className: isOut ? "" : j == 0 || dates[j].getDay() == 1 ? "closed" : "date",
+			t: isOut
+				? ""
+				: dates[j++].getDay() == 1
+				? "闭馆"
+				: j - 1 == 0
+				? "已售罄"
+				: `余${parseInt(Math.random() * 10000)}人`,
+			className: isOut
+				? ""
+				: j - 1 == 0 || dates[j - 1].getDay() == 1
+				? "closed"
+				: "date",
 		};
-		j++;
 	}
 	return dateList;
 }
@@ -39,27 +48,27 @@ function set_date(date) {
 	console.log(date)
 }
 
-let $nav_tit = document.getElementById("nav_tit");
+let $nav_tit = $id("nav_tit");
 nav_tit.forEach((nav, i) => {
-	let div = document.createElement("div");
+	let div = $add("div");
 	div.className = nav_tit_index == i ? "active" : "";
 	div.innerHTML = nav;
 	$nav_tit.appendChild(div);
 });
 
 dateList = getDateList();
-let $date = document.getElementById("date");
+let $date = $id("date");
 dateList.forEach((date, i) => {
-	let li = document.createElement("li");
+	let li = $add("li");
 	li.className = date.className;
 	li.addEventListener("click", ev => ev.button == 0 && set_date(date));
 	date.m && (li.innerHTML = `<span>${date.m}月${date.d}日</span><br />${date.t}`);
 	$date.appendChild(li);
 });
 
-let $setting = document.getElementById("setting");
+let $setting = $id("setting");
 ["上午", "下午", "当日"].forEach((set, i) => {
-	let div = document.createElement("div");
+	let div = $add("div");
 	div.className = time_index == i ? "active" : "";
 	div.innerHTML = set;
 	div.addEventListener("click", ev => ev.button == 0 && set_am_pm(i));
@@ -71,40 +80,40 @@ axios({ method: "GET", url: "ticket.json", }).then((res) => {
 		result = res.data;
 		for (let i = 0; i < news_num && i < result.dataList.length; i++)
 			newsList[i] = result.dataList[i];
-		let $newsList = document.getElementById("newsList");
+		let $newsList = $id("newsList");
 		newsList.forEach((news, i) => {
-			let div = document.createElement("div");
+			let div = $add("div");
 			div.innerHTML = `<p><span>${i}</span><span>${news.title}</span><span>${news.year}/${news.month}/${news.date}</span></p><br />`;
 			$newsList.appendChild(div);
 		});
 		$newsList.innerHTML += '<div class="button">更多&gt;&gt;</div>';
-		result.ticket_list.forEach(ticket => olList(document.getElementById("gou"), ticket));
-		result.refund_list.forEach(ticket => olList(document.getElementById("tui"), ticket));
-		result.checking_list.forEach(ticket => olList(document.getElementById("yan"), ticket));
+		result.ticket_list.forEach(ticket => olList($id("gou"), ticket));
+		result.refund_list.forEach(ticket => olList($id("tui"), ticket));
+		result.checking_list.forEach(ticket => olList($id("yan"), ticket));
 		function olList(HTMLElement, ticket) {
-			let li = document.createElement("li");
+			let li = $add("li");
 			li.innerHTML = ticket;
 			HTMLElement.appendChild(li);
 		}
 		result.Visit_time.forEach((time, i) => {
-			let tr = document.createElement("tr");
+			let tr = $add("tr");
 			tr.innerHTML = `<th>${i == 0 ? "旺季" : "淡季"}（每年${time.start}至${time.end}）</th><td>${time.Start_selling_tickets}</td><td>${time.Stop_selling_tickets}</td><td>${time.Stop_to_enter}</td><td>${time.Scenic_area_closed}</td>`;
 			document.querySelectorAll("#Visit>tbody")[0].appendChild(tr);
 		});
 		result.line.forEach(line => {
-			let li = document.createElement("li");
+			let li = $add("li");
 			li.innerHTML = line;
-			document.getElementById("line").appendChild(li);
+			$id("line").appendChild(li);
 		});
 		result.policy.forEach(p => {
-			let li = document.createElement("li");
-			document.getElementById("policy").appendChild(li);
+			let li = $add("li");
+			$id("policy").appendChild(li);
 			li.innerHTML = `<h3>${p.title}</h3>`;
-			let ol = document.createElement("ol");
+			let ol = $add("ol");
 			li.appendChild(ol);
 			ol.className = "ordered_list";
 			p.texts.forEach(text => {
-				let li = document.createElement("li");
+				let li = $add("li");
 				ol.appendChild(li);
 				li.innerHTML = text;
 			})

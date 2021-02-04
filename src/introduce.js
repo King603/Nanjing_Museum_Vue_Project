@@ -11,14 +11,14 @@ console.clear();
 	const logo = "../static/logo/logo.png";
 	let index = 0;
 	let buttonList = ["博物馆简介", "大事记", "名人致辞"];
-	let iframes = document.querySelectorAll(".main .iframe");
+	let iframes = $all(".main .iframe");
 	initIframe();
 
 	document.body.style.backgroundImage = `url(${bgImgUrl})`;
 	/**@type {HTMLDivElement} */
-	let logobg = document.getElementsByClassName("logobg")[0];
+	let logobg = $class("logobg")[0];
 	logobg.style.backgroundImage = `url(${logoBgUrl})`;
-	let img = document.createElement("img");
+	let img = new Image();
 	img.src = logo;
 	img.className = "introduce-logo";
 	logobg.appendChild(img);
@@ -59,16 +59,16 @@ console.clear();
 (() => {
 	axios({ method: "GET", url: "introduces.json" }).then((res) => {
 		if (res.status == 200) {
-			document.getElementsByClassName("introduce-title")[0].innerHTML = res.data.title;
+			$class("introduce-title")[0].innerHTML = res.data.title;
 
 			res.data.text.split("\n").forEach(text => {
-				let div = document.createElement("div");
+				let div = $add("div");
 				div.className = "text";
 				div.innerHTML = text;
-				document.getElementById("text").appendChild(div);
+				$id("text").appendChild(div);
 			});
 
-			let $introduces = document.getElementById("introduces");
+			let $introduces = $id("introduces");
 			res.data.introduces.forEach(({ imgs, title }) => {
 				imgs.forEach(({ src, small }) => {
 					let image = new Image();
@@ -76,7 +76,7 @@ console.clear();
 					image.className = small ? "small_img" : "";
 					$introduces.appendChild(image);
 				});
-				let p = document.createElement("p");
+				let p = $add("p");
 				p.innerHTML = title;
 				$introduces.appendChild(p)
 			})
@@ -93,7 +93,7 @@ console.clear();
 		if (res.status == 200) {
 			let list = res.data;
 			list.forEach(news => {
-				let li = document.createElement("li");
+				let li = $add("li");
 				li.addEventListener("click", ev => {
 					if (ev.button == 0) {
 						show(news.year, news.date);
@@ -103,14 +103,14 @@ console.clear();
 				let img = new Image();
 				img.src = list_style_image;
 				li.appendChild(img);
-				li.innerHTML += "<span>" + news.year + "年博物馆大事记</span><span>" + news.date + "</span>";
+				li.innerHTML += `<span>${news.year}年博物馆大事记</span><span>${news.date}</span>`;
 			});
 		} else console.log(res.statusText);
 	}).catch((res) => console.log(res));
 
 
-	let info1 = document.getElementById("info1");
-	let info2 = document.getElementById("info2");
+	let info1 = $id("info1");
+	let info2 = $id("info2");
 	info2.style.display = "none";
 	info2.getElementsByClassName("goBack")[0].addEventListener("click", ev => ev.button == 0 && goBack());
 	let page2Title = info2.getElementsByClassName("page2Title")[0];
@@ -155,9 +155,9 @@ console.clear();
 	axios({ method: "GET", url: "info.json" }).then((res) => {
 		let { title, responsive, info, signature } = res.data;
 		let texts = res.data.matter.split("\n");
-		document.getElementsByClassName("page3Title")[0].innerHTML = title;
-		document.getElementsByClassName("responsive-img")[0].src = responsive;
-		document.getElementsByClassName("page3Info")[0].innerHTML = `<p>${info.name}</p><p>${info.position}</p>`;
+		$class("page3Title")[0].innerHTML = title;
+		$class("responsive-img")[0].src = responsive;
+		$class("page3Info")[0].innerHTML = `<p>${info.name}</p><p>${info.position}</p>`;
 		wenben.innerHTML = "";
 		texts.forEach(text => {
 			let p = document.createElement("p");
@@ -165,7 +165,7 @@ console.clear();
 			p.innerHTML = `<span>${text}</span>`;
 			wenben.appendChild(p);
 		});
-		document.getElementsByClassName("newsInfo")[0].src = signature;
+		$class("newsInfo")[0].src = signature;
 	}).catch((res) => console.log(res));
 })();
 

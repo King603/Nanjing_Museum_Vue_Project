@@ -1,5 +1,4 @@
 import Nav from "../api/Nav.js";
-import PageList from "../api/PageList.js";
 
 console.clear();
 new Nav(6);
@@ -7,14 +6,14 @@ new Nav(6);
 // PageList({ method: "GET", url: "academic_research_results.json" });
 
 let pageNum = 0;
-let size = 10;
+let size = 5;
 let page = 1;
 let info = [];
 /**@type {[]} */
 let list = [];
 
-let $content_czyd = document.getElementById("content_czyd");
-let $fenye = document.getElementById("fenye");
+let $content_czyd = $id("content_czyd");
+let $fenye = $id("fenye");
 let lis = $fenye.getElementsByTagName("li");
 let $select = $fenye.getElementsByTagName("select")[0];
 $select.style.width = "71px";
@@ -60,13 +59,13 @@ function setList() {
 
 	$content_czyd.innerHTML = "";
 	list.forEach((li, i) => {
-		let list_list = document.createElement("div");
+		let list_list = $add("div");
 		list_list.className = "list_list";
 		$content_czyd.appendChild(list_list);
-		let a = document.createElement("a");
+		let a = $add("a");
 		list_list.appendChild(a);
 		a.href = li.src;
-		let list_l = document.createElement("div");
+		let list_l = $add("div");
 		a.appendChild(list_l);
 		list_l.className = "list_l";
 		list_l.innerHTML = `<dt>${li.name}<span class="time">${li.time}</span></dt><dd>${li.abstract}</dd>`;
@@ -82,7 +81,7 @@ axios({ method: "GET", url: "academic_research_results.json" }).then(
 		setList();
 		$select.innerHTML = "";
 		for (let i = 1; i <= pageNum; i++) {
-			let option = document.createElement("option");
+			let option = $add("option");
 			option.value = i;
 			option.innerHTML = `第${i}页`;
 			$select.appendChild(option);

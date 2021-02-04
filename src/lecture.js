@@ -6,12 +6,12 @@ import("../api/research.js");
 
 axios({ method: "GET", url: "academic-lecture.json" }).then(res => {
 	res.data.forEach(({ url, src, title }, i) => {
-		let a = document.createElement("a");
+		let a = $add("a");
 		a.href = url;
-		document.getElementById("content_zjk").appendChild(a);
-		let dl = document.createElement("dl");
+		$id("content_zjk").appendChild(a);
+		let dl = $add("dl");
 		a.appendChild(dl);
-		let dt = document.createElement("dt");
+		let dt = $add("dt");
 		dl.appendChild(dt);
 		let img = new Image(180, 201);
 		img.src = src;

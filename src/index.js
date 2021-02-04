@@ -6,9 +6,9 @@ new Nav(0);
 axios({ method: "GET", url: "swiper.json" }).then(res => {
 	if (res.status == 200) {
 		res.data.forEach((img_src) => {
-			let swiper_slide = document.createElement("div");
+			let swiper_slide = $add("div");
 			swiper_slide.className = "swiper-slide";
-			let img = document.createElement("img");
+			let img = new Image();
 			img.src = img_src;
 			swiper_slide.appendChild(img);
 			document.getElementsByClassName("swiper-wrapper")[0].appendChild(swiper_slide);
@@ -25,27 +25,26 @@ axios({ method: "GET", url: "swiper.json" }).then(res => {
 	} else console.log(res.statusText);
 }).catch((res) => console.log(res));
 
-
-
 let newsList = [];
 let list = [];
 let size = 3;
-let page = 0;
+let pages = 0;
 let n = 0;
+let $news = $id("news");
+let $pages = $id("pages");
 axios({ method: "GET", url: "newsList.json" }).then((res) => {
 	if (res.status == 200) {
 		newsList = res.data;
-		// 显示第一页内容
-		showList(1);
-		// 计算页数
-		page = Math.ceil(newsList.length / size);
 
-		let News = document.getElementById("news");
+		// 计算页数
+		pages = Math.ceil(newsList.length / size);
+
+		$news.innerHTML = "";
 		list.forEach((news, i) => {
-			let a = document.createElement("a");
+			let a = $add("a");
 			a.href = news.to;
-			News.appendChild(a);
-			let div_newsList = document.createElement("div");
+			$news.appendChild(a);
+			let div_newsList = $add("div");
 			div_newsList.className = "newsList";
 			a.appendChild(div_newsList);
 			let img = new Image();
@@ -54,6 +53,16 @@ axios({ method: "GET", url: "newsList.json" }).then((res) => {
 			div_newsList.appendChild(img);
 			div_newsList.innerHTML += `<div class="info"><h3>${news.title}</h3><p>${news.text}</p></div><div class="date"><h2>${news.month}/${news.date}</h2><p>${news.year}</p></div>`;
 		});
+		console.log(pages);
+		setPages("首页", () => n != 1 && showList(1));
+		setPages("上一页", () => n != 1 && shangye());
+		for (let num = 1; num <= pages; num++) {
+			setPages(num, () => num != n && showList(num));
+		}
+		setPages("下一页", () => n != pages && xiaye());
+		setPages("末页", () => n != pages && showList(pages));
+		// 显示第一页内容
+		showList(1);
 	} else console.log(res.statusText);
 }).catch((res) => console.log(res));
 
@@ -62,16 +71,66 @@ axios({ method: "GET", url: "newsList.json" }).then((res) => {
  * @param {number} page 页码
  */
 function showList(page) {
+	console.log(page)
 	// 记录当前页
 	n = page;
 	// 初始化显示列表为空
 	list = [];
 	// 循环遍历每一页且不超过 newsList 的个数
-	for (
-		let i = 0;
-		(n - 1) * size + i < newsList.length;
-		i++
-	) {
+	for (let i = 0; (n - 1) * size + i < newsList.length && i < size; i++) {
 		list[i] = newsList[(n - 1) * size + i];
 	}
+	$news.innerHTML = "";
+	list.forEach((news, i) => {
+		let a = $add("a");
+		a.href = news.to;
+		$news.appendChild(a);
+		let div_newsList = $add("div");
+		div_newsList.className = "newsList";
+		a.appendChild(div_newsList);
+		let img = new Image();
+		img.src = news.img.src;
+		img.title = news.img.title;
+		div_newsList.appendChild(img);
+		div_newsList.innerHTML += `<div class="info"><h3>${news.title}</h3><p>${news.text}</p></div><div class="date"><h2>${news.month}/${news.date}</h2><p>${news.year}</p></div>`;
+	});
+	let lis = $pages.getElementsByTagName("li");
+	switch (n + 0) {
+		case 1:
+			lis[lis.length - 2].className = lis[lis.length - 1].className = "";
+			lis[0].className = lis[1].className = "disabled";
+			active();
+			break;
+		case lis.length - 4:
+			lis[0].className = lis[1].className = "";
+			lis[lis.length - 2].className = lis[lis.length - 1].className = "disabled";
+			active();
+			break;
+		default:
+			lis[lis.length - 2].className = lis[lis.length - 1].className = lis[0].className = lis[1].className = "";
+			active();
+	}
+	function active() {
+		for (let i = 0; i <= pages; i++)
+			lis[i + 1].className = i == n ? "active" : "";
+	}
+}
+function shangye() {
+	showList(--n);
+}
+
+function xiaye() {
+	showList(++n);
+}
+
+/**
+ * 
+ * @param {string} innerHTML 
+ * @param {() => void} click 
+ */
+function setPages(innerHTML, click) {
+	let li = $add("li");
+	$pages.appendChild(li);
+	li.innerHTML = `<span>${innerHTML}</span>`;
+	li.addEventListener("click", ev => ev.button == 0 && click());
 }

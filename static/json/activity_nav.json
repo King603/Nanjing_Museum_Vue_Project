@@ -1,0 +1,294 @@
+[
+	{
+		"title": "首页",
+		"url": "/"
+	},
+	{
+		"title": "龙博概况",
+		"url": "/lbgk",
+		"navigation": [
+			{
+				"title": "龙博简介",
+				"url": "http://www.hljmuseum.com/system/200910/101021.html"
+			},
+			{
+				"title": "馆长致辞",
+				"url": "http://www.hljmuseum.com/system/201802/103133.html"
+			},
+			{
+				"title": "组织机构",
+				"url": "http://www.hljmuseum.com/system/201612/102322.html"
+			},
+			{
+				"title": "历史沿革",
+				"url": "http://www.hljmuseum.com/system/201510/102323.html"
+			}
+		]
+	},
+	{
+		"title": "资讯在线",
+		"url": "/zxzx",
+		"navigation": [
+			{
+				"title": "龙博快讯",
+				"url": "/zxzx/lbkx"
+			},
+			{
+				"title": "传历史记忆",
+				"url": "/zxzx/zlyhdyg"
+			},
+			{
+				"title": "藏品征集",
+				"url": "/zxzx/cpzj"
+			},
+			{
+				"title": "文博纵览",
+				"url": "/zxzx/wbzl"
+			}
+		]
+	},
+	{
+		"title": "藏品工作",
+		"url": "/zxzx",
+		"navigation": [
+			{
+				"title": "藏品欣赏",
+				"url": "/zxzx/lbkx",
+				"navigation": [
+					{
+						"title": "镇馆之宝",
+						"url": "/cpgz/cpxs/zgzb"
+					},
+					{
+						"title": "历史文物",
+						"url": "/cpgz/cpxs/lsww"
+					},
+					{
+						"title": "自然标本",
+						"url": "/cpgz/cpxs/zrbb"
+					},
+					{
+						"title": "艺术藏品",
+						"url": "/cpgz/cpxs/yscp"
+					},
+					{
+						"title": "文献资料",
+						"url": "/cpgz/cpxs/wxzl"
+					}
+				]
+			},
+			{
+				"title": "藏品保护",
+				"url": "/zxzx/zlyhdyg",
+				"navigation": [
+					{
+						"title": "文物修复与复制",
+						"url": "#"
+					},
+					{
+						"title": "标本制作",
+						"url": "#"
+					},
+					{
+						"title": "古生物修复装架",
+						"url": "#"
+					},
+					{
+						"title": "预防性保护",
+						"url": "#"
+					},
+					{
+						"title": "数字化保护",
+						"url": "#"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "陈列展览",
+		"url": "/clzl",
+		"navigation": [
+			{
+				"title": "基本陈列",
+				"url": "/clzl/jbcl",
+				"navigation": [
+					{
+						"title": "历史陈列",
+						"url": "/clzl/jbcl/lscl"
+					},
+					{
+						"title": "自然陈列",
+						"url": "/clzl/jbcl/zrcl"
+					},
+					{
+						"title": "俄侨博物馆",
+						"url": "/clzl/jbcl/eqbwg"
+					},
+					{
+						"title": "邓散木艺术",
+						"url": "/clzl/jbcl/dsmys"
+					},
+					{
+						"title": "于志学冰雪画",
+						"url": "/clzl/jbcl/yzxbxhcl"
+					},
+					{
+						"title": "枫叶小镇分馆",
+						"url": "/clzl/jbcl/fyxzfg"
+					}
+				]
+			},
+			{
+				"title": "临时展览",
+				"url": "/clzl/lszl",
+				"navigation": [
+					{
+						"title": "每月一星",
+						"url": "/clzl/lszl/myyx"
+					},
+					{
+						"title": "每月一县",
+						"url": "/clzl/lszl/myyxian"
+					},
+					{
+						"title": "寒暑假特展",
+						"url": "/clzl/lszl/hsjtz"
+					},
+					{
+						"title": "交流展览",
+						"url": "/clzl/lszl/yjzl"
+					},
+					{
+						"title": "非遗展览",
+						"url": "/clzl/lszl/fyzl"
+					},
+					{
+						"title": "其他展览",
+						"url": "/clzl/lszl/mczl"
+					}
+				]
+			},
+			{
+				"title": "临时展览",
+				"url": "/clzl/lszl"
+			}
+		]
+	},
+	{
+		"title": "博物馆教育",
+		"url": "/bwgjy",
+		"navigation": [
+			{
+				"title": "龙博教育",
+				"url": "/bwgjy/lbjy"
+			},
+			{
+				"title": "流动博物馆",
+				"url": "/bwgjy/ldbwg"
+			},
+			{
+				"title": "环球自然日",
+				"url": "/bwgjy/hqzrr"
+			},
+			{
+				"title": "讲解员培训",
+				"url": "/bwgjy/jjypx"
+			},
+			{
+				"title": "志愿者活动",
+				"url": "/bwgjy/zyzhd"
+			}
+		]
+	},
+	{
+		"title": "学术空间",
+		"url": "/xskj",
+		"navigation": [
+			{
+				"title": "探讨与交流",
+				"url": "/xskj/ttyjl"
+			},
+			{
+				"title": "课题研究",
+				"url": "/xskj/ktyj"
+			},
+			{
+				"title": "学术动态",
+				"url": "/xskj/xsdt"
+			},
+			{
+				"title": "业务讲座",
+				"url": "/xskj/wbjt"
+			}
+		]
+	},
+	{
+		"title": "龙博纸媒",
+		"url": "http://www.hljmuseum.com/web/Ebook/WenChuangMain.aspx",
+		"navigation": [
+			{
+				"title": "龙博图书",
+				"url": "http://www.hljmuseum.com/web/Ebook/EBook.aspx?id=53"
+			},
+			{
+				"title": "馆　　报",
+				"url": "http://www.hljmuseum.com/web/Ebook/EBook.aspx?id=55"
+			}
+		]
+	},
+	{
+		"title": "文创产品",
+		"url": "/wctd/wccp"
+	},
+	{
+		"title": "黑土文博",
+		"url": "/htwb"
+	},
+	{
+		"title": "参观服务",
+		"url": "http://www.hljmuseum.com/system/201708/102053.html",
+		"navigation": [
+			{
+				"title": "开放时间",
+				"url": "http://www.hljmuseum.com/system/201708/102053.html"
+			},
+			{
+				"title": "参观预约",
+				"url": "https://hljsbwg.hdwbcloud.com"
+			},
+			{
+				"title": "交通地理",
+				"url": "http://www.hljmuseum.com/system/201510/102055.html"
+			},
+			{
+				"title": "参观导览",
+				"url": "http://www.hljmuseum.com/system/201510/102056.html"
+			},
+			{
+				"title": "观众须知",
+				"url": "http://www.hljmuseum.com/system/201510/102057.html"
+			},
+			{
+				"title": "文物鉴定",
+				"url": "http://www.hljmuseum.com/system/200910/101827.html"
+			},
+			{
+				"title": "文物总店",
+				"url": "http://www.hljmuseum.com/system/200910/101829.html"
+			},
+			{
+				"title": "游客中心",
+				"url": "http://www.hljmuseum.com/system/200910/101830.html"
+			},
+			{
+				"title": "联系龙博",
+				"url": "http://www.hljmuseum.com/system/201510/102252.html"
+			}
+		]
+	},
+	{
+		"title": "四零服务",
+		"url": "/slfw"
+	}
+]

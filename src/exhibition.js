@@ -56,13 +56,13 @@ let menu3 = {
 };
 let imgSrc = "";
 document.body.style.background = `url(${bgImgUrl}) center top no-repeat #f3efd3 fixed`
-document.getElementsByClassName("exhibition-logo")[0].src = logoImg;
+$class("exhibition-logo")[0].src = logoImg;
 
 function getText(str) {
 	return str.substring(0, 8);
 }
 
-let $menu = document.getElementById("menu");
+let $menu = $id("menu");
 
 setLiTitle(menu1, "menu1");
 createLi(menu1, "menu2");
@@ -74,7 +74,7 @@ setLiTitle(menu3, "menu1");
 createLi(menu3, "menu2");
 
 function setLiTitle(menu, className) {
-	let li = document.createElement("li");
+	let li = $add("li");
 	li.className = className;
 	li.title = menu.title;
 	li.innerHTML = `<span>${getText(menu.title)}</span>`;
@@ -88,9 +88,9 @@ function createLi({ menu }, className, callBack) {
 	});
 }
 
-let $text = document.getElementById("text");
+let $text = $id("text");
 texts.forEach(text => {
-	let p = document.createElement("p");
+	let p = $add("p");
 	p.innerHTML = `${text}<br /><br />`;
 	$text.appendChild(p);
 })

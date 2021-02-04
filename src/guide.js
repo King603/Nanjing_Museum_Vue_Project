@@ -11,7 +11,7 @@ let navList = [
 let index = 0;
 
 document.body.style.backgroundColor = "rgb(246, 239, 229)";
-let ul = document.querySelectorAll(".guide-nav>ul")[0];
+let ul = $all(".guide-nav>ul")[0];
 navList.forEach((nav, i) => {
 	let li = document.createElement("li");
 	li.className = i == 0 ? "list guide-active" : "list";
