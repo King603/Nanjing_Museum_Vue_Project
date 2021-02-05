@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../../../node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="../../../assets/css/common.css">
+	<link rel="stylesheet" href="../../../assets/css/search.css">
+</head>
+
+<body>
+	<form method="get">
+		<input class="search-input" name="k" type="text" placeholder="在这里搜索..."
+			onfocus="if(this.value=='在这里搜索...'){this.value='';}" onblur="if(this.value==''){this.value='在这里搜索...';}" />
+		<button class="search-button">搜 索</button>
+	</form>
+</body>
+<script type="module" src="./search.js"></script>
+
+</html>

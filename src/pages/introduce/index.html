@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>走进博物馆</title>
+	<link rel="stylesheet" href="../../../node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="../../assets/css/common.css">
+	<link rel="stylesheet" href="../../assets/css/top-nav.css">
+	<link rel="stylesheet" href="../../assets/css/introduce.css">
+</head>
+
+<body class="content">
+	<header class="top-nav">
+		<div class="nav">
+			<div class="logo">
+				<a href="/"><img src="../../../static/frist_img.png" alt="" /></a>
+			</div>
+			<div id="nav"></div>
+		</div>
+	</header>
+	<section class="main">
+		<div class="logobg">
+			<div class="title"></div>
+		</div>
+		<!-- 博物馆简介 -->
+		<page-1 class="iframe">
+			<div class="page1content content">
+				<h6 class="introduce-title"></h6>
+				<div id="text"></div>
+				<div id="introduces"></div>
+			</div>
+		</page-1>
+		<!-- 大事记 -->
+		<page-2 class="iframe">
+			<div class="content">
+				<div class="info" id="info1">
+					<h3 class="til_lf01">
+						<span>博物馆大事记</span>
+					</h3>
+					<div class="box_event02">
+						<ul class="box_event02-ul"></ul>
+					</div>
+				</div>
+				<div class="info" id="info2">
+					<div class="goBack" @click="goBack">返回列表页</div>
+					<h2 class="page2Title"></h2>
+					<div class="author"></div>
+					<div class="article_t"></div>
+				</div>
+			</div>
+		</page-2>
+		<!-- 名人致辞 -->
+		<page-3 class="iframe">
+			<div class="page3content content">
+				<div class="page3Title"></div>
+				<img alt="" class="responsive-img" />
+				<div class="page3Info"></div>
+				<div id="wenben"></div>
+				<img alt="" class="newsInfo" />
+			</div>
+		</page-3>
+	</section>
+</body>
+<script src="../lib/axios/axios.js"></script>
+<script src="../main.js"></script>
+<script type="module" src="../src/introduce.js"></script>
+
+</html>

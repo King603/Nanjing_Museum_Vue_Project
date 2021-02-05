@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文创产品</title>
+	<link rel="stylesheet" href="../../../node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="../../assets/css/common.css">
+	<link rel="stylesheet" href="../../assets/css/top-nav.css">
+	<link rel="stylesheet" href="../../assets/lib/swiper/css/swiper.css">
+	<link rel="stylesheet" href="../../assets/css/wen_gen_products.css">
+</head>
+
+<body class="content">
+	<!-- 头部导航 -->
+	<header class="top-nav">
+		<div class="nav">
+			<div class="logo">
+				<a href="/"><img src="../../../static/frist_img.png" alt="" /></a>
+			</div>
+			<div id="nav"></div>
+		</div>
+	</header>
+	<section class="products-main">
+		<div class="products-title">
+			<ul class="products-leftlist" id="leftlist"></ul>
+		</div>
+		<!-- 产品明细 -->
+		<div id="products-good_list">
+			<div class="products-good_title">
+				<span>当前页为：</span>
+				<span></span>--><span></span>
+			</div>
+			<div id="goods">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"></table>
+				<!-- 还未做
+				<page-2 :good="good" v-if="isIn">
+					<img :src="good.src" alt="" />
+				</page-2>
+				-->
+			</div>
+			<div id="pages"></div>
+		</div>
+		<!-- 产品图文介绍 -->
+		<div id="products">
+			<div class="products-home">
+				<div class="swiper-container products-home">
+					<div class="swiper-wrapper"></div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+					<!-- Add Arrows -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+			</div>
+
+			<div class="products-artgoods-allsort" :style="{ background: `url(${artgoods_allsort}) no-repeat` }">
+				<ul></ul>
+			</div>
+			<div class="products-artgoods-img">
+			</div>
+		</div>
+		<!-- 产品购买 -->
+		<div id="buy">产品购买</div>
+		<!-- 产品防伪溯源信息查询、举报 -->
+		<div id="cx">产品防伪溯源信息查询、举报</div>
+	</section>
+</body>
+<script src="../lib/axios/axios.js"></script>
+<script src="../main.js"></script>
+<script src="../lib/swiper/js/swiper.js"></script>
+<script type="module" src="../src/wen_gen_products.js"></script>
+
+</html>
