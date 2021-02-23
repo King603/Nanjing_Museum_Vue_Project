@@ -2,35 +2,35 @@ axios && (axios.defaults.baseURL = "http://127.0.0.1:5500/static/json/");
 
 /**
  * 
- * @param {HTMLElement} element 
+ * @param {string} elementId 
  */
-function $id(element) {
-	return document.getElementById(element);
+function $id(elementId) {
+	return document.getElementById(elementId);
 }
 /**
  * 
- * @param {HTMLElement} element 
+ * @param {string} elementClassName 
  */
-function $class(element) {
-	return document.getElementsByClassName(element);
+function $class(elementClassName) {
+	return document.getElementsByClassName(elementClassName);
 }
 /**
  * 
- * @param {HTMLElement} element 
+ * @param {string} elementTagName 
  */
-function $tag(element) {
-	return document.getElementsByTagName(element);
+function $tag(elementTagName) {
+	return document.getElementsByTagName(elementTagName);
 }
 /**
  * 
- * @param {Element} element 
+ * @param {string} element 
  */
 function $all(element) {
 	return document.querySelectorAll(element);
 }
 /**
  * 
- * @param {HTMLElement} htmlElement 
+ * @param {string} htmlElement 
  */
 function $add(htmlElement) {
 	return document.createElement(htmlElement);

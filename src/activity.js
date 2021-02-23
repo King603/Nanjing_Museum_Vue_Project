@@ -109,5 +109,26 @@ axios({ method: "GET", url: "activity_nav.json" }).then(res => {
 		});
 		console.log($all(".titlist04.f14")[0].getElementsByTagName("li").length);
 	}
-})()
+})();
 
+axios({ method: "GET", url: "activity_erji.json" }).then(res => {
+	if (res.status == 200) {
+		console.log(res.data, $all(".erji-right.rl")[0]);
+		let $erji = $all(".erji-right.rl")[0];
+		/**@type {{ title: { url: string; tit: string; }; titlist: { url: string; tit: string; }[]; }[]} */
+		let data = res.data;
+		data.forEach(({ title, titlist }) => {
+			let $column01 = $add("div");
+			$column01.className = "column01";
+			$erji.appendChild($column01);
+			let $titlebg = $add("div");
+			$column01.appendChild($titlebg);
+			$titlebg.className = "titlebg";
+			$titlebg.innerHTML = `<div class="txt bai"><a href="${title.url}" target="_blank">${title.tit}</a></div>`;
+			let $titlist = $add("ul");
+			$titlist.className = "titlist";
+			$column01.appendChild($titlist);
+			titlist.forEach(({ url, tit }) => $titlist.innerHTML += `<li><a href="${url}" target="_blank">${tit}</a></li>`);
+		});
+	}
+});

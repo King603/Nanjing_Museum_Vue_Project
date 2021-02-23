@@ -34,7 +34,7 @@ export default class Nav {
 		},
 		{
 			title: "当地文化",
-			to: "",
+			to: "/local_culture",
 		},
 	];
 	constructor(n) {
