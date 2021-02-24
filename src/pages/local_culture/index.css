@@ -1,0 +1,128 @@
+.textcontent {
+	position: relative;
+	max-width: 1200px;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: left;
+	padding: 15px 0px 0px 0px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.textcontent p:not(table p) {
+	text-align: justify;
+	word-wrap: break-word;
+	word-break: normal;
+	text-indent: 2em;
+}
+
+.textcontent p img {
+	display: block;
+	margin: 0 auto;
+	max-width: 1200px;
+	height: auto!important;
+}
+
+.textcontent p a {
+	font-weight: bold
+}
+
+.textcontent p a:hover {
+	color: #f54343;
+}
+
+.textcontent hr {
+	margin: 10px auto;
+	padding: 0px;
+	clear: both;
+}
+
+.textcontent table {
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #ccc;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+.textcontent table th {
+	border-width: 1px;
+	padding: 3px 8px;
+	border-style: solid;
+	border-color: #ccc;
+}
+
+.textcontent table td {
+	border-width: 1px;
+	padding: 3px 8px;
+	border-style: solid;
+	border-color: #ccc;
+	text-align: center;
+}
+
+.textcontent table tbody td p {
+	text-align: center;
+}
+
+.textcontent table tbody td:hover {
+	background: #eee;
+	cursor: pointer;
+}
+
+.tit {
+	padding: 0px;
+	border-left: none;
+	border-right-width: 1px;
+	border-right-color: rgb(0, 0, 0);
+	border-top-width: 1px;
+	border-top-color: rgb(0, 0, 0);
+	border-bottom-width: 1px;
+	border-bottom-color: rgb(0, 0, 0);
+	background: rgb(215, 215, 215);
+}
+
+.type1 {
+	padding: 0px;
+	border-left-width: 1px;
+	border-left-color: rgb(0, 0, 0);
+	border-right-width: 1px;
+	border-right-color: rgb(0, 0, 0);
+	border-top: none;
+	border-bottom-width: 1px;
+	border-bottom-color: rgb(0, 0, 0);
+}
+
+.NO {
+	padding: 0px;
+	border-left: none;
+	border-right-width: 1px;
+	border-right-color: rgb(0, 0, 0);
+	border-top: none;
+	border-bottom-width: 1px;
+	border-bottom-color: rgb(0, 0, 0);
+}
+
+.info {
+	padding: 0px;
+	border-left: none;
+	border-right-width: 1px;
+	border-right-color: rgb(0, 0, 0);
+	border-top-width: 1px;
+	border-top-color: rgb(0, 0, 0);
+	border-bottom-width: 1px;
+	border-bottom-color: rgb(0, 0, 0);
+}
+
+.type {
+	padding: 0px;
+	border-width: 1px;
+	border-color: rgb(0, 0, 0);
+	background: rgb(215, 215, 215);
+}
+
+h6 {
+	border-left: 1px solid #000;
+	padding-left: 12px;
+}

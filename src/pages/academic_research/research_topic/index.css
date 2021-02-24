@@ -1,0 +1,166 @@
+.academic_research-page {
+	font-family: Arial, "微软雅黑";
+	color: #333333;
+	font-size: 12px;
+	background: url(http://www.luxunmuseum.com.cn/template/default/images/bg_y.jpg) repeat-y top center;
+	background-color: #eddcbd;
+}
+
+.academic_research-main {
+	width: 1000px;
+	margin: auto;
+	padding-top: 20px;
+	overflow: hidden;
+}
+
+.academic_research-main input {
+	-webkit-writing-mode: horizontal-tb !important;
+	text-rendering: auto;
+	color: -internal-light-dark(black, white);
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	appearance: textfield;
+	background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+	-webkit-rtl-ordering: logical;
+	cursor: text;
+	margin: 0em;
+	font: 400 13.3333px Arial;
+	padding: 1px 2px;
+	border-width: 2px;
+	border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+	border-image: initial;
+}
+
+.academic_research-main input[type="hidden"i] {
+	display: none;
+	appearance: initial;
+	background-color: initial;
+	cursor: default;
+	padding: initial;
+	border: initial;
+}
+
+li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+
+.position {
+	height: 50px;
+	text-align: right;
+	padding-right: 20px;
+	background: url(http://www.luxunmuseum.com.cn/template/default/images/bg_centent.jpg) no-repeat right bottom;
+	font-size: 13px;
+}
+
+.h1 {
+	font-size: xx-large;
+	font-weight: bolder;
+	text-align: center;
+}
+
+.theme {
+	text-align: center;
+}
+
+.title {
+	font-size: x-small;
+	padding: 10px 15px;
+}
+
+.title li+li {
+	margin-top: 5px;
+}
+
+a:hover {
+	color: #ce0202;
+}
+
+.l {
+	float: left;
+}
+
+.fnav_xs {
+	width: 260px;
+	height: 480px;
+	padding-top: 110px;
+	padding-left: 10px;
+	background: url(http://www.luxunmuseum.com.cn/template/default/images/bg_fnav_xs.jpg) no-repeat;
+}
+
+.fnav_xs li {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.fnav_xs li a {
+	font-size: 15px;
+	color: #322f29;
+	text-decoration: none;
+	background: url(http://www.luxunmuseum.com.cn/template/default/images/icon01.jpg) no-repeat left center;
+	display: block;
+	padding-left: 28px;
+}
+
+.fnav_xs li a:hover {
+	color: #ce0202;
+}
+
+.search-main {
+	float: right !important;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+
+.search-input {
+	width: 200px;
+	height: 20px;
+	border: solid #ffd672 1px;
+}
+
+.search-button {
+	width: 50px;
+	height: 22px;
+	background-color: #e8be58;
+	color: #ffffff;
+	border: 0;
+}
+
+.main_content>table, .main_content>table td, .main_content>table th {
+	border: 1px solid #5c5c5c;
+}
+
+.l {
+	float: left;
+}
+
+.fnav_xs {
+	width: 260px;
+	height: 480px;
+	padding-top: 110px;
+	padding-left: 10px;
+	background: url(http://www.luxunmuseum.com.cn/template/default/images/bg_fnav_xs.jpg) no-repeat;
+}
+
+.fnav_xs li {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.fnav_xs li a {
+	font-size: 15px;
+	color: #322f29;
+	text-decoration: none;
+	background: url(http://www.luxunmuseum.com.cn/template/default/images/icon01.jpg) no-repeat left center;
+	display: block;
+	padding-left: 28px;
+}
+
+.fnav_xs li a:hover {
+	color: #ce0202;
+}

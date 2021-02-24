@@ -1,0 +1,25 @@
+<style>
+	.search-body {
+		background-color: rgba(0, 0, 0, 0);
+	}
+
+	.search-input {
+		width: 200px;
+		height: 20px;
+		border: solid #ffd672 1px;
+	}
+
+	.search-button {
+		width: 50px;
+		height: 22px;
+		background-color: #e8be58;
+		color: #ffffff;
+		border: 0;
+	}
+</style>
+
+<form method="get" class="search-body">
+	<input class="search-input" name="k" type="text" placeholder="在这里搜索..."
+		onfocus="if(this.value=='在这里搜索...'){this.value='';}" onblur="if(this.value==''){this.value='在这里搜索...';}" />
+	<button class="search-button">搜 索</button>
+</form>
