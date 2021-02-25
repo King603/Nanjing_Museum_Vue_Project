@@ -3,13 +3,13 @@ var GoTotop = /** @class */ (function () {
         var gototop = document.createElement("div");
         gototop.innerHTML = "回到顶部";
         document.body.appendChild(gototop);
-        gototop.style["text-align"] = "center";
+        gototop.style.textAlign = "center";
         gototop.style.position = "fixed";
         gototop.style.right = "50px";
         gototop.style.bottom = "30px";
         gototop.style.cursor = "pointer";
         gototop.style.padding = "10px";
-        gototop.style["border-radius"] = "50%";
+        gototop.style.borderRadius = "50%";
         gototop.style.background = "white";
         gototop.style.color = "#000000";
         window.addEventListener("scroll", GoTotop.showbtn, true);
