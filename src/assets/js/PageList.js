@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default function ({ url, method }) {
 	let pageNum = 0;
 	let size = 10;
