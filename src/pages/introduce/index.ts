@@ -1,6 +1,6 @@
 import Nav from "../../assets/js/Nav";
 import GoTotop from "../../assets/js/GoToTop";
-import { $all, $class, $id, $add, introduces, eventList, List, Info } from "../../assets/js/common";
+import { $all, $class, $id, $add, introduces, eventList, List, Info, baseURL } from "../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
 import "../../assets/css/common.css";
@@ -8,7 +8,7 @@ import "../../assets/css/top-nav.css";
 import "./index.css";
 
 console.clear();
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
+axios.defaults.baseURL = baseURL;
 // 主体
 (() => {
 	new Nav(1);
@@ -23,8 +23,8 @@ axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
 
 	document.body.style.backgroundImage = `url(${bgImgUrl})`;
 	/**@type {HTMLDivElement} */
-	let logobg: HTMLDivElement = $class("logobg")[0];
-	logobg.style.backgroundImage = `url(${logoBgUrl})`;
+	let logobg = $class("logobg")[0];
+	(logobg as HTMLDivElement).style.backgroundImage = `url(${logoBgUrl})`;
 	let img = new Image();
 	img.src = logo;
 	img.className = "introduce-logo";
@@ -43,15 +43,17 @@ axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
 	let title_bg = title.getElementsByClassName("title_bg");
 	title_bg[0].className = "title_bg designate";
 	for (let i = 0; i < title_bg.length; i++) {
-		title_bg[i].addEventListener("click", ev => (ev.button == 0) && showPage(i))
+		title_bg[i].addEventListener("click", ev => (ev as MouseEvent).button == 0 && showPage(i))
 	}
-	function showPage(n) {
+	function showPage(n: number) {
 		index = n;
 		for (let i = 0; i < title_bg.length; i++)
-			title_bg[i].className = "title_bg" + (index == i ? " designate" : "");
+			index == i
+				? title_bg[i].classList.add("designate")
+				: title_bg[i].classList.remove("designate");
 		updatePage(index);
 	}
-	function updatePage(index) {
+	function updatePage(index: number) {
 		initIframe();
 		iframes[index].className = "";
 	}
@@ -118,11 +120,11 @@ axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
 	let info1 = $id("info1");
 	let info2 = $id("info2");
 	info2.style.display = "none";
-	info2.getElementsByClassName("goBack")[0].addEventListener("click", ev => ev.button == 0 && goBack());
+	info2.getElementsByClassName("goBack")[0].addEventListener("click", ev => (ev as MouseEvent).button == 0 && goBack());
 	let page2Title = info2.getElementsByClassName("page2Title")[0];
 	let author = info2.getElementsByClassName("author")[0];
 	let article_t = info2.getElementsByClassName("article_t")[0];
-	function show(yy, dd) {
+	function show(yy: string, dd: string) {
 		// 获取年份带入获取信息
 		let year = yy;
 		let date = dd;
@@ -155,13 +157,13 @@ axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
 
 // page3
 (() => {
-	let wenben = document.getElementById("wenben");
+	let wenben = $id("wenben");
 
 	// axios({ method: "GET", url: "info.json" }).then((res) => {
 	let { title, responsive, info, signature, matter } = Info;
 	let texts = matter.split("\n");
 	$class("page3Title")[0].innerHTML = title;
-	$class("responsive-img")[0].src = responsive;
+	($class("responsive-img")[0] as HTMLImageElement).src = responsive;
 	$class("page3Info")[0].innerHTML = `<p>${info.name}</p><p>${info.position}</p>`;
 	wenben.innerHTML = "";
 	texts.forEach(text => {
@@ -170,7 +172,7 @@ axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
 		p.innerHTML = `<span>${text}</span>`;
 		wenben.appendChild(p);
 	});
-	$class("newsInfo")[0].src = signature;
+	($class("newsInfo")[0] as HTMLImageElement).src = signature;
 	// }).catch((res) => console.log(res));
 })();
 

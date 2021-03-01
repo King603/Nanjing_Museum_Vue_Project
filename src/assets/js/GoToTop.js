@@ -1,24 +1,21 @@
-var GoTotop = /** @class */ (function () {
-    function GoTotop() {
-        var gototop = document.createElement("div");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class GoTotop {
+    constructor() {
+        this.scrollTop = 0;
+        let gototop = document.createElement("div");
         gototop.innerHTML = "回到顶部";
         document.body.appendChild(gototop);
-        gototop.style.textAlign = "center";
-        gototop.style.position = "fixed";
-        gototop.style.right = "50px";
-        gototop.style.bottom = "30px";
-        gototop.style.cursor = "pointer";
-        gototop.style.padding = "10px";
-        gototop.style.borderRadius = "50%";
-        gototop.style.background = "white";
-        gototop.style.color = "#000000";
-        window.addEventListener("scroll", GoTotop.showbtn, true);
-        gototop.addEventListener("click", function (ev) { return ev.button == 0 && GoTotop.backtop(); });
+        let gototopStyle = { textAlign: "center", position: "fixed", right: "50px", bottom: "30px", cursor: "pointer", padding: "10px", borderRadius: "50%", background: "white", color: "#000000", };
+        for (let [key, value] of Object.entries(gototopStyle))
+            gototop.style[key] = value;
+        window.addEventListener("scroll", (e) => this.showbtn(e), true);
+        gototop.addEventListener("click", ev => ev.button == 0 && this.backtop());
     }
     /**显示回到顶部按钮 */
-    GoTotop.showbtn = function () {
+    showbtn(e) {
         this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-    };
+    }
     /**
      * 回到顶部功能实现过程：
      * 1. 获取页面当前距离顶部的滚动距离（虽然IE不常用了，但还是需要考虑一下兼容性的）
@@ -26,15 +23,14 @@ var GoTotop = /** @class */ (function () {
      * 3. 用当前距离加上计算出的距离，然后赋值给当前距离，就可以达到向上移动的效果
      * 4. 最后记得在移动到顶部时，清除定时器
      */
-    GoTotop.backtop = function () {
-        var timer = setInterval(function () {
-            var osTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var ispeed = Math.floor(-osTop / 5);
+    backtop() {
+        let timer = setInterval(() => {
+            let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let ispeed = Math.floor(-osTop / 5);
             document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
             if (osTop === 0)
                 clearInterval(timer);
         }, 30);
-    };
-    return GoTotop;
-}());
-export default GoTotop;
+    }
+}
+exports.default = GoTotop;

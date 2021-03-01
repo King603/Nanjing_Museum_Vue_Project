@@ -1,7 +1,7 @@
 import Nav from "../../assets/js/Nav";
 import GoTotop from "../../assets/js/GoToTop";
 import axios from "axios";
-import { $add, $class, $id, artgoods, artproducts } from "../../assets/js/common";
+import { $add, $class, $id, artgoods, artproducts, baseURL } from "../../assets/js/common";
 const Swiper = require("../../assets/lib/swiper");
 import "normalize.css";
 import "../../assets/css/common.css";
@@ -11,17 +11,20 @@ import "./index.css";
 
 console.clear();
 new Nav(4);
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
+axios.defaults.baseURL = baseURL;
 
-let titles = ["产品图文介绍", "产品购买", "产品防伪溯源信息查询、举报"];
-let products = [
+let titles: string[] = ["产品图文介绍", "产品购买", "产品防伪溯源信息查询、举报"];
+interface Products {
+	[index: number]: { img: string; tit: string; price: string; num: number; }
+}
+let products: Products = [
 	{ img: "", tit: "", price: "", num: 0 },
 	{ img: "", tit: "", price: "", num: 0 },
 	{ img: "", tit: "", price: "", num: 0 },
 	{ img: "", tit: "", price: "", num: 0 },
 ];
 let artgoods_page = 0;
-let artgoods_title = [];
+let artgoods_title: { tit: string; src: any; }[] = [];
 let allsort_index = 0;
 
 // 本页导航
@@ -67,7 +70,7 @@ new Swiper(".swiper-container", {
 	navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
 });
 /**@type {HTMLDivElement} */
-let products_artgoods_allsort = $class("products-artgoods-allsort")[0];
+let products_artgoods_allsort: HTMLDivElement = ($class("products-artgoods-allsort")[0] as HTMLDivElement);
 products_artgoods_allsort.style.background = `url(${artgoods_allsort}) no-repeat`;
 let ul = products_artgoods_allsort.getElementsByTagName("ul")[0];
 for (let i = 1; i <= artgoods_title.length; i++) {
@@ -93,7 +96,7 @@ artgoods_title.forEach((title, i) => {
 // 	} else console.log(res.statusText);
 // }).catch(err => console.log(err));
 
-function showPage(n) {
+function showPage(n: number) {
 	switch (n) {
 		case -1:
 			products_good_list.style.display = "block";
@@ -122,13 +125,13 @@ function showPage(n) {
 	}
 }
 
-function show(index) {
+function show(index: number): void {
 	let lis = $class("titList");
 	for (let i = 0; i < lis.length; i++)
 		lis[i].className = `titList${i == index ? " active" : ""}`;
 	showPage(index);
 }
-function to(i) {
+function to(i: number) {
 	console.log(i);
 	artgoods_page = i
 	showPage(-1);
@@ -140,10 +143,10 @@ function to(i) {
 	span[1].addEventListener("click", ev => ev.button == 0 && showPage(0));
 	span[2].innerHTML = artgoods_title[i - 1].tit;
 	showProducts_good(artgoods_title[i - 1].tit);
-
 }
-function showProducts_good(name) {
-	let goods_img: { src: any; height: string; goods: { src: any; price: string; num: number; name: string; }[]; }[] = null;
+function showProducts_good(name: any): void {
+	/**@type {{ src: string; height: string; goods: { src: any; price: string; num: number; name: string; }[]; }[]} */
+	let goods_img = null;
 	let goods = $id("goods");
 	let goods_info = goods.getElementsByTagName("table")[0];
 	goods_info.innerHTML = "";
@@ -177,11 +180,11 @@ function showProducts_good(name) {
 
 	setPagesButton("首页", artgoods_title[0].tit, () => to(1));
 	artgoods_page > 1 && setPagesButton("上一页", artgoods_title[artgoods_page - 2].tit, () => to(artgoods_page - 1));
-	artgoods_title.forEach((goods, i) => setPagesButton(i + 1, '该页为' + goods.tit, () => to(i + 1)));
+	artgoods_title.forEach((goods, i) => setPagesButton((i + 1).toString(), '该页为' + goods.tit, () => to(i + 1)));
 	artgoods_page < artgoods_title.length - 1 && setPagesButton("下一页", artgoods_title[artgoods_page].tit, () => to(artgoods_page + 1));
 	setPagesButton("末页", artgoods_title[0].tit, () => to(artgoods_title.length));
 
-	function setPagesButton(innerHTML, title, click) {
+	function setPagesButton(innerHTML: string, title: string, click: () => void) {
 		let page = $add("span");
 		page.innerHTML = innerHTML;
 		page.title = title;

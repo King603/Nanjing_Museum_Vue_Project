@@ -6,19 +6,23 @@ export const swiperImgs = [
 	require("../static/swiper/5.png"),
 	require("../static/swiper/6.png"),
 ];
-type ListType = {
-	img: {
-		src: string;
-		title: string;
-	};
+interface TIT {
 	title: string;
+}
+interface IMGTIT extends TIT {
+	src: string;
+}
+interface IMG {
+	img: IMGTIT;
+}
+export interface ListType extends IMG, TIT {
 	text: string;
 	year: string;
 	month: string;
 	date: string;
 	to: string;
-}[];
-export const newList: ListType = [
+};
+export const newList: ListType[] = [
 	{
 		img: {
 			src: "http://file.guilinmuseum.org.cn/GLBWG/WaterMark/文章富文本文件/EditorImage/20201106/6374025524300585198469378.png",
@@ -140,17 +144,14 @@ export const newList: ListType = [
 		to: ""
 	}
 ];
-type IntroducesType = {
+interface IntroducesType {
 	title: string;
 	text: string;
 	introduces: {
-		imgs: ({
+		imgs: {
 			src: string;
-			small?: undefined;
-		} | {
-			src: string;
-			small: boolean;
-		})[];
+			small?: boolean | undefined;
+		}[];
 		title: string;
 	}[];
 }
@@ -630,36 +631,26 @@ type TextInfo = {
 	};
 	date: string;
 };
+export interface TitleInfo {
+	img: any;
+	span: string;
+}
+export interface TInfo {
+	name: string;
+	address: string;
+	postcode: string;
+	phone: string;
+	url?: string | undefined;
+	local: string;
+	src: string;
+}
 type TextList = ({
-	info: {
-		img: any;
-		span: string;
-	};
-} | {
-	info: {
-		name: string;
-		address: string;
-		postcode: string;
-		phone: string;
-		url: string;
-		local: string;
-		src: string;
-	}[];
-} | {
-	info: {
-		name: string;
-		address: string;
-		postcode: string;
-		phone: string;
-		local: string;
-		src: string;
-	}[];
+	info: (TitleInfo | TInfo[]);
 })[];
 type TextNav = {
 	href: string;
 	src: string;
 }[];
-
 
 type Guide = {
 	info: TextInfo,
@@ -821,7 +812,7 @@ type Artgoods = {
 	}[];
 }
 export const artgoods: Artgoods = {
-	"allsorts": [
+	allsorts: [
 		require("../static/wen_gen/4-1.png"),
 		require("../static/wen_gen/2-2.png"),
 		require("../static/wen_gen/1-4.png")
@@ -844,7 +835,7 @@ export const artgoods: Artgoods = {
 			src: require("../static/wen_gen/artgoods-4.jpg")
 		}
 	],
-	"swiperImg": [
+	swiperImg: [
 		{
 			src: "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418184334eaVs0y.jpg"
 		},
@@ -1658,7 +1649,7 @@ export const ticket: Ticket = {
 		}
 	]
 }
-type res = {
+export type res = {
 	src: string;
 	name: string;
 	time: string;
@@ -6684,8 +6675,8 @@ export const local_culture: LocalCulture = {
 }
 
 
-export function $id(elementId: string): HTMLElement | null {
-	return document.getElementById(elementId);
+export function $id(elementId: string): HTMLElement {
+	return document.getElementById(elementId) as HTMLElement;
 }
 
 export function $class(classNames: string): HTMLCollectionOf<Element> {
@@ -6703,3 +6694,5 @@ export function $all<E extends Element = Element>(selectors: string): NodeListOf
 export function $add<K extends keyof HTMLElementTagNameMap>(tagName: K): HTMLElementTagNameMap[K] {
 	return document.createElement(tagName);
 }
+
+export const baseURL: string = "http://127.0.0.1:5500/assets/static/json/";

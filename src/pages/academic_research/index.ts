@@ -1,5 +1,5 @@
 import Nav from "../../assets/js/Nav";
-import { $id, $add, academic } from "../../assets/js/common";
+import { $id, $add, academic, baseURL, res } from "../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
 import "../../assets/css/common.css";
@@ -9,12 +9,12 @@ import "./index.css";
 console.clear();
 new Nav(6);
 // PageList({ method: "GET", url: "academic_research.json" });
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/"
+axios.defaults.baseURL = baseURL
 
 let pageNum = 0;
 let size = 6;
 let page = 1;
-let info = [];
+let info: res = [];
 /**@type {[]} */
 let list = [];
 
@@ -43,7 +43,7 @@ setListener(lis.length - 2, xiayiye);
 setListener(lis.length - 1, toEnd);
 
 $select.addEventListener("change", function () {
-	page = this[this.selectedIndex].value - 0;
+	page = parseInt((this[this.selectedIndex] as HTMLOptionElement).value) - 0;
 	setPagesButton();
 });
 

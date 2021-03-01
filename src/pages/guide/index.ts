@@ -1,6 +1,6 @@
 import Nav from "../../assets/js/Nav";
 import GoToTop from "../../assets/js/GoToTop";
-import { $all, $id, $add, $class, guide } from "../../assets/js/common";
+import { $all, $id, $add, $class, guide, baseURL, TitleInfo, TInfo } from "../../assets/js/common";
 import "normalize.css";
 import "../../assets/css/common.css";
 import "../../assets/css/top-nav.css";
@@ -10,7 +10,7 @@ import axios from "axios";
 console.clear();
 new Nav(3);
 
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
+axios.defaults.baseURL = baseURL;
 
 let navList = [
 	{ title: "交通与周边信息" },
@@ -48,31 +48,12 @@ function show(i: number) {
 
 function init_guide_page(index: number) {
 	for (let i = 0; i < guide_page.length; i++)
-		guide_page[i].style.display = i == index ? "block" : "none";
+		(guide_page[i] as HTMLElement).style.display = i == index ? "block" : "none";
 }
 
 function showPage1() {
 	let titles = ["交通信息", "酒店住宿", "餐饮服务", "文化休闲"];
-	type PageInfo = {
-		img: any;
-		span: string;
-	} | {
-		name: string;
-		address: string;
-		postcode: string;
-		phone: string;
-		url: string;
-		local: string;
-		src: string;
-	}[] | {
-		name: string;
-		address: string;
-		postcode: string;
-		phone: string;
-		local: string;
-		src: string;
-	}[]
-	let page_info: PageInfo = [];
+	let page_info: (TitleInfo | TInfo[])[] = [];
 
 	let tr_button = $id("button");
 	tr_button.style.display = "flex";
@@ -102,7 +83,7 @@ function showPage1() {
 
 	// axios({ method: "GET", url: "guide-list-info.json" }).then(res => {
 	// 	if (res.status == 200) {
-	guide.list.forEach(({ info }, i) => page_info[i] = info);
+	page_info = guide.list.map(({ info }) => info)
 	show(0);
 	// 	} else console.log(res.statusText);
 	// }).catch((err) => console.log(err));
@@ -113,14 +94,14 @@ function showPage1() {
 			case 0:
 				page1_1.style.display = "block";
 				page1_2.style.display = "none";
-				page1_1.getElementsByTagName("img")[0].src = page_info[0].img;
-				page1_1.getElementsByTagName("p")[0].innerHTML = page_info[0].span;
+				page1_1.getElementsByTagName("img")[0].src = (page_info[0] as TitleInfo).img;
+				page1_1.getElementsByTagName("p")[0].innerHTML = (page_info[0] as TitleInfo).span;
 				break;
 			case 1: case 2: case 3:
 				page1_2.style.display = "block";
 				page1_1.style.display = "none";
 				page1_2_table.innerHTML = "";
-				page_info[i].forEach((info: { name: any; address: any; postcode: any; phone: any; url: any; local: any; src: any; }) => {
+				(page_info[i] as TInfo[]).forEach((info) => {
 					let tr = $add("tr");
 					page1_2_table.appendChild(tr);
 					createTd(`<p><strong>名称：${info.name}</strong><br />地址：${info.address}<br />邮编：${info.postcode}<br />联系电话：${info.phone}<br /><span>官方网址：<a href="${info.url}" target="_blank">${info.url}<br /></a></span>（点击地图查看详细位置）&nbsp;</p>`);
@@ -142,8 +123,8 @@ function showPage2() {
 	$id("text1").innerHTML = info.text1;
 	$id("text2").innerHTML = info.text2;
 	$id("text3").innerHTML = info.text3;
-	$id("wangzh").href = info.yuyue.wangzh;
-	$id("weixin").href = info.yuyue.weixin;
+	($id("wangzh") as HTMLAnchorElement).href = info.yuyue.wangzh;
+	($id("weixin") as HTMLAnchorElement).href = info.yuyue.weixin;
 	$id("date").innerHTML = info.date;
 	// 	} else console.log(res.statusText);
 	// }).catch((err) => console.log(err));

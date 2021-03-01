@@ -1,4 +1,7 @@
-export var swiperImgs = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.baseURL = exports.$add = exports.$all = exports.$tag = exports.$class = exports.$id = exports.local_culture = exports.activity = exports.academic = exports.ticket = exports.artproducts = exports.artgoods = exports.guide = exports.Info = exports.List = exports.eventList = exports.introduces = exports.newList = exports.swiperImgs = void 0;
+exports.swiperImgs = [
     // require("../static/swiper/1.png"),
     require("../static/swiper/2.png"),
     require("../static/swiper/3.png"),
@@ -6,7 +9,8 @@ export var swiperImgs = [
     require("../static/swiper/5.png"),
     require("../static/swiper/6.png"),
 ];
-export var newList = [
+;
+exports.newList = [
     {
         img: {
             src: "http://file.guilinmuseum.org.cn/GLBWG/WaterMark/文章富文本文件/EditorImage/20201106/6374025524300585198469378.png",
@@ -128,7 +132,7 @@ export var newList = [
         to: ""
     }
 ];
-export var introduces = {
+exports.introduces = {
     title: "大观艺术博物馆简介",
     text: "开封大学重视人才培养与文化传承相结合，在河南省（开封大学）非物质文化遗产研究基地、宋代陶模研究所、宋文化工艺品技能大师工作室建设的基础上,成立了大观艺术博物馆。博物馆围绕“审美育人、以文化人”的宗旨，开展文物征集保护、收藏研究、展示互动、学术交流、文化传承教育等工作。并以开封国际文化旅游名城建设为依托，与高校的专业建设和区域文创产业发展相结合，搭建了博物馆、“非遗”研究基地和宋文化工艺品技能大师工作室三位一体的文化传承与创新育人平台，形成了开封大学独具特色的校园文化品牌，服务于开封社会经济发展。\n开封大学大观艺术博物馆已建成网络博物馆和与实体博物馆。实体博物馆的馆址位于开封大学大观广场之北，建筑面积1600平方米。馆内设置有八朝古都、宋代陶模、古代模具、古代玩具和古代雕塑等展厅，并设置有文化体验厅和咖啡厅。博物馆的陈展以开封的历史、文化与艺术为线索，以夏（老邱）、战国（魏国大梁）、五代（后梁、后晋、后汉、后周）、北宋（东京）、金（陪都、国都）、明（藩王周府）为重点展览时期，以同时期的文物为主要展品，并辅以该时期的标准器进行展览。同时，大观艺术博物馆与百度百科开展合作，共同开发了馆内的数字化陈展系统。\n目前，大观艺术博物馆与河南省美术馆共建了宋代陶模艺术博物馆。并被开封市古都学会定为省会文化传播基地；被开封市地方志办公室定为地方史志文化传播基地；被开封市工艺美术行业协会定为古代工艺品传承研发基地。",
     introduces: [
@@ -399,7 +403,7 @@ export var introduces = {
         }
     ]
 };
-export var eventList = [
+exports.eventList = [
     {
         date: "2020/01/06",
         year: "2019"
@@ -481,8 +485,7 @@ export var eventList = [
         year: "2000"
     }
 ];
-export var List = function (_a) {
-    var year = _a.year, date = _a.date;
+const List = function ({ year, date }) {
     return ({
         list: [
             {
@@ -557,7 +560,8 @@ export var List = function (_a) {
         name: "中医药博物馆"
     });
 };
-export var Info = {
+exports.List = List;
+exports.Info = {
     title: "馆长致辞",
     responsive: require("../static/cesi/name.jpg"),
     info: {
@@ -567,7 +571,7 @@ export var Info = {
     matter: "中华文明历史悠久，博大精深。汉字在中华历史文化的传承发展中扮演着极为重要的角色。汉字的历史至少可以追溯到夏代，120年前安阳殷墟甲骨文的发现，再现了殷商时期语言文字的基本面貌。在历史的长河中，汉字系统以其稳定性和传承性，使得中华历史文化能够持续发展并保存着完好的形态，中华文化精神才得以一以贯之，连绵不绝，至今熠熠生辉。\n中国文字博物馆，是我国唯一的以文字为主题的国家级博物馆。安阳是中国文字的圣地，殷墟是殷商晚期的都城所在地，出自殷墟的十几万片甲骨，记录和保存了殷商晚期二百多年的历史，是殷商时代语言文字的珍贵样本。殷墟被联合国科教文组织列入世界文化遗产名录，甲骨文被列入世界记忆名录，国家在安阳市建立这样一座举世无双的文字博物馆，正是由于安阳厚重的历史文化积淀和甲骨文这一伟大发现。\n中国文字博物馆2009年开馆以来，在国家有关部委、河南省政府以及安阳市的关怀下，在国内各有关文博部门和单位的大力支持下，馆党委与冯其庸、李学勤两任馆长带领全馆同志，以汉字文化的传承弘扬为己任，开拓创新，不懈努力，通过各种专题陈展和丰富多彩的活动，逐步形成了博物馆自身的品牌，在国内外产生了广泛的影响，较好地体现了中国文字博物馆的功能定位和建馆宗旨，在继承、传播和弘扬中华优秀传统文化尤其是汉字文化方面发挥了独特的作用，取得了突出的成就。\n党的十八大以来，习近平总书记对弘扬中华优秀传统文化发表过多次重要讲话。2016年5月在全国哲学社会科学工作座谈会上，习近平总书记指出，要重视发展具有重要文化价值和传承意义的“绝学”、冷门学科。这些学科看上去同现实距离较远，但养兵千日、用兵一时，需要时也要拿得出来、用得上。还有一些学科事关文化传承的问题，如甲骨文等古文字研究等，要重视这些学科，确保有人做、有传承。总书记的讲话，为中国文字博物馆的工作指明了方向。为落实总书记的讲话精神，中国文字博物馆面向社会征集甲骨文考释优秀成果，参与进行大数据、云平台技术背景下甲骨文字考释工作等，这些工作极大地提升了中国文字博物馆的学术品格，扩大了博物馆的社会影响力。\n中国文字博物馆开馆以来，虽然做了很多开创性的工作，创造了不少经验，取得了较为突出的成绩，但中华优秀传统文化的传承弘扬是一项长期的历史任务，汉字文化的传播道路仍然还很漫长，还有许多工作需要我们去做。在国家经济社会大发展和文化大繁荣的背景下，中国文字博物馆更应以高度的文化自觉担负起自身的使命，我愿与博物馆同仁和社会各界一道，把握机遇，迎接挑战，在过去工作的基础上，努力创造中国文字博物馆新的辉煌，为促进当代文化建设作出我们新的更大的贡献。",
     signature: require("../static/cesi/aaa.png")
 };
-export var guide = {
+exports.guide = {
     info: {
         text1: "4月30日零时起，北京突发卫生公共事件响应机制调为二级，根据相应防控策略，结合当前实际，首都博物馆决定自5月1日起恢复开放。<br />开放时间暂定为每天10:00-16:00（15：00停止入馆），周一例行闭馆，暂不安排延时开放。开馆期间社会车辆进馆时间为9：30-15:00。<br />开放区域暂定为方形展厅一至五层所有展厅。<br />开放方式为预约参观。每位观众均须提前在首都博物馆微信公众号和官方网站进行实名预约，非经预约无法入馆，暂不接受团体预约、电话预约和现场预约。开放期间每日预约1000人，预约分上下午，每半天各预约500人，上午预约入馆：10:00-13：00,下午预约入馆13:00—15:00，请须按照预约场次到馆，否则无法入馆。",
         text2: "观众须在车场入口或北广场入口处完成<br />（一）体温检测<br />（二）北京市（健康宝）健康码检查<br />（三）携带本人二代身份证验证预约信息并领取门票，方可进入馆区。存在体温大于等于37.3摄氏度、北京市（健康宝）健康码显示异常、未预约这三种情况中任一种情况的观众，暂不得进入馆区。外籍人员预约到馆参观需携带护照，并出示“HealthKit（健康宝）”。",
@@ -711,8 +715,8 @@ export var guide = {
         }
     ]
 };
-export var artgoods = {
-    "allsorts": [
+exports.artgoods = {
+    allsorts: [
         require("../static/wen_gen/4-1.png"),
         require("../static/wen_gen/2-2.png"),
         require("../static/wen_gen/1-4.png")
@@ -735,7 +739,7 @@ export var artgoods = {
             src: require("../static/wen_gen/artgoods-4.jpg")
         }
     ],
-    "swiperImg": [
+    swiperImg: [
         {
             src: "https://file.szmuseum.com/WaterMark/%E6%96%87%E5%88%9B%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86%E5%9B%BE%E7%89%87/20170418184334eaVs0y.jpg"
         },
@@ -747,7 +751,7 @@ export var artgoods = {
         }
     ]
 };
-export var artproducts = [
+exports.artproducts = [
     {
         src: require("../static/goods/NO.0.png"),
         height: "400",
@@ -889,7 +893,7 @@ export var artproducts = [
         ]
     }
 ];
-export var ticket = {
+exports.ticket = {
     ticket_list: [
         "门票提前10天0点预售，售完为止。",
         "故宫购票实行实名制，所有观众需录入身份信息方可预定。",
@@ -1512,7 +1516,7 @@ export var ticket = {
         }
     ]
 };
-export var academic = {
+exports.academic = {
     results: [
         {
             src: "/html/201803/a1073.htm",
@@ -3442,7 +3446,7 @@ export var academic = {
         }
     ]
 };
-export var activity = {
+exports.activity = {
     erji: [
         {
             title: {
@@ -6246,7 +6250,7 @@ export var activity = {
         }
     ]
 };
-export var local_culture = {
+exports.local_culture = {
     list: [
         {
             tit: "佳果呈祥",
@@ -6455,18 +6459,24 @@ export var local_culture = {
         }
     ]
 };
-export function $id(elementId) {
+function $id(elementId) {
     return document.getElementById(elementId);
 }
-export function $class(classNames) {
+exports.$id = $id;
+function $class(classNames) {
     return document.getElementsByClassName(classNames);
 }
-export function $tag(qualifiedName) {
+exports.$class = $class;
+function $tag(qualifiedName) {
     return document.getElementsByTagName(qualifiedName);
 }
-export function $all(selectors) {
+exports.$tag = $tag;
+function $all(selectors) {
     return document.querySelectorAll(selectors);
 }
-export function $add(tagName) {
+exports.$all = $all;
+function $add(tagName) {
     return document.createElement(tagName);
 }
+exports.$add = $add;
+exports.baseURL = "http://127.0.0.1:5500/assets/static/json/";

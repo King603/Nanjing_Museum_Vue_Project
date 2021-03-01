@@ -16,15 +16,11 @@ let texts = index_text.split("\n");
 type MENU = {
 	title: string;
 	isShow: boolean;
-	menu: ({
+	menu: {
 		title: string;
-	} | {
-		title: string;
-		isShow: boolean;
-		menu: {
-			title: string;
-		}[];
-	})[];
+		isShow?: boolean;
+		menu?: { title: string; }[];
+	}[];
 }
 let menu1: MENU = {
 	title: "临时特展",
@@ -73,8 +69,8 @@ let menu3: MENU = {
 		{ title: "“又见大唐”书画文物展" }
 	]
 };
-document.body.style.background = `url(${bgImgUrl}) center top no-repeat #f3efd3 fixed`
-$class("exhibition-logo")[0].src = logoImg;
+document.body.style.background = `url(${bgImgUrl}) center top no-repeat #f3efd3 fixed`;
+($class("exhibition-logo")[0] as HTMLImageElement).src = logoImg;
 
 function getText(str: string) {
 	return str.substring(0, 8);
@@ -86,12 +82,12 @@ setLiTitle(menu1, "menu1");
 createLi(menu1, "menu2");
 
 setLiTitle(menu2, "menu1");
-createLi(menu2, "menu2", menus => createLi(menus, "menu3"))
+createLi(menu2, "menu2", menus => createLi(menus as { title: string; isShow: boolean; menu: { title: string; }[]; }, "menu3"))
 
 setLiTitle(menu3, "menu1");
 createLi(menu3, "menu2");
 
-function setLiTitle(menu, className) {
+function setLiTitle(menu: { title: string; } | { title: string; isShow: boolean; menu: { title: string; }[]; }, className: string) {
 	let li = $add("li");
 	li.className = className;
 	li.title = menu.title;

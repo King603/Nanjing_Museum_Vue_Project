@@ -3,21 +3,16 @@ export default class GoTotop {
 		let gototop: HTMLDivElement = document.createElement("div");
 		gototop.innerHTML = "回到顶部";
 		document.body.appendChild(gototop);
-		gototop.style.textAlign = "center";
-		gototop.style.position = "fixed";
-		gototop.style.right = "50px";
-		gototop.style.bottom = "30px";
-		gototop.style.cursor = "pointer";
-		gototop.style.padding = "10px";
-		gototop.style.borderRadius = "50%";
-		gototop.style.background = "white";
-		gototop.style.color = "#000000";
-		window.addEventListener("scroll", GoTotop.showbtn, true);
-		gototop.addEventListener("click", ev => ev.button == 0 && GoTotop.backtop());
+		let gototopStyle = { textAlign: "center", position: "fixed", right: "50px", bottom: "30px", cursor: "pointer", padding: "10px", borderRadius: "50%", background: "white", color: "#000000", }
+		for (let [key, value] of Object.entries(gototopStyle))
+			gototop.style[key as any] = value;
+
+		window.addEventListener("scroll", (e) => this.showbtn(e), true);
+		gototop.addEventListener("click", ev => ev.button == 0 && this.backtop());
 	}
-	static scrollTop: number;
+	scrollTop: number = 0;
 	/**显示回到顶部按钮 */
-	static showbtn(): void {
+	private showbtn(e: Event): void {
 		this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 	}
 	/**
@@ -27,8 +22,8 @@ export default class GoTotop {
 	 * 3. 用当前距离加上计算出的距离，然后赋值给当前距离，就可以达到向上移动的效果
 	 * 4. 最后记得在移动到顶部时，清除定时器
 	 */
-	static backtop(): void {
-		let timer = setInterval(() => {
+	private backtop(): void {
+		let timer = setInterval((): void => {
 			let osTop = document.documentElement.scrollTop || document.body.scrollTop;
 			let ispeed = Math.floor(-osTop / 5);
 			document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;

@@ -3,13 +3,13 @@ import "normalize.css";
 import "../../assets/css/common.css";
 import "../../assets/css/top-nav.css";
 import axios from "axios";
-import { $id, $add, swiperImgs, newList } from '../../assets/js/common.js';
+import { $id, $add, swiperImgs, newList, baseURL, ListType } from '../../assets/js/common.js';
 const Swiper = /**@class */ require("../../assets/lib/swiper");
 import "../../assets/css/swiper.css";
 import "./index.css";
 import "./news.css";
 
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
+axios.defaults.baseURL = baseURL;
 console.clear();
 // 头部导航
 new Nav(0);
@@ -37,7 +37,7 @@ new Swiper(".swiper-container", {
 
 
 
-let list = [];
+let list: ListType[] = [];
 let size = 3;
 let pages = 0;
 let n = 0;
@@ -119,8 +119,7 @@ function showList(page: number) {
 			lis[lis.length - 2].className = lis[lis.length - 1].className = lis[0].className = lis[1].className = "";
 	}
 	for (let i = 0; i <= pages; i++) {
-		let { add, remove } = lis[i + 1].classList;
-		i == n ? add("active") : remove("active");
+		i == n ? lis[i + 1].classList.add("active") : lis[i + 1].classList.remove("active");
 	}
 }
 function shangye() {

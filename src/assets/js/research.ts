@@ -1,8 +1,8 @@
 type obj = { title: string, src: string };
-export default ((...args: obj[]) => {
+export default ((...args: obj[]): void => {
 	args.forEach(({ title, src }) => {
 		let li = document.createElement("li");
-		document.getElementById("navList").appendChild(li);
+		(document.getElementById("navList") as HTMLElement).appendChild(li);
 		let a = document.createElement("a");
 		a.href = src;
 		a.innerHTML = title;

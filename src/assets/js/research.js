@@ -1,13 +1,10 @@
-export default (function () {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
-    }
-    args.forEach(function (_a) {
-        var title = _a.title, src = _a.src;
-        var li = document.createElement("li");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = ((...args) => {
+    args.forEach(({ title, src }) => {
+        let li = document.createElement("li");
         document.getElementById("navList").appendChild(li);
-        var a = document.createElement("a");
+        let a = document.createElement("a");
         a.href = src;
         a.innerHTML = title;
         li.appendChild(a);

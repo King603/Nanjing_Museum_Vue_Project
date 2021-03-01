@@ -1,5 +1,5 @@
 import Nav from "../../assets/js/Nav";
-import { $all, $id, $add, activity } from "../../assets/js/common";
+import { $all, $id, $add, activity, baseURL } from "../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
 import "../../assets/css/common.css";
@@ -7,7 +7,7 @@ import "../../assets/css/top-nav.css";
 import "./index.css";
 
 console.clear();
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/"
+axios.defaults.baseURL = baseURL
 new Nav(7);
 
 // axios({ method: "GET", url: "activity_nav.json" }).then(res => {
@@ -20,10 +20,10 @@ activity.nav.forEach(res => {
 	a.innerHTML = res.title;
 	a.target = "_blank";
 	li.appendChild(a);
-	if (res.navigation) {
+	if ((res as { title: string; url: string; navigation: { title: string; url: string; }[]; }).navigation) {
 		let ul = $add("ul");
 		li.appendChild(ul);
-		res.navigation.forEach((res: { url: string; title: string; navigation: any[]; }) => {
+		(res as { title: string; url: string; navigation: { title: string; url: string; }[]; }).navigation.forEach(res => {
 			let li = $add("li");
 			ul.appendChild(li);
 			let a = $add("a");
@@ -31,10 +31,10 @@ activity.nav.forEach(res => {
 			a.innerHTML = res.title;
 			a.target = "_blank";
 			li.appendChild(a);
-			if (res.navigation) {
+			if ((res as { title: string; url: string; navigation: { title: string; url: string; }[]; }).navigation) {
 				let ul = $add("ul");
 				li.appendChild(ul);
-				res.navigation.forEach((res: { url: string; title: string; }) => {
+				(res as { title: string; url: string; navigation: { title: string; url: string; }[]; }).navigation.forEach(res => {
 					let li = $add("li");
 					ul.appendChild(li);
 					let a = $add("a");

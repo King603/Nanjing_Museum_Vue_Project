@@ -1,5 +1,5 @@
 import Nav from "../../assets/js/Nav";
-import { $all, $id, $add, local_culture } from "../../assets/js/common";
+import { $all, $id, $add, local_culture, baseURL } from "../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
 import "../../assets/css/common.css";
@@ -8,7 +8,7 @@ import "./index.css";
 
 console.clear()
 new Nav(8);
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
+axios.defaults.baseURL = baseURL;
 
 /**@type {HTMLTableSectionElement} */
 let $kecheng = $all("#kecheng>tbody")[0];
@@ -16,7 +16,7 @@ let $kecheng = $all("#kecheng>tbody")[0];
 	// axios({ method: "GET", url: "local_culture_type.json" }).then(res => {
 	// 	if (res.status == 200) {
 	/**@type {{ type: string; info: { tit: string; text: string; }[];}[]} */
-	let datas = local_culture.type;
+	let datas: { type: string; info: { tit: string; text: string; }[]; }[] = local_culture.type;
 	datas.forEach(({ type, info }) => {
 		info.forEach(({ tit, text }, i) => {
 			let tr = $add("tr");
@@ -33,7 +33,7 @@ let $kecheng = $all("#kecheng>tbody")[0];
 	// axios({ method: "GET", url: "local_culture_list.json" }).then(res => {
 	// 	if (res.status == 200) {
 	/**@type {{ tit: string; type: string; info: string; imgSrc?: string; }[]} */
-	let datas = local_culture.list;
+	let datas: { tit: string; type: string; info: string; imgSrc?: string; }[] = local_culture.list;
 	datas.forEach(data => {
 		let tr = $add("tr");
 		$id("info").appendChild(tr);

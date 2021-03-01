@@ -1,5 +1,5 @@
 import Nav from "../../../assets/js/Nav";
-import { $class, $id, $add, academic } from "../../../assets/js/common";
+import { $class, $id, $add, academic, baseURL } from "../../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
 import "../../../assets/css/common.css";
@@ -8,7 +8,7 @@ import "./index.css";
 
 console.clear();
 new Nav(6);
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
+axios.defaults.baseURL = baseURL;
 import("../../../assets/js/research");
 
 const h1 = "研究课题表";

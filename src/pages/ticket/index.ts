@@ -4,10 +4,10 @@ import "normalize.css";
 import "../../assets/css/common.css";
 import "../../assets/css/top-nav.css";
 import "./index.css";
-import { $add, $id, ticket } from "../../assets/js/common";
+import { $add, $id, baseURL, ticket } from "../../assets/js/common";
 
 console.clear();
-axios.defaults.baseURL = "http://127.0.0.1:5500/assets/static/json/";
+axios.defaults.baseURL = baseURL;
 new Nav(5);
 
 let nav_tit = ["主题免费票", "普通门票", "年票"];
@@ -18,7 +18,7 @@ let news_num = 4;
 let days = 10;
 let newsList = [];
 
-type LIST = {
+interface LIST {
 	m: string;
 	d: string;
 	t: string;
@@ -98,13 +98,13 @@ newsList.forEach((news, i) => {
 	$newsList.appendChild(div);
 });
 $newsList.innerHTML += '<div class="button">更多&gt;&gt;</div>';
-result.ticket_list.forEach(ticket => olList($id("gou"), ticket));
-result.refund_list.forEach(ticket => olList($id("tui"), ticket));
-result.checking_list.forEach(ticket => olList($id("yan"), ticket));
-function olList(HTMLElement: HTMLElement, ticket: string) {
+result.ticket_list.forEach(ticket => olList("gou", ticket));
+result.refund_list.forEach(ticket => olList("tui", ticket));
+result.checking_list.forEach(ticket => olList("yan", ticket));
+function olList(id: string, ticket: string) {
 	let li = $add("li");
 	li.innerHTML = ticket;
-	HTMLElement.appendChild(li);
+	$id(id).appendChild(li);
 }
 result.Visit_time.forEach((time, i) => {
 	let tr = $add("tr");
