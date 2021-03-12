@@ -1,9 +1,9 @@
 import Nav from "../../assets/js/Nav";
 import axios from "axios";
 import "normalize.css";
-import "../../assets/css/common.css";
-import "../../assets/css/top-nav.css";
-import "./index.css";
+import "../../assets/scss/common.scss";
+import "../../assets/scss/top-nav.scss";
+import "./index.scss";
 import { $add, $id, baseURL, ticket } from "../../assets/js/common";
 
 console.clear();

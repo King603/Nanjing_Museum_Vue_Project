@@ -4,20 +4,18 @@ import axios from "axios";
 import { $add, $class, $id, artgoods, artproducts, baseURL } from "../../assets/js/common";
 const Swiper = require("../../assets/lib/swiper");
 import "normalize.css";
-import "../../assets/css/common.css";
-import "../../assets/css/top-nav.css";
+import "../../assets/scss/common.scss";
+import "../../assets/scss/top-nav.scss";
 import "../../assets/css/swiper.css";
-import "./index.css";
+import "./index.scss";
 
 console.clear();
 new Nav(4);
 axios.defaults.baseURL = baseURL;
 
-let titles: string[] = ["产品图文介绍", "产品购买", "产品防伪溯源信息查询、举报"];
-interface Products {
-	[index: number]: { img: string; tit: string; price: string; num: number; }
-}
-let products: Products = [
+let titles: string[] = ["产品图文介绍", "产品防伪溯源信息查询、举报"];
+interface Product { img: string; tit: string; price: string; num: number; };
+let products: Product[] = [
 	{ img: "", tit: "", price: "", num: 0 },
 	{ img: "", tit: "", price: "", num: 0 },
 	{ img: "", tit: "", price: "", num: 0 },
@@ -43,6 +41,20 @@ titles.forEach((tit, i) => {
 let products_good_list = $id("products-good_list");
 let products_page = $id("products");
 let products_buy = $id("buy");
+products_buy.getElementsByTagName("button")[1].addEventListener("click", function (ev) {
+	if (ev.button == 0) {
+		products_buy.style.display = "none";
+		products_buy.getElementsByTagName("img")[0].src = "";
+		products_buy.querySelectorAll("p[name='name']")[0].innerHTML = "";
+		products_buy.querySelectorAll("p[name='price']")[0].innerHTML = "";
+		products_buy.querySelectorAll("p[name='num']")[0].innerHTML = "";
+	}
+});
+products_buy.getElementsByTagName("button")[0].addEventListener("click", function (ev) {
+	if (ev.button == 0) {
+
+	}
+});
 let products_cx = $id("cx");
 
 showPage(0);
@@ -87,11 +99,7 @@ artgoods_title.forEach((title, i) => {
 	let img = new Image();
 	img.src = title.src;
 	products_artgoods_img.appendChild(img);
-	img.addEventListener("click", ev => {
-		if (ev.button == 0) {
-			(i => to(i + 1))(i);
-		}
-	})
+	img.addEventListener("click", ev => ev.button == 0 && (i => to(i + 1))(i));
 });
 // 	} else console.log(res.statusText);
 // }).catch(err => console.log(err));
@@ -101,25 +109,16 @@ function showPage(n: number) {
 		case -1:
 			products_good_list.style.display = "block";
 			products_page.style.display = "none";
-			products_buy.style.display = "none";
 			products_cx.style.display = "none";
 			break;
 		case 0:
 			products_good_list.style.display = "none";
 			products_page.style.display = "block";
-			products_buy.style.display = "none";
 			products_cx.style.display = "none";
 			break;
 		case 1:
 			products_good_list.style.display = "none";
 			products_page.style.display = "none";
-			products_buy.style.display = "block";
-			products_cx.style.display = "none";
-			break;
-		case 2:
-			products_good_list.style.display = "none";
-			products_page.style.display = "none";
-			products_buy.style.display = "none";
 			products_cx.style.display = "block";
 			break;
 	}
@@ -171,20 +170,21 @@ function showProducts_good(name: any): void {
 			let img = new Image();
 			img.src = g.src;
 			good_div.appendChild(img);
-			good_div.innerHTML += `<div><span>${g.name}</span><span>RMB:${g.price}</span><span>点击购买</span></div>`;
+			good_div.innerHTML += `<div><span>${g.name}</span><span>RMB:${g.price}</span><button>点击购买</button></div>`;
+			good_div.getElementsByTagName("button")[0].addEventListener("click", (ev) => ev.button == 0 && toBuy(g as { src: string; price: string; num: number; name: string; id: string }));
 		});
 	});
 	console.log(artgoods_title)
 	let $pages = $id("pages");
 	$pages.innerHTML = "";
 
-	setPagesButton("首页", artgoods_title[0].tit, () => to(1));
-	artgoods_page > 1 && setPagesButton("上一页", artgoods_title[artgoods_page - 2].tit, () => to(artgoods_page - 1));
-	artgoods_title.forEach((goods, i) => setPagesButton((i + 1).toString(), '该页为' + goods.tit, () => to(i + 1)));
-	artgoods_page < artgoods_title.length - 1 && setPagesButton("下一页", artgoods_title[artgoods_page].tit, () => to(artgoods_page + 1));
-	setPagesButton("末页", artgoods_title[0].tit, () => to(artgoods_title.length));
+	setPagesButton({ innerHTML: "首页", title: artgoods_title[0].tit, click: () => to(1) });
+	artgoods_page > 1 && setPagesButton({ innerHTML: "上一页", title: artgoods_title[artgoods_page - 2].tit, click: () => to(artgoods_page - 1) });
+	artgoods_title.forEach((goods, i) => setPagesButton({ innerHTML: (i + 1).toString(), title: '该页为' + goods.tit, click: () => to(i + 1) }));
+	artgoods_page < artgoods_title.length - 1 && setPagesButton({ innerHTML: "下一页", title: artgoods_title[artgoods_page].tit, click: () => to(artgoods_page + 1) });
+	setPagesButton({ innerHTML: "末页", title: artgoods_title[0].tit, click: () => to(artgoods_title.length) });
 
-	function setPagesButton(innerHTML: string, title: string, click: () => void) {
+	function setPagesButton({ innerHTML, title, click }: { innerHTML: string; title: string; click: () => void; }) {
 		let page = $add("span");
 		page.innerHTML = innerHTML;
 		page.title = title;
@@ -195,5 +195,14 @@ function showProducts_good(name: any): void {
 
 	// 	} else console.log(res.statusText);
 	// }).catch((err) => console.log(err));
+}
+
+function toBuy(good: { src: string; price: string; num: number; name: string; id: string }) {
+	products_buy.style.display = "block";
+	products_buy.getElementsByTagName("img")[0].src = good.src;
+	products_buy.querySelectorAll("p[name='name']")[0].innerHTML = good.name;
+	products_buy.querySelectorAll("p[name='price']")[0].innerHTML = good.price;
+	products_buy.querySelectorAll("p[name='num']")[0].innerHTML = good.num as unknown as string;
+	($id("PurchaseQuantity") as HTMLInputElement).focus();
 }
 new GoTotop();

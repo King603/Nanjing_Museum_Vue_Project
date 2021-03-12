@@ -1,0 +1,130 @@
+.main1-main {
+	width: 100%;
+	position: relative;
+}
+
+.newsList {
+	background: #f4f3f3;
+	margin: 20px 16px;
+	padding: 16px 12px;
+	position: relative;
+	transition: all ease-out 0.3s;
+	border: 1px solid #d6d6d6;
+	cursor: pointer;
+	img {
+		float: left;
+		width: 205px;
+		height: 140px;
+		position: relative;
+		overflow: hidden;
+		margin-right: 32px;
+	}
+	.info {
+		color: #6e6e6e;
+		padding-left: 16px;
+		text-align: left;
+		h3 {
+			font-size: 16px;
+			margin: 16px 176px 12px 0;
+			color: #2c2c2c;
+		}
+		p {
+			font-size: 12px;
+			margin-right: 170px;
+			line-height: 28px;
+			height: 86px;
+			text-indent: 32px;
+			/* 3行显示，多余隐藏 */
+			text-overflow: -o-ellipsis-lastline;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+		}
+	}
+	.date {
+		position: absolute;
+		top: 55px;
+		right: 35px;
+		h2 {
+			font-size: 20px;
+			font-weight: bold;
+			color: #8994a0;
+		}
+		p {
+			font-size: 16px;
+			text-align: center;
+			margin-top: 5px;
+			color: #a5aeb7;
+		}
+	}
+	.date::before {
+		content: "";
+		width: 1px;
+		height: 6px;
+		background: #dcdcdc;
+		position: absolute;
+		left: -40px;
+		top: 5px;
+	}
+}
+.newsList:hover {
+	box-shadow: 0 8px 16px #dedede;
+	transform: translateY(-3px);
+	.info h3 {
+		color: #869fc8;
+	}
+}
+
+.digg {
+	position: absolute;
+	bottom: 16px;
+	right: 0;
+	ul#pages {
+		text-align: right;
+		li {
+			display: inline-block;
+			margin-right: 8px;
+			span {
+				padding: 4px 16px;
+				display: inline-block;
+				color: #2a2a2a;
+				background: #e4e4e4;
+				transition: 0.3s;
+				font-size: 16px;
+				border-radius: 3px;
+			}
+		}
+		li.disabled span {
+			cursor: default;
+			color: #ccc8bf;
+			background: #eee;
+		}
+		li.num span {
+			cursor: default;
+			color: #2c2c2c;
+			background: #eee;
+		}
+		li.active span {
+			color: #fff;
+			background-color: #869fc8;
+		}
+	}
+}
+
+.news_title {
+	font-size: 16px;
+	text-align: center;
+}
+
+.news_title::before,
+.news_title::after {
+	font-family: "iconfont" !important;
+	content: "\eba6";
+	color: #869fc8;
+}
+
+#news {
+	height: 650px;
+}

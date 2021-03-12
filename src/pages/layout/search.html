@@ -19,7 +19,20 @@
 </style>
 
 <form method="get" class="search-body">
-	<input class="search-input" name="k" placeholder="在这里搜索..."/>
+	<input class="search-input" name="k" placeholder="在这里搜索..." />
 	<button class="search-button">搜 索</button>
-	<script src="./seach.js"></script>
+	<script>
+		let $input = document.getElementsByTagName("input")[0];
+		const value = $input.placeholder
+		$input.onfocus = function () {
+			if (this.value == value) {
+				this.value = '';
+			}
+		};
+		$input.onblur = function () {
+			if (this.value == '') {
+				this.value = value;
+			}
+		};
+	</script>
 </form>

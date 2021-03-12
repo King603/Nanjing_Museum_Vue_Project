@@ -2,9 +2,9 @@ import Nav from "../../assets/js/Nav";
 import { $all, $id, $add, local_culture, baseURL } from "../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
-import "../../assets/css/common.css";
-import "../../assets/css/top-nav.css";
-import "./index.css";
+import "../../assets/scss/common.scss";
+import "../../assets/scss/top-nav.scss";
+import "./index.scss";
 
 console.clear()
 new Nav(8);
@@ -43,6 +43,6 @@ let $kecheng = $all("#kecheng>tbody")[0];
 	// }).catch(err => console.log(err));
 })()
 
-console.log(document.domain)
-console.log(document.lastModified)
-console.log(document.referrer)
+// console.log(document.domain)
+// console.log(document.lastModified)
+// console.log(document.referrer)

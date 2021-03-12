@@ -31,16 +31,15 @@
 	width: 100%;
 	font-size: 13px;
 	text-align: center;
-}
-
-.title>div {
-	width: 100%;
-	line-height: 44px;
-	font-size: 13px;
-	margin: 0 1px;
-	border: 1px solid #fff;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	> div {
+		width: 100%;
+		line-height: 44px;
+		font-size: 13px;
+		margin: 0 1px;
+		border: 1px solid #fff;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
 }
 
 .title_bg {
@@ -53,7 +52,8 @@
 	background-image: -ms-repeating-radial-gradient(50px at center center, #acaf7a 0%, #a1a568 100%);
 }
 
-.title_bg:hover, .designate {
+.title_bg:hover,
+.designate {
 	color: #000;
 	text-shadow: 1px 1px 0 #f1b955;
 	background-image: radial-gradient(50px at center center, #eda119 0%, #ea7107 100%);
@@ -104,14 +104,16 @@
 	width: 40% !important;
 }
 
-.small_img+.small_img {
+.small_img + .small_img {
 	margin-left: 10%;
 }
 
-.vsbcontent_img p {
-	line-height: 150%;
-	font-size: 14px;
-	margin-bottom: 17px;
+.vsbcontent_img {
+	p {
+		line-height: 150%;
+		font-size: 14px;
+		margin-bottom: 17px;
+	}
 }
 
 h6 {
@@ -120,10 +122,9 @@ h6 {
 
 .til_lf01 {
 	border-bottom: 2px solid #cecfc8;
-}
-
-.til_lf01>span {
-	border-bottom: 2px solid #819319;
+	> span {
+		border-bottom: 2px solid #819319;
+	}
 }
 
 h3.til_lf01 {
@@ -133,22 +134,20 @@ h3.til_lf01 {
 
 .box_event02-ul {
 	padding: 0;
-}
-
-.box_event02-ul li {
-	line-height: 22px;
-	padding: 5px 0;
-	font-size: 14px;
-	padding-left: 16px;
-	border-bottom: 1px solid #fff;
-}
-
-.box_event02-ul li, .goBack {
-	cursor: pointer;
-}
-
-.box_event02-ul li span:last-child {
-	float: right;
+	li {
+		line-height: 22px;
+		padding: 5px 0;
+		font-size: 14px;
+		padding-left: 16px;
+		border-bottom: 1px solid #fff;
+		span:last-child {
+			float: right;
+		}
+	}
+	li,
+	.goBack {
+		cursor: pointer;
+	}
 }
 
 .info {
@@ -182,18 +181,17 @@ h2.page2Title {
 	overflow: hidden;
 	font-size: 14px;
 	line-height: 30px;
-}
-
-.article_t p {
-	text-indent: 2em;
-}
-
-.article_t>p+p {
-	border-top: 0.1px solid #666;
-}
-
-.article_t>div>p:last-child {
-	text-align: right;
+	p {
+		text-indent: 2em;
+	}
+	> p + p {
+		border-top: 0.1px solid #666;
+	}
+	> div {
+		> p:last-child {
+			text-align: right;
+		}
+	}
 }
 
 .goBack {
@@ -213,7 +211,8 @@ h2.page2Title {
 	text-align: center;
 }
 
-img.newsInfo, img.responsive-img {
+img.newsInfo,
+img.responsive-img {
 	max-width: 100%;
 	height: auto;
 	display: block;

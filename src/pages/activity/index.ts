@@ -2,9 +2,9 @@ import Nav from "../../assets/js/Nav";
 import { $all, $id, $add, activity, baseURL } from "../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
-import "../../assets/css/common.css";
-import "../../assets/css/top-nav.css";
-import "./index.css";
+import "../../assets/scss/common.scss";
+import "../../assets/scss/top-nav.scss";
+import "./index.scss";
 
 console.clear();
 axios.defaults.baseURL = baseURL

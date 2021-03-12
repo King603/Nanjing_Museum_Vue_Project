@@ -6,7 +6,7 @@ interface nav {
 }
 
 export default class Nav {
-	private navigations: nav[] = [
+	#navigations: nav[] = [
 		{ title: "首页", to: "/" },
 		{ title: "走进博物馆", to: "/introduce" },
 		{ title: "陈列展览", to: "/exhibition" },
@@ -21,7 +21,7 @@ export default class Nav {
 		this.setNav(n);
 	}
 	private setNav(n: number): void {
-		this.navigations.forEach((nav, i) => {
+		this.#navigations.forEach((nav, i) => {
 			let div = $add("div");
 			let a = $add("a");
 			if (n == i) a.className = "active";

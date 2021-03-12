@@ -7,68 +7,65 @@
 	padding: 15px 0px 0px 0px;
 	overflow: hidden;
 	margin: 0 auto;
-}
+	p {		text-align: justify;
+		word-wrap: break-word;
+		word-break: normal;
+		text-indent: 2em;
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 1200px;
+			height: auto !important;
+		}
+		a {
+			font-weight: bold;
+		}
+		a:hover {
+			color: #f54343;
+		}
+	}
 
-.textcontent p:not(table p) {
-	text-align: justify;
-	word-wrap: break-word;
-	word-break: normal;
-	text-indent: 2em;
-}
-
-.textcontent p img {
-	display: block;
-	margin: 0 auto;
-	max-width: 1200px;
-	height: auto!important;
-}
-
-.textcontent p a {
-	font-weight: bold
-}
-
-.textcontent p a:hover {
-	color: #f54343;
-}
-
-.textcontent hr {
-	margin: 10px auto;
-	padding: 0px;
-	clear: both;
-}
-
-.textcontent table {
-	font-family: verdana, arial, sans-serif;
-	font-size: 11px;
-	color: #333333;
-	border-width: 1px;
-	border-color: #ccc;
-	border-collapse: collapse;
-	margin: 0 auto;
-}
-
-.textcontent table th {
-	border-width: 1px;
-	padding: 3px 8px;
-	border-style: solid;
-	border-color: #ccc;
-}
-
-.textcontent table td {
-	border-width: 1px;
-	padding: 3px 8px;
-	border-style: solid;
-	border-color: #ccc;
-	text-align: center;
-}
-
-.textcontent table tbody td p {
-	text-align: center;
-}
-
-.textcontent table tbody td:hover {
-	background: #eee;
-	cursor: pointer;
+	hr {
+		margin: 10px auto;
+		padding: 0px;
+		clear: both;
+	}
+	table {
+		font-family: verdana, arial, sans-serif;
+		font-size: 11px;
+		color: #333333;
+		border-width: 1px;
+		border-color: #ccc;
+		border-collapse: collapse;
+		margin: 0 auto;
+		th {
+			border-width: 1px;
+			padding: 3px 8px;
+			border-style: solid;
+			border-color: #ccc;
+		}
+		td {
+			border-width: 1px;
+			padding: 3px 8px;
+			border-style: solid;
+			border-color: #ccc;
+			text-align: center;
+		}
+		tbody {
+			td {
+				p {
+					text-align: center;
+				}
+			}
+			td:hover {
+				background: #eee;
+				cursor: pointer;
+			}
+		}
+		p{
+			text-indent: 0;
+		}
+	}
 }
 
 .tit {

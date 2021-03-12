@@ -632,7 +632,7 @@ type TextInfo = {
 	date: string;
 };
 export interface TitleInfo {
-	img: any;
+	img: string;
 	span: string;
 }
 export interface TInfo {
@@ -855,6 +855,7 @@ type Artproducts = {
 		price: string;
 		num: number;
 		name?: string | undefined;
+		id: string;
 	}[];
 }[];
 export const artproducts: Artproducts = [
@@ -876,43 +877,50 @@ export const artproducts: Artproducts = [
 				src: require("../static/goods/2-1.png"),
 				price: "3280",
 				num: 0,
-				name: "缂丝通勤包"
+				name: "缂丝通勤包",
+				id: "2-1"
 			},
 			{
 				src: require("../static/goods/2-2.png"),
 				price: "2480",
 				num: 0,
-				name: "缂丝马蹄包"
+				name: "缂丝马蹄包",
+				id: "2-2"
 			},
 			{
 				src: require("../static/goods/2-3.png"),
 				price: "1958",
 				num: 0,
-				name: "缂丝手拎包袋"
+				name: "缂丝手拎包袋",
+				id: "2-3"
 			},
 			{
 				src: require("../static/goods/2-4.png"),
 				price: "1188",
 				num: 0,
-				name: "缂丝拉链钱包"
+				name: "缂丝拉链钱包",
+				id: "2-4"
 			},
 			{
 				src: require("../static/goods/2-5.png"),
 				price: "1188",
 				num: 0,
-				name: "缂丝三折钱包"
+				name: "缂丝三折钱包",
+				id: "2-5"
 			},
 			{
 				src: require("../static/goods/2-6.png"),
 				price: "1408",
 				num: 0,
-				name: "缂丝商务钱夹"
+				name: "缂丝商务钱夹",
+				id: "2-6"
 			},
 			{
 				src: require("../static/goods/2-7.png"),
 				price: "3280",
 				num: 0,
-				name: "沈周玉缂丝双肩包"
+				name: "沈周玉缂丝双肩包",
+				id: "2-7"
 			}
 		]
 	},
@@ -921,16 +929,32 @@ export const artproducts: Artproducts = [
 		height: "300",
 		goods: [
 			{
-				src: require("../static/goods/3-1.png"), price: "3280", num: 0
+				src: require("../static/goods/3-1.png"),
+				price: "3280",
+				num: 0,
+				name: "沈周百合丝巾",
+				id: "3-1",
 			},
 			{
-				src: require("../static/goods/3-2.png"), price: "98", num: 0
+				src: require("../static/goods/3-2.png"),
+				price: "98",
+				num: 0,
+				name: "沈周玉兰帆布包",
+				id: "3-2",
 			},
 			{
-				src: require("../static/goods/3-3.png"), price: "45", num: 0
+				src: require("../static/goods/3-3.png"),
+				price: "45",
+				num: 0,
+				name: "沈周石榴名片盒",
+				id: "3-3",
 			},
 			{
-				src: require("../static/goods/3-4.png"), price: "88", num: 0
+				src: require("../static/goods/3-4.png"),
+				price: "88",
+				num: 0,
+				name: "苏绣DIY套组",
+				id: "3-4",
 			}
 		]
 	},
@@ -944,22 +968,46 @@ export const artproducts: Artproducts = [
 		height: "301",
 		goods: [
 			{
-				src: require("../static/goods/5-1.png"), price: "128", num: 0
+				src: require("../static/goods/5-1.png"), 
+				price: "128", 
+				num: 0,
+				name:"文徵明衡山杯",
+				id:"5-1"
 			},
 			{
-				src: require("../static/goods/5-2.png"), price: "98", num: 0
+				src: require("../static/goods/5-2.png"), 
+				price: "98", 
+				num: 0,
+				name:"文徵明温酒壶",
+				id:"5-2"
 			},
 			{
-				src: require("../static/goods/5-3.png"), price: "98", num: 0
+				src: require("../static/goods/5-3.png"), 
+				price: "98", 
+				num: 0,
+				name:"文徵明文兰苏香",
+				id:"5-3"
 			},
 			{
-				src: require("../static/goods/5-4.png"), price: "328", num: 0
+				src: require("../static/goods/5-4.png"), 
+				price: "328", 
+				num: 0,
+				name:"文徵明单面书法丝巾",
+				id:"5-4"
 			},
 			{
-				src: require("../static/goods/5-5.png"), price: "800", num: 0
+				src: require("../static/goods/5-5.png"), 
+				price: "800", 
+				num: 0,
+				name:"三绝图陶瓷茶具",
+				id:"5-5"
 			},
 			{
-				src: require("../static/goods/5-6.png"), price: "25", num: 0
+				src: require("../static/goods/5-6.png"), 
+				price: "25", 
+				num: 0,
+				name:"三绝图纸胶带",
+				id:"5-6"
 			}
 		]
 	},
@@ -973,19 +1021,39 @@ export const artproducts: Artproducts = [
 		height: "300",
 		goods: [
 			{
-				src: require("../static/goods/7-1.png"), price: "98", num: 0
+				src: require("../static/goods/7-1.png"), 
+				price: "98", 
+				num: 0,
+				name:"六如布艺靠垫套",
+				id:"7-1"
 			},
 			{
-				src: require("../static/goods/7-2.png"), price: "12", num: 0
+				src: require("../static/goods/7-2.png"), 
+				price: "12", 
+				num: 0,
+				name:"唐寅系列明信片",
+				id:"7-2"
 			},
 			{
-				src: require("../static/goods/7-3.png"), price: "25", num: 0
+				src: require("../static/goods/7-3.png"), 
+				price: "25", 
+				num: 0,
+				name:"唐寅袋泡花茶",
+				id:"7-3"
 			},
 			{
-				src: require("../static/goods/7-4.png"), price: "58", num: 0
+				src: require("../static/goods/7-4.png"), 
+				price: "58", 
+				num: 0,
+				name:"六如手账本",
+				id:"7-4"
 			},
 			{
-				src: require("../static/goods/7-5.png"), price: "58", num: 0
+				src: require("../static/goods/7-5.png"), 
+				price: "58", 
+				num: 0,
+				name:"六如纸艺记事本",
+				id:"7-5"
 			}
 		]
 	},
@@ -994,7 +1062,11 @@ export const artproducts: Artproducts = [
 		height: "500",
 		goods: [
 			{
-				src: require("../static/goods/8-1.png"), price: "58", num: 0
+				src: require("../static/goods/8-1.png"), 
+				price: "58", 
+				num: 0,
+				name:"清明上河图包装盒",
+				id:"8-1"
 			}
 		]
 	}

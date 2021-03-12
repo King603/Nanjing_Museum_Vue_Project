@@ -5,11 +5,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>文创产品</title>
-	<link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
-	<link rel="stylesheet" href="../common.css">
-	<link rel="stylesheet" href="../css/top-nav.css">
-	<link rel="stylesheet" href="../util/swiper/css/swiper.css">
-	<link rel="stylesheet" href="../css/wen_gen_products.css">
 </head>
 
 <body class="content">
@@ -33,12 +28,7 @@
 				<span></span>--><span></span>
 			</div>
 			<div id="goods">
-				<table width="100%" border="0" cellpadding="0" cellspacing="0"></table>
-				<!-- 还未做
-				<page-2 :good="good" v-if="isIn">
-					<img :src="good.src" alt="" />
-				</page-2>
-				-->
+				<table width="100%" cellpadding="0" cellspacing="0"></table>
 			</div>
 			<div id="pages"></div>
 		</div>
@@ -62,9 +52,20 @@
 			</div>
 		</div>
 		<!-- 产品购买 -->
-		<div id="buy">产品购买</div>
+		<div id="buy" class="products-buy">
+			<img src="" alt="">
+			<div>
+				<p name="name"></p>
+				<p name="price"></p>
+				<p name="num"></p>
+				购买
+				<input type="number" id="PurchaseQuantity">件
+				<button>确认</button>
+			</div>
+			<button>×</button>
+		</div>
 		<!-- 产品防伪溯源信息查询、举报 -->
-		<div id="cx">产品防伪溯源信息查询、举报</div>
+		<div id="cx" class="products-cx">产品防伪溯源信息查询、举报</div>
 	</section>
 	<footer>
 		#include("../layout/bottom.html")

@@ -1,9 +1,16 @@
 "use strict";
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
+};
+var _navigations;
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("./common");
 class Nav {
     constructor(n) {
-        this.navigations = [
+        _navigations.set(this, [
             { title: "首页", to: "/" },
             { title: "走进博物馆", to: "/introduce" },
             { title: "陈列展览", to: "/exhibition" },
@@ -13,11 +20,11 @@ class Nav {
             { title: "学术研究/出版物", to: "/academic_research" },
             { title: "社会活动", to: "/activity" },
             { title: "当地文化", to: "/local_culture" },
-        ];
+        ]);
         this.setNav(n);
     }
     setNav(n) {
-        this.navigations.forEach((nav, i) => {
+        __classPrivateFieldGet(this, _navigations).forEach((nav, i) => {
             let div = common_1.$add("div");
             let a = common_1.$add("a");
             if (n == i)
@@ -31,3 +38,4 @@ class Nav {
     }
 }
 exports.default = Nav;
+_navigations = new WeakMap();

@@ -2,8 +2,8 @@ import Nav from "../../../assets/js/Nav";
 import { $id, $add, academic, baseURL } from "../../../assets/js/common";
 import axios from "axios";
 import "normalize.css";
-import "../../../assets/css/common.css";
-import "../../../assets/css/top-nav.css";
+import "../../../assets/scss/common.scss";
+import "../../../assets/scss/top-nav.scss";
 import "./index.css";
 
 console.log();

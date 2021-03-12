@@ -5,14 +5,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Nav_1 = __importDefault(require("../../assets/js/Nav"));
 require("normalize.css");
-require("../../assets/css/common.css");
-require("../../assets/css/top-nav.css");
+require("../../assets/scss/common.scss");
+require("../../assets/scss/top-nav.scss");
 const axios_1 = __importDefault(require("axios"));
 const common_js_1 = require("../../assets/js/common.js");
 const Swiper = /**@class */ require("../../assets/lib/swiper");
 require("../../assets/css/swiper.css");
-require("./index.css");
-require("./news.css");
+require("./index.scss");
+require("./news.scss");
 axios_1.default.defaults.baseURL = common_js_1.baseURL;
 console.clear();
 // 头部导航
@@ -63,7 +63,6 @@ list.forEach((news, i) => {
     div_newsList.appendChild(img);
     div_newsList.innerHTML += `<div class="info"><h3>${news.title}</h3><p>${news.text}</p></div><div class="date"><h2>${news.month}/${news.date}</h2><p>${news.year}</p></div>`;
 });
-console.log(pages);
 setPages("首页", () => n != 1 && showList(1));
 setPages("上一页", () => n != 1 && shangye());
 for (let num = 1; num <= pages; num++) {
@@ -80,7 +79,6 @@ showList(1);
  * @param {number} page 页码
  */
 function showList(page) {
-    console.log(page);
     // 记录当前页
     n = page;
     // 初始化显示列表为空

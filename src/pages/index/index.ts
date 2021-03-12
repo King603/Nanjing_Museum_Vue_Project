@@ -1,13 +1,13 @@
 import Nav from "../../assets/js/Nav";
 import "normalize.css";
-import "../../assets/css/common.css";
-import "../../assets/css/top-nav.css";
+import "../../assets/scss/common.scss";
+import "../../assets/scss/top-nav.scss";
 import axios from "axios";
 import { $id, $add, swiperImgs, newList, baseURL, ListType } from '../../assets/js/common.js';
 const Swiper = /**@class */ require("../../assets/lib/swiper");
 import "../../assets/css/swiper.css";
-import "./index.css";
-import "./news.css";
+import "./index.scss";
+import "./news.scss";
 
 axios.defaults.baseURL = baseURL;
 console.clear();
@@ -64,7 +64,7 @@ list.forEach((news, i) => {
 	div_newsList.appendChild(img);
 	div_newsList.innerHTML += `<div class="info"><h3>${news.title}</h3><p>${news.text}</p></div><div class="date"><h2>${news.month}/${news.date}</h2><p>${news.year}</p></div>`;
 });
-console.log(pages);
+
 setPages("首页", () => n != 1 && showList(1));
 setPages("上一页", () => n != 1 && shangye());
 for (let num = 1; num <= pages; num++) {
@@ -82,7 +82,6 @@ showList(1);
  * @param {number} page 页码
  */
 function showList(page: number) {
-	console.log(page)
 	// 记录当前页
 	n = page;
 	// 初始化显示列表为空

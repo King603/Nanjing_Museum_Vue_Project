@@ -8,9 +8,9 @@ const GoToTop_1 = __importDefault(require("../../assets/js/GoToTop"));
 const common_1 = require("../../assets/js/common");
 const axios_1 = __importDefault(require("axios"));
 require("normalize.css");
-require("../../assets/css/common.css");
-require("../../assets/css/top-nav.css");
-require("./index.css");
+require("../../assets/scss/common.scss");
+require("../../assets/scss/top-nav.scss");
+require("./index.scss");
 console.clear();
 axios_1.default.defaults.baseURL = common_1.baseURL;
 // 主体

@@ -1,0 +1,120 @@
+.products-main {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.products-title {
+	width: 100%;
+	background-color: #f3f3f3;
+	border-bottom: 2px solid #e2e2e2;
+}
+
+.products-leftlist {
+	text-align: center;
+	margin: 0;
+	li {
+		height: 68px;
+		line-height: 70px;
+		font-size: 15px;
+		margin: 0 17px;
+		float: none;
+		display: inline-block;
+	}
+}
+
+.products-leftlist .titList:hover,
+.products-active {
+	color: #da251c;
+	border-bottom: 2px solid #da251c;
+	cursor: pointer;
+}
+
+.titList.products-active {
+	border: none !important;
+	border-bottom: 2px solid #da251c;
+}
+
+.products-artgoods-allsort {
+	margin-top: 30px;
+	height: 624px;
+	position: relative;
+	ul {
+		position: absolute;
+		width: 94%;
+		left: 3%;
+		top: 90px;
+		li {
+			width: 25%;
+			height: 310px;
+			float: left;
+			cursor: pointer;
+		}
+	}
+}
+
+.products-artgoods-img {
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+#products-good_list {
+	position: relative;
+}
+
+.products-good_title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	display: none;
+}
+
+.products-home {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	img {
+		width: 100%;
+	}
+}
+
+.products-buy {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: #da251c;
+	background-color: #fff;
+	display: none;
+	> button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-radius: 50%;
+		outline: 0;
+		color: #555;
+		border: 0;
+		:hover {
+			color: #da251c;
+			cursor: pointer;
+		}
+	}
+	img {
+		width: 50%;
+		float: left;
+	}
+	div {
+		width: 50%;
+		float: right;
+	}
+}
+
+.products-cx {
+	display: none;
+}
+
+#PurchaseQuantity {
+	width: 100px;
+}

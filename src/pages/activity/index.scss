@@ -1,7 +1,7 @@
 /* 常用字体颜色 */
 
 .bai {
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
 .HeiSe {
@@ -9,7 +9,7 @@
 }
 
 .HongSe {
-	color: #FF0000;
+	color: #ff0000;
 }
 
 .HuangSe {
@@ -128,64 +128,70 @@ a:hover {
 	text-decoration: none;
 }
 
-.bai a {
-	color: #fff;
-	text-decoration: none;
+.bai {
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #ffe400;
+		text-decoration: none;
+	}
 }
 
-.bai a:hover {
-	color: #ffe400;
-	text-decoration: none;
+.bais {
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #fff;
+		text-decoration: underline;
+	}
 }
 
-.bais a {
-	color: #fff;
-	text-decoration: none;
+.redh {
+	a {
+		color: #ff0000;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #b60000;
+		text-decoration: underline;
+	}
 }
 
-.bais a:hover {
-	color: #fff;
-	text-decoration: underline;
+.hongs {
+	a {
+		color: #983d38;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #983d38;
+		text-decoration: underline;
+	}
 }
 
-.redh a {
-	color: #ff0000;
-	text-decoration: none;
+.heis {
+	a {
+		color: #000;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #000;
+		text-decoration: none;
+	}
 }
 
-.redh a:hover {
-	color: #b60000;
-	text-decoration: underline;
-}
-
-.hongs a {
-	color: #983d38;
-	text-decoration: none;
-}
-
-.hongs a:hover {
-	color: #983d38;
-	text-decoration: underline;
-}
-
-.heis a {
-	color: #000;
-	text-decoration: none;
-}
-
-.heis a:hover {
-	color: #000;
-	text-decoration: none;
-}
-
-.huis a {
-	color: #686868;
-	text-decoration: none;
-}
-
-.huis a:hover {
-	color: #686868;
-	text-decoration: underline;
+.huis {
+	a {
+		color: #686868;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #686868;
+		text-decoration: underline;
+	}
 }
 
 /*  常用浮动*/
@@ -216,21 +222,18 @@ a:hover {
 	line-height: 30px;
 	padding-top: 5px;
 	font-family: "宋体";
-}
-
-#topnav .date {
-	width: 310px;
-	color: #7a7874;
-}
-
-#topnav .app {
-	width: 120px;
-}
-
-#topnav .app li {
-	padding-left: 6px;
-	overflow: hidden;
-	display: inline;
+	.date {
+		width: 310px;
+		color: #7a7874;
+	}
+	.app {
+		width: 120px;
+		li {
+			padding-left: 6px;
+			overflow: hidden;
+			display: inline;
+		}
+	}
 }
 
 #search {
@@ -266,7 +269,8 @@ a:hover {
 	margin: 0 auto;
 }
 
-#navigation, #navigation li ul {
+#navigation,
+#navigation li ul {
 	list-style-type: none;
 	z-index: 1;
 	position: absolute;
@@ -282,7 +286,8 @@ a:hover {
 	position: relative;
 }
 
-#navigation li a:link, #navigation li a:visited {
+#navigation li a:link,
+#navigation li a:visited {
 	display: block;
 	text-decoration: none;
 	color: #fff;
@@ -337,8 +342,12 @@ a:hover {
 	z-index: 0;
 }
 
-.yx-rotaion-btn, .yx-rotaion-title, .yx-rotation-focus, .yx-rotation-t, .yx-rotaion-btn {
-	position: absolute
+.yx-rotaion-btn,
+.yx-rotaion-title,
+.yx-rotation-focus,
+.yx-rotation-t,
+.yx-rotaion-btn {
+	position: absolute;
 }
 
 .yx-rotation-title {
@@ -354,7 +363,7 @@ a:hover {
 	left: 0;
 	bottom: 0;
 	_bottom: -1px;
-	z-index: 1
+	z-index: 1;
 }
 
 .yx-rotation-t {
@@ -364,10 +373,11 @@ a:hover {
 	z-index: 2;
 	bottom: 0;
 	left: 10px;
-	line-height: 40px
+	line-height: 40px;
 }
 
-.yx-rotation-focus span, .yx-rotaion-btn span {
+.yx-rotation-focus span,
+.yx-rotaion-btn span {
 	background: url(http://www.hljmuseum.com/images/ico.png) no-repeat;
 	display: block;
 }
@@ -377,7 +387,7 @@ a:hover {
 	line-height: 40px;
 	right: 20px;
 	bottom: 0;
-	z-index: 2
+	z-index: 2;
 }
 
 .yx-rotation-focus span {
@@ -390,7 +400,7 @@ a:hover {
 	top: 14px;
 	cursor: pointer;
 	background-position: -24px -126px;
-	text-indent: -9999px
+	text-indent: -9999px;
 }
 
 .yx-rotaion-btn {
@@ -408,30 +418,30 @@ a:hover {
 	-moz-opacity: 0.3;
 	-khtml-opacity: 0.3;
 	opacity: 0.3;
-	position: relative
+	position: relative;
 }
 
 .yx-rotaion-btn .left_btn {
 	background-position: -2px -2px;
 	float: left;
-	left: 10px
+	left: 10px;
 }
 
 .yx-rotaion-btn .right_btn {
 	background-position: -2px -49px;
 	float: right;
-	right: 10px
+	right: 10px;
 }
 
 .yx-rotaion-btn span.hover {
 	filter: alpha(opacity=80);
 	-moz-opacity: 0.8;
 	-khtml-opacity: 0.8;
-	opacity: 0.8
+	opacity: 0.8;
 }
 
 .yx-rotation-focus span.hover {
-	background-position: -10px -126px
+	background-position: -10px -126px;
 }
 
 .rotaion_list {
@@ -827,7 +837,7 @@ a:hover {
 	background-color: #983d38;
 	text-align: center;
 	line-height: 24px;
-	color: #FFF;
+	color: #fff;
 	margin: 0px auto;
 }
 
@@ -862,7 +872,7 @@ a:hover {
 	line-height: 40px;
 	height: 40px;
 	overflow: hidden;
-	border-bottom: 1px dashed #CCC;
+	border-bottom: 1px dashed #ccc;
 }
 
 .titlist04 li span {

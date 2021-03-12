@@ -7,9 +7,9 @@ const Nav_1 = __importDefault(require("../../assets/js/Nav"));
 const GoToTop_1 = __importDefault(require("../../assets/js/GoToTop"));
 const common_1 = require("../../assets/js/common");
 require("normalize.css");
-require("../../assets/css/common.css");
-require("../../assets/css/top-nav.css");
-require("./index.css");
+require("../../assets/scss/common.scss");
+require("../../assets/scss/top-nav.scss");
+require("./index.scss");
 const axios_1 = __importDefault(require("axios"));
 console.clear();
 new Nav_1.default(3);
@@ -24,7 +24,11 @@ document.body.style.backgroundColor = "rgb(246, 239, 229)";
 let ul = common_1.$all(".guide-nav>ul")[0];
 navList.forEach((nav, i) => {
     let li = common_1.$add("li");
-    li.className = i == 0 ? "list guide-active" : "list";
+    li.className = "list";
+    if (i == 0)
+        li.classList.add("guide-active");
+    else
+        li.classList.remove("guide-active");
     li.innerHTML = nav.title;
     li.addEventListener("click", ev => ev.button == 0 && (i => show(i))(i));
     ul.appendChild(li);
@@ -36,8 +40,13 @@ function show(i) {
     index = i;
     init_guide_page(i);
     let lis = ul.getElementsByTagName("li");
-    for (let i = 0; i < lis.length; i++)
-        lis[i].className = `list${index == i ? " guide-active" : ""}`;
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].className = "list";
+        if (i == index)
+            lis[i].classList.add("guide-active");
+        else
+            lis[i].classList.remove("guide-active");
+    }
     switch (index) {
         case 0:
             showPage1();
@@ -72,7 +81,6 @@ function showPage1() {
         td.appendChild(button);
         button.innerHTML = tit;
         button.addEventListener("click", ev => ev.button == 0 && (i => {
-            console.log(i);
             show(i);
             let buttons = common_1.$class("tit");
             for (let j = 0; j < buttons.length; j++) {
@@ -80,7 +88,6 @@ function showPage1() {
                     buttons[j].classList.add("active");
                 else
                     buttons[j].classList.remove("active");
-                console.log(buttons[j].className);
             }
         })(i));
     });
@@ -91,13 +98,13 @@ function showPage1() {
     // 	} else console.log(res.statusText);
     // }).catch((err) => console.log(err));
     function show(i) {
-        console.log(page1_1);
         switch (i) {
             case 0:
                 page1_1.style.display = "block";
                 page1_2.style.display = "none";
-                page1_1.getElementsByTagName("img")[0].src = page_info[0].img;
-                page1_1.getElementsByTagName("p")[0].innerHTML = page_info[0].span;
+                let { img, span } = page_info[0];
+                page1_1.getElementsByTagName("img")[0].src = img;
+                page1_1.getElementsByTagName("p")[0].innerHTML = span;
                 break;
             case 1:
             case 2:
@@ -108,12 +115,38 @@ function showPage1() {
                 page_info[i].forEach((info) => {
                     let tr = common_1.$add("tr");
                     page1_2_table.appendChild(tr);
-                    createTd(`<p><strong>名称：${info.name}</strong><br />地址：${info.address}<br />邮编：${info.postcode}<br />联系电话：${info.phone}<br /><span>官方网址：<a href="${info.url}" target="_blank">${info.url}<br /></a></span>（点击地图查看详细位置）&nbsp;</p>`);
-                    createTd(`<a href="${info.local}" target="_blank"><img src="${info.src}" /></a>`);
-                    function createTd(innerHTML) {
+                    createTd((({ name, address, postcode, phone, url }) => {
+                        let p = common_1.$add("p");
+                        let strong = common_1.$add("strong");
+                        strong.innerHTML = `名称：${name}`;
+                        p.appendChild(strong);
+                        p.innerHTML += `<br />地址：${address}<br />邮编：${postcode}<br />联系电话：${phone}`;
+                        if (url) {
+                            let span = common_1.$add("span");
+                            span.innerHTML = "<br />官方网址：";
+                            p.appendChild(span);
+                            let a = common_1.$add("a");
+                            a.href = `https://${url}`;
+                            a.target = "_blank";
+                            a.innerHTML = url;
+                            span.appendChild(a);
+                        }
+                        p.innerHTML += "<br />点击地图查看详细位置）&nbsp;";
+                        return p;
+                    })(info));
+                    createTd((({ local, src }) => {
+                        let a = common_1.$add("a");
+                        a.href = local;
+                        a.target = "_blank";
+                        let img = new Image();
+                        img.src = src;
+                        a.appendChild(img);
+                        return a;
+                    })(info));
+                    function createTd(element) {
                         let td = common_1.$add("td");
                         tr.appendChild(td);
-                        td.innerHTML = innerHTML;
+                        td.appendChild(element);
                     }
                 });
                 break;
@@ -123,23 +156,27 @@ function showPage1() {
 function showPage2() {
     // axios({ method: "GET", url: "guide-info.json" }).then(res => {
     // 	if (res.status == 200) {
-    let { info } = common_1.guide;
-    common_1.$id("text1").innerHTML = info.text1;
-    common_1.$id("text2").innerHTML = info.text2;
-    common_1.$id("text3").innerHTML = info.text3;
-    common_1.$id("wangzh").href = info.yuyue.wangzh;
-    common_1.$id("weixin").href = info.yuyue.weixin;
-    common_1.$id("date").innerHTML = info.date;
+    ({
+        text1: common_1.$id("text1").innerHTML,
+        text2: common_1.$id("text2").innerHTML,
+        text3: common_1.$id("text3").innerHTML,
+        yuyue: {
+            wangzh: common_1.$id("wangzh").href,
+            weixin: common_1.$id("weixin").href
+        },
+        date: common_1.$id("date").innerHTML
+    } = common_1.guide.info);
     // 	} else console.log(res.statusText);
     // }).catch((err) => console.log(err));
 }
 function showPage3() {
     // axios({ method: "GET", url: "guide-nav.json" }).then(res => {
     // 	if (res.status == 200) {
+    let page3 = common_1.$id("page3");
     common_1.guide.nav.forEach(images => {
         let p = common_1.$add("p");
         p.className = "img";
-        common_1.$id("page3").appendChild(p);
+        page3.appendChild(p);
         let a = common_1.$add("a");
         p.appendChild(a);
         a.href = images.href;
